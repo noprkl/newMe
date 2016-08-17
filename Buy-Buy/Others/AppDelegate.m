@@ -53,6 +53,7 @@
 - (void)createTabbarVCWithVC:(UIViewController *)vc image:(NSString *)image selectImage:(NSString *)selectImage titlt:(NSString *)title
 {
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    nav.navigationBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_backImage"]];
     vc.title = title;
     vc.tabBarItem.image = [UIImage imageNamed:image];
     vc.tabBarItem.selectedImage = [UIImage imageNamed:selectImage];

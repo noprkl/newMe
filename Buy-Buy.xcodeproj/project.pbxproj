@@ -7,17 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		046E345D1D63FF3B00003B08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E345C1D63FF3B00003B08 /* main.m */; };
-		046E34601D63FF3B00003B08 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E345F1D63FF3B00003B08 /* AppDelegate.m */; };
 		046E34681D63FF3B00003B08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 046E34671D63FF3B00003B08 /* Assets.xcassets */; };
 		046E346B1D63FF3B00003B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046E34691D63FF3B00003B08 /* LaunchScreen.storyboard */; };
 		046E34761D63FF3B00003B08 /* Buy_BuyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34751D63FF3B00003B08 /* Buy_BuyTests.m */; };
 		046E34811D63FF3B00003B08 /* Buy_BuyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34801D63FF3B00003B08 /* Buy_BuyUITests.m */; };
-		046E34DB1D64469800003B08 /* LXqTimpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34DA1D64469800003B08 /* LXqTimpViewController.m */; };
-		046E34DE1D6446CF00003B08 /* LXqBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34DD1D6446CF00003B08 /* LXqBuyViewController.m */; };
-		046E34E11D6446D700003B08 /* LXqClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34E01D6446D700003B08 /* LXqClassViewController.m */; };
-		046E34E41D6446E100003B08 /* LXqMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34E31D6446E100003B08 /* LXqMyViewController.m */; };
-		046E34EA1D64483A00003B08 /* UIColor+LXqRandomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34E91D64483A00003B08 /* UIColor+LXqRandomColor.m */; };
+		046E34F81D645B2300003B08 /* LXqBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34F01D645B2300003B08 /* LXqBuyViewController.m */; };
+		046E34F91D645B2300003B08 /* LXqClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34F21D645B2300003B08 /* LXqClassViewController.m */; };
+		046E34FA1D645B2300003B08 /* LXqMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34F41D645B2300003B08 /* LXqMyViewController.m */; };
+		046E34FB1D645B2300003B08 /* LXqTimpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34F61D645B2300003B08 /* LXqTimpViewController.m */; };
+		046E35051D6477C700003B08 /* LXqMyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E35041D6477C700003B08 /* LXqMyTableView.m */; };
+		046E350E1D64796400003B08 /* LXqMyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E350D1D64796400003B08 /* LXqMyHeaderView.m */; };
+		046E35111D647AD200003B08 /* LXqMyTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E35101D647AD200003B08 /* LXqMyTableModel.m */; };
+		046E35131D647BE800003B08 /* LXqMyTableModel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 046E35121D647BE800003B08 /* LXqMyTableModel.plist */; };
+		046E35161D648B8500003B08 /* LXqMyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E35151D648B8500003B08 /* LXqMyTableViewCell.m */; };
+		046E35231D649E1B00003B08 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E351E1D649E1B00003B08 /* AppDelegate.m */; };
+		046E35251D649E1B00003B08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E35201D649E1B00003B08 /* main.m */; };
+		046E35261D649E1B00003B08 /* UIColor+LXqRandomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E35221D649E1B00003B08 /* UIColor+LXqRandomColor.m */; };
+		2A302E99DD371538529869D1 /* libPods-Buy-BuyUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C43DE86EAD0B1DD1AF5D7F59 /* libPods-Buy-BuyUITests.a */; };
+		8820D7C0BDDB6D1F5AA2DD25 /* libPods-Buy-Buy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09C8EAD7C52DCC8793276F62 /* libPods-Buy-Buy.a */; };
+		EFFA18AF367C8A2CF8C229D7 /* libPods-Buy-BuyTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB21741A3677E4E496285C9 /* libPods-Buy-BuyTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,28 +47,46 @@
 
 /* Begin PBXFileReference section */
 		046E34581D63FF3B00003B08 /* Buy-Buy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Buy-Buy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		046E345C1D63FF3B00003B08 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		046E345E1D63FF3B00003B08 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		046E345F1D63FF3B00003B08 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		046E34671D63FF3B00003B08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		046E346A1D63FF3B00003B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		046E346C1D63FF3B00003B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		046E34711D63FF3B00003B08 /* Buy-BuyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Buy-BuyTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		046E34751D63FF3B00003B08 /* Buy_BuyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Buy_BuyTests.m; sourceTree = "<group>"; };
 		046E34771D63FF3B00003B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		046E347C1D63FF3B00003B08 /* Buy-BuyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Buy-BuyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		046E34801D63FF3B00003B08 /* Buy_BuyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Buy_BuyUITests.m; sourceTree = "<group>"; };
 		046E34821D63FF3B00003B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		046E34D91D64469800003B08 /* LXqTimpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqTimpViewController.h; sourceTree = "<group>"; };
-		046E34DA1D64469800003B08 /* LXqTimpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqTimpViewController.m; sourceTree = "<group>"; };
-		046E34DC1D6446CF00003B08 /* LXqBuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqBuyViewController.h; sourceTree = "<group>"; };
-		046E34DD1D6446CF00003B08 /* LXqBuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqBuyViewController.m; sourceTree = "<group>"; };
-		046E34DF1D6446D700003B08 /* LXqClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqClassViewController.h; sourceTree = "<group>"; };
-		046E34E01D6446D700003B08 /* LXqClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqClassViewController.m; sourceTree = "<group>"; };
-		046E34E21D6446E100003B08 /* LXqMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqMyViewController.h; sourceTree = "<group>"; };
-		046E34E31D6446E100003B08 /* LXqMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqMyViewController.m; sourceTree = "<group>"; };
-		046E34E81D64483A00003B08 /* UIColor+LXqRandomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LXqRandomColor.h"; sourceTree = "<group>"; };
-		046E34E91D64483A00003B08 /* UIColor+LXqRandomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LXqRandomColor.m"; sourceTree = "<group>"; };
+		046E34EF1D645B2300003B08 /* LXqBuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqBuyViewController.h; sourceTree = "<group>"; };
+		046E34F01D645B2300003B08 /* LXqBuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqBuyViewController.m; sourceTree = "<group>"; };
+		046E34F11D645B2300003B08 /* LXqClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqClassViewController.h; sourceTree = "<group>"; };
+		046E34F21D645B2300003B08 /* LXqClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqClassViewController.m; sourceTree = "<group>"; };
+		046E34F31D645B2300003B08 /* LXqMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqMyViewController.h; sourceTree = "<group>"; };
+		046E34F41D645B2300003B08 /* LXqMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqMyViewController.m; sourceTree = "<group>"; };
+		046E34F51D645B2300003B08 /* LXqTimpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqTimpViewController.h; sourceTree = "<group>"; };
+		046E34F61D645B2300003B08 /* LXqTimpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqTimpViewController.m; sourceTree = "<group>"; };
+		046E35031D6477C700003B08 /* LXqMyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqMyTableView.h; sourceTree = "<group>"; };
+		046E35041D6477C700003B08 /* LXqMyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqMyTableView.m; sourceTree = "<group>"; };
+		046E350C1D64796400003B08 /* LXqMyHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqMyHeaderView.h; sourceTree = "<group>"; };
+		046E350D1D64796400003B08 /* LXqMyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqMyHeaderView.m; sourceTree = "<group>"; };
+		046E350F1D647AD200003B08 /* LXqMyTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqMyTableModel.h; sourceTree = "<group>"; };
+		046E35101D647AD200003B08 /* LXqMyTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqMyTableModel.m; sourceTree = "<group>"; };
+		046E35121D647BE800003B08 /* LXqMyTableModel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LXqMyTableModel.plist; sourceTree = "<group>"; };
+		046E35141D648B8500003B08 /* LXqMyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqMyTableViewCell.h; sourceTree = "<group>"; };
+		046E35151D648B8500003B08 /* LXqMyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqMyTableViewCell.m; sourceTree = "<group>"; };
+		046E351D1D649E1B00003B08 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		046E351E1D649E1B00003B08 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		046E35201D649E1B00003B08 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		046E35211D649E1B00003B08 /* UIColor+LXqRandomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LXqRandomColor.h"; sourceTree = "<group>"; };
+		046E35221D649E1B00003B08 /* UIColor+LXqRandomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LXqRandomColor.m"; sourceTree = "<group>"; };
+		046E352B1D64A0F400003B08 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09C8EAD7C52DCC8793276F62 /* libPods-Buy-Buy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Buy-Buy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		36E3436E8B19A9BCF5175A38 /* Pods-Buy-BuyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buy-BuyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Buy-BuyTests/Pods-Buy-BuyTests.release.xcconfig"; sourceTree = "<group>"; };
+		3BB21741A3677E4E496285C9 /* libPods-Buy-BuyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Buy-BuyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7177FF2F44982C6FD9D8DAFA /* Pods-Buy-BuyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buy-BuyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Buy-BuyTests/Pods-Buy-BuyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8297190EA9295022D690A534 /* Pods-Buy-Buy.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buy-Buy.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Buy-Buy/Pods-Buy-Buy.debug.xcconfig"; sourceTree = "<group>"; };
+		A478E071154892CDF7196D04 /* Pods-Buy-BuyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buy-BuyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Buy-BuyUITests/Pods-Buy-BuyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A47DC10AE5826B0E0D0ABC52 /* Pods-Buy-Buy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buy-Buy.release.xcconfig"; path = "Pods/Target Support Files/Pods-Buy-Buy/Pods-Buy-Buy.release.xcconfig"; sourceTree = "<group>"; };
+		C43DE86EAD0B1DD1AF5D7F59 /* libPods-Buy-BuyUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Buy-BuyUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C480851FE0C837DB02415485 /* Pods-Buy-BuyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buy-BuyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Buy-BuyUITests/Pods-Buy-BuyUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8820D7C0BDDB6D1F5AA2DD25 /* libPods-Buy-Buy.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFFA18AF367C8A2CF8C229D7 /* libPods-Buy-BuyTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A302E99DD371538529869D1 /* libPods-Buy-BuyUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +124,8 @@
 				046E34741D63FF3B00003B08 /* Buy-BuyTests */,
 				046E347F1D63FF3B00003B08 /* Buy-BuyUITests */,
 				046E34591D63FF3B00003B08 /* Products */,
+				E9490953F9C09BCE78136639 /* Pods */,
+				08DA341F63731D3A7667A093 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,32 +142,12 @@
 		046E345A1D63FF3B00003B08 /* Buy-Buy */ = {
 			isa = PBXGroup;
 			children = (
-				046E345E1D63FF3B00003B08 /* AppDelegate.h */,
-				046E345F1D63FF3B00003B08 /* AppDelegate.m */,
-				046E34D91D64469800003B08 /* LXqTimpViewController.h */,
-				046E34DA1D64469800003B08 /* LXqTimpViewController.m */,
-				046E34DC1D6446CF00003B08 /* LXqBuyViewController.h */,
-				046E34DD1D6446CF00003B08 /* LXqBuyViewController.m */,
-				046E34DF1D6446D700003B08 /* LXqClassViewController.h */,
-				046E34E01D6446D700003B08 /* LXqClassViewController.m */,
-				046E34E21D6446E100003B08 /* LXqMyViewController.h */,
-				046E34E31D6446E100003B08 /* LXqMyViewController.m */,
-				046E34E81D64483A00003B08 /* UIColor+LXqRandomColor.h */,
-				046E34E91D64483A00003B08 /* UIColor+LXqRandomColor.m */,
+				046E351C1D649E1B00003B08 /* Others */,
+				046E34EC1D645B2300003B08 /* Classes */,
 				046E34671D63FF3B00003B08 /* Assets.xcassets */,
 				046E34691D63FF3B00003B08 /* LaunchScreen.storyboard */,
-				046E346C1D63FF3B00003B08 /* Info.plist */,
-				046E345B1D63FF3B00003B08 /* Supporting Files */,
 			);
 			path = "Buy-Buy";
-			sourceTree = "<group>";
-		};
-		046E345B1D63FF3B00003B08 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				046E345C1D63FF3B00003B08 /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		046E34741D63FF3B00003B08 /* Buy-BuyTests */ = {
@@ -157,6 +168,98 @@
 			path = "Buy-BuyUITests";
 			sourceTree = "<group>";
 		};
+		046E34EC1D645B2300003B08 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				046E34ED1D645B2300003B08 /* Models */,
+				046E34EE1D645B2300003B08 /* ViewControllers */,
+				046E34F71D645B2300003B08 /* Views */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		046E34ED1D645B2300003B08 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				046E350F1D647AD200003B08 /* LXqMyTableModel.h */,
+				046E35101D647AD200003B08 /* LXqMyTableModel.m */,
+				046E35121D647BE800003B08 /* LXqMyTableModel.plist */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		046E34EE1D645B2300003B08 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				046E34F51D645B2300003B08 /* LXqTimpViewController.h */,
+				046E34F61D645B2300003B08 /* LXqTimpViewController.m */,
+				046E34F11D645B2300003B08 /* LXqClassViewController.h */,
+				046E34F21D645B2300003B08 /* LXqClassViewController.m */,
+				046E34EF1D645B2300003B08 /* LXqBuyViewController.h */,
+				046E34F01D645B2300003B08 /* LXqBuyViewController.m */,
+				046E34F31D645B2300003B08 /* LXqMyViewController.h */,
+				046E34F41D645B2300003B08 /* LXqMyViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		046E34F71D645B2300003B08 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				046E35171D649BC700003B08 /* LXqMyView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		046E35171D649BC700003B08 /* LXqMyView */ = {
+			isa = PBXGroup;
+			children = (
+				046E35031D6477C700003B08 /* LXqMyTableView.h */,
+				046E35041D6477C700003B08 /* LXqMyTableView.m */,
+				046E35141D648B8500003B08 /* LXqMyTableViewCell.h */,
+				046E35151D648B8500003B08 /* LXqMyTableViewCell.m */,
+				046E350C1D64796400003B08 /* LXqMyHeaderView.h */,
+				046E350D1D64796400003B08 /* LXqMyHeaderView.m */,
+			);
+			name = LXqMyView;
+			sourceTree = "<group>";
+		};
+		046E351C1D649E1B00003B08 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				046E352B1D64A0F400003B08 /* Info.plist */,
+				046E351D1D649E1B00003B08 /* AppDelegate.h */,
+				046E351E1D649E1B00003B08 /* AppDelegate.m */,
+				046E35201D649E1B00003B08 /* main.m */,
+				046E35211D649E1B00003B08 /* UIColor+LXqRandomColor.h */,
+				046E35221D649E1B00003B08 /* UIColor+LXqRandomColor.m */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		08DA341F63731D3A7667A093 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				09C8EAD7C52DCC8793276F62 /* libPods-Buy-Buy.a */,
+				3BB21741A3677E4E496285C9 /* libPods-Buy-BuyTests.a */,
+				C43DE86EAD0B1DD1AF5D7F59 /* libPods-Buy-BuyUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E9490953F9C09BCE78136639 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8297190EA9295022D690A534 /* Pods-Buy-Buy.debug.xcconfig */,
+				A47DC10AE5826B0E0D0ABC52 /* Pods-Buy-Buy.release.xcconfig */,
+				7177FF2F44982C6FD9D8DAFA /* Pods-Buy-BuyTests.debug.xcconfig */,
+				36E3436E8B19A9BCF5175A38 /* Pods-Buy-BuyTests.release.xcconfig */,
+				C480851FE0C837DB02415485 /* Pods-Buy-BuyUITests.debug.xcconfig */,
+				A478E071154892CDF7196D04 /* Pods-Buy-BuyUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -164,9 +267,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 046E34851D63FF3B00003B08 /* Build configuration list for PBXNativeTarget "Buy-Buy" */;
 			buildPhases = (
+				5BF8E268BAC5B08FC18990B9 /* [CP] Check Pods Manifest.lock */,
 				046E34541D63FF3B00003B08 /* Sources */,
 				046E34551D63FF3B00003B08 /* Frameworks */,
 				046E34561D63FF3B00003B08 /* Resources */,
+				6DCC9A25AD5423658E0941D1 /* [CP] Embed Pods Frameworks */,
+				8DF11A86D5ED931C0CF55973 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,9 +287,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 046E34881D63FF3B00003B08 /* Build configuration list for PBXNativeTarget "Buy-BuyTests" */;
 			buildPhases = (
+				C4093C4D46DFA2E997F0F417 /* [CP] Check Pods Manifest.lock */,
 				046E346D1D63FF3B00003B08 /* Sources */,
 				046E346E1D63FF3B00003B08 /* Frameworks */,
 				046E346F1D63FF3B00003B08 /* Resources */,
+				4D118860D972DF84E6F4CC81 /* [CP] Embed Pods Frameworks */,
+				E7EF6D67C9BD66D1B66C84B6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,9 +308,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 046E348B1D63FF3B00003B08 /* Build configuration list for PBXNativeTarget "Buy-BuyUITests" */;
 			buildPhases = (
+				BB1583B36506D187998EBEC5 /* [CP] Check Pods Manifest.lock */,
 				046E34781D63FF3B00003B08 /* Sources */,
 				046E34791D63FF3B00003B08 /* Frameworks */,
 				046E347A1D63FF3B00003B08 /* Resources */,
+				B325159D08ACC5D4D1D75F29 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -262,6 +373,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				046E346B1D63FF3B00003B08 /* LaunchScreen.storyboard in Resources */,
+				046E35131D647BE800003B08 /* LXqMyTableModel.plist in Resources */,
 				046E34681D63FF3B00003B08 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,18 +394,145 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4D118860D972DF84E6F4CC81 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Buy-BuyTests/Pods-Buy-BuyTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5BF8E268BAC5B08FC18990B9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6DCC9A25AD5423658E0941D1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Buy-Buy/Pods-Buy-Buy-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8DF11A86D5ED931C0CF55973 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Buy-Buy/Pods-Buy-Buy-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B325159D08ACC5D4D1D75F29 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Buy-BuyUITests/Pods-Buy-BuyUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB1583B36506D187998EBEC5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C4093C4D46DFA2E997F0F417 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E7EF6D67C9BD66D1B66C84B6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Buy-BuyTests/Pods-Buy-BuyTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		046E34541D63FF3B00003B08 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				046E34E41D6446E100003B08 /* LXqMyViewController.m in Sources */,
-				046E34601D63FF3B00003B08 /* AppDelegate.m in Sources */,
-				046E34EA1D64483A00003B08 /* UIColor+LXqRandomColor.m in Sources */,
-				046E34DE1D6446CF00003B08 /* LXqBuyViewController.m in Sources */,
-				046E34E11D6446D700003B08 /* LXqClassViewController.m in Sources */,
-				046E34DB1D64469800003B08 /* LXqTimpViewController.m in Sources */,
-				046E345D1D63FF3B00003B08 /* main.m in Sources */,
+				046E34FA1D645B2300003B08 /* LXqMyViewController.m in Sources */,
+				046E35051D6477C700003B08 /* LXqMyTableView.m in Sources */,
+				046E35161D648B8500003B08 /* LXqMyTableViewCell.m in Sources */,
+				046E34FB1D645B2300003B08 /* LXqTimpViewController.m in Sources */,
+				046E35231D649E1B00003B08 /* AppDelegate.m in Sources */,
+				046E350E1D64796400003B08 /* LXqMyHeaderView.m in Sources */,
+				046E34F81D645B2300003B08 /* LXqBuyViewController.m in Sources */,
+				046E35111D647AD200003B08 /* LXqMyTableModel.m in Sources */,
+				046E35261D649E1B00003B08 /* UIColor+LXqRandomColor.m in Sources */,
+				046E34F91D645B2300003B08 /* LXqClassViewController.m in Sources */,
+				046E35251D649E1B00003B08 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,10 +663,11 @@
 		};
 		046E34861D63FF3B00003B08 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8297190EA9295022D690A534 /* Pods-Buy-Buy.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				INFOPLIST_FILE = "Buy-Buy/Info.plist";
+				INFOPLIST_FILE = "Buy-Buy/Others/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.biubiubiu.Buy-Buy";
@@ -438,10 +678,11 @@
 		};
 		046E34871D63FF3B00003B08 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A47DC10AE5826B0E0D0ABC52 /* Pods-Buy-Buy.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
-				INFOPLIST_FILE = "Buy-Buy/Info.plist";
+				INFOPLIST_FILE = "Buy-Buy/Others/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.biubiubiu.Buy-Buy";
@@ -452,6 +693,7 @@
 		};
 		046E34891D63FF3B00003B08 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7177FF2F44982C6FD9D8DAFA /* Pods-Buy-BuyTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Buy-BuyTests/Info.plist";
@@ -464,6 +706,7 @@
 		};
 		046E348A1D63FF3B00003B08 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36E3436E8B19A9BCF5175A38 /* Pods-Buy-BuyTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Buy-BuyTests/Info.plist";
@@ -476,6 +719,7 @@
 		};
 		046E348C1D63FF3B00003B08 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C480851FE0C837DB02415485 /* Pods-Buy-BuyUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Buy-BuyUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -488,6 +732,7 @@
 		};
 		046E348D1D63FF3B00003B08 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A478E071154892CDF7196D04 /* Pods-Buy-BuyUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Buy-BuyUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
