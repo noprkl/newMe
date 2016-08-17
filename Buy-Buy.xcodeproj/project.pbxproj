@@ -13,10 +13,11 @@
 		046E346B1D63FF3B00003B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046E34691D63FF3B00003B08 /* LaunchScreen.storyboard */; };
 		046E34761D63FF3B00003B08 /* Buy_BuyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34751D63FF3B00003B08 /* Buy_BuyTests.m */; };
 		046E34811D63FF3B00003B08 /* Buy_BuyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34801D63FF3B00003B08 /* Buy_BuyUITests.m */; };
-		046E34CF1D643A0400003B08 /* LXqTimpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34CE1D643A0400003B08 /* LXqTimpViewController.m */; };
-		046E34D21D643A4400003B08 /* LXqBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34D11D643A4400003B08 /* LXqBuyViewController.m */; };
-		046E34D51D643A5D00003B08 /* LXqClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34D41D643A5D00003B08 /* LXqClassViewController.m */; };
-		046E34D81D643A6C00003B08 /* LXqMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34D71D643A6C00003B08 /* LXqMyViewController.m */; };
+		046E34DB1D64469800003B08 /* LXqTimpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34DA1D64469800003B08 /* LXqTimpViewController.m */; };
+		046E34DE1D6446CF00003B08 /* LXqBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34DD1D6446CF00003B08 /* LXqBuyViewController.m */; };
+		046E34E11D6446D700003B08 /* LXqClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34E01D6446D700003B08 /* LXqClassViewController.m */; };
+		046E34E41D6446E100003B08 /* LXqMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34E31D6446E100003B08 /* LXqMyViewController.m */; };
+		046E34EA1D64483A00003B08 /* UIColor+LXqRandomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34E91D64483A00003B08 /* UIColor+LXqRandomColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,14 +51,16 @@
 		046E347C1D63FF3B00003B08 /* Buy-BuyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Buy-BuyUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		046E34801D63FF3B00003B08 /* Buy_BuyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Buy_BuyUITests.m; sourceTree = "<group>"; };
 		046E34821D63FF3B00003B08 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		046E34CD1D643A0400003B08 /* LXqTimpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqTimpViewController.h; sourceTree = "<group>"; };
-		046E34CE1D643A0400003B08 /* LXqTimpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqTimpViewController.m; sourceTree = "<group>"; };
-		046E34D01D643A4300003B08 /* LXqBuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqBuyViewController.h; sourceTree = "<group>"; };
-		046E34D11D643A4400003B08 /* LXqBuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqBuyViewController.m; sourceTree = "<group>"; };
-		046E34D31D643A5D00003B08 /* LXqClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqClassViewController.h; sourceTree = "<group>"; };
-		046E34D41D643A5D00003B08 /* LXqClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqClassViewController.m; sourceTree = "<group>"; };
-		046E34D61D643A6C00003B08 /* LXqMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqMyViewController.h; sourceTree = "<group>"; };
-		046E34D71D643A6C00003B08 /* LXqMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqMyViewController.m; sourceTree = "<group>"; };
+		046E34D91D64469800003B08 /* LXqTimpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqTimpViewController.h; sourceTree = "<group>"; };
+		046E34DA1D64469800003B08 /* LXqTimpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqTimpViewController.m; sourceTree = "<group>"; };
+		046E34DC1D6446CF00003B08 /* LXqBuyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqBuyViewController.h; sourceTree = "<group>"; };
+		046E34DD1D6446CF00003B08 /* LXqBuyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqBuyViewController.m; sourceTree = "<group>"; };
+		046E34DF1D6446D700003B08 /* LXqClassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqClassViewController.h; sourceTree = "<group>"; };
+		046E34E01D6446D700003B08 /* LXqClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqClassViewController.m; sourceTree = "<group>"; };
+		046E34E21D6446E100003B08 /* LXqMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqMyViewController.h; sourceTree = "<group>"; };
+		046E34E31D6446E100003B08 /* LXqMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqMyViewController.m; sourceTree = "<group>"; };
+		046E34E81D64483A00003B08 /* UIColor+LXqRandomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LXqRandomColor.h"; sourceTree = "<group>"; };
+		046E34E91D64483A00003B08 /* UIColor+LXqRandomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LXqRandomColor.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,14 +113,16 @@
 			children = (
 				046E345E1D63FF3B00003B08 /* AppDelegate.h */,
 				046E345F1D63FF3B00003B08 /* AppDelegate.m */,
-				046E34CD1D643A0400003B08 /* LXqTimpViewController.h */,
-				046E34CE1D643A0400003B08 /* LXqTimpViewController.m */,
-				046E34D01D643A4300003B08 /* LXqBuyViewController.h */,
-				046E34D11D643A4400003B08 /* LXqBuyViewController.m */,
-				046E34D31D643A5D00003B08 /* LXqClassViewController.h */,
-				046E34D41D643A5D00003B08 /* LXqClassViewController.m */,
-				046E34D61D643A6C00003B08 /* LXqMyViewController.h */,
-				046E34D71D643A6C00003B08 /* LXqMyViewController.m */,
+				046E34D91D64469800003B08 /* LXqTimpViewController.h */,
+				046E34DA1D64469800003B08 /* LXqTimpViewController.m */,
+				046E34DC1D6446CF00003B08 /* LXqBuyViewController.h */,
+				046E34DD1D6446CF00003B08 /* LXqBuyViewController.m */,
+				046E34DF1D6446D700003B08 /* LXqClassViewController.h */,
+				046E34E01D6446D700003B08 /* LXqClassViewController.m */,
+				046E34E21D6446E100003B08 /* LXqMyViewController.h */,
+				046E34E31D6446E100003B08 /* LXqMyViewController.m */,
+				046E34E81D64483A00003B08 /* UIColor+LXqRandomColor.h */,
+				046E34E91D64483A00003B08 /* UIColor+LXqRandomColor.m */,
 				046E34671D63FF3B00003B08 /* Assets.xcassets */,
 				046E34691D63FF3B00003B08 /* LaunchScreen.storyboard */,
 				046E346C1D63FF3B00003B08 /* Info.plist */,
@@ -282,12 +287,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				046E34CF1D643A0400003B08 /* LXqTimpViewController.m in Sources */,
+				046E34E41D6446E100003B08 /* LXqMyViewController.m in Sources */,
 				046E34601D63FF3B00003B08 /* AppDelegate.m in Sources */,
-				046E34D21D643A4400003B08 /* LXqBuyViewController.m in Sources */,
-				046E34D81D643A6C00003B08 /* LXqMyViewController.m in Sources */,
+				046E34EA1D64483A00003B08 /* UIColor+LXqRandomColor.m in Sources */,
+				046E34DE1D6446CF00003B08 /* LXqBuyViewController.m in Sources */,
+				046E34E11D6446D700003B08 /* LXqClassViewController.m in Sources */,
+				046E34DB1D64469800003B08 /* LXqTimpViewController.m in Sources */,
 				046E345D1D63FF3B00003B08 /* main.m in Sources */,
-				046E34D51D643A5D00003B08 /* LXqClassViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
