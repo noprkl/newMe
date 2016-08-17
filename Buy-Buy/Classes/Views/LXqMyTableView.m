@@ -45,9 +45,6 @@
         cell = [[LXqMyTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellid];
     }
 #pragma mark - 模型转数据
-//    LXqMyTableModel *cellData = self.dataArr[indexPath.row];
-//    cell.imageView.image = [UIImage imageNamed:cellData.icon];
-//    cell.textLabel.text = cellData.title;
     
     cell.myModel = self.dataArr[indexPath.row];
     if (indexPath.row == 3) {

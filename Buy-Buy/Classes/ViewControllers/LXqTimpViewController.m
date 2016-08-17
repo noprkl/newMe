@@ -7,7 +7,6 @@
 //
 
 #import "LXqTimpViewController.h"
-#import "UIColor+LXqRandomColor.h"
 
 @interface LXqTimpViewController ()
 

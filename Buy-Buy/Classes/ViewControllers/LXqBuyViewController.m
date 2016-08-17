@@ -7,7 +7,6 @@
 //
 
 #import "LXqBuyViewController.h"
-#import "UIColor+LXqRandomColor.h"
 
 @interface LXqBuyViewController ()
 

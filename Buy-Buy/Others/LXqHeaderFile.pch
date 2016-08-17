@@ -1,0 +1,27 @@
+//
+//  LXqHeaderFile.pch
+//  Buy-Buy
+//
+//  Created by ma c on 16/8/17.
+//  Copyright © 2016年 LXq. All rights reserved.
+//
+
+#ifndef LXqHeaderFile_pch
+#define LXqHeaderFile_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+//第三方头文件
+#import <Masonry.h>
+
+
+//自定义的分类
+#import "UIColor+LXqRandomColor.h"
+
+
+//定义的宏
+/** 屏幕的size */
+#define SCREEN_SIZE [UIScreen mainScreen].bounds.size
+
+
+#endif /* LXqHeaderFile_pch */

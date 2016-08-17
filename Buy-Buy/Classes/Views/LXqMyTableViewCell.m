@@ -7,7 +7,6 @@
 //
 
 #import "LXqMyTableViewCell.h"
-#import <Masonry.h>
 
 @interface LXqMyTableViewCell ()
 

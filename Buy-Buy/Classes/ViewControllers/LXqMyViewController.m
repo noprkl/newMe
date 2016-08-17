@@ -6,9 +6,7 @@
 //  Copyright © 2016年 LXq. All rights reserved.
 //
 
-#define SCREEN_SIZE [UIScreen mainScreen].bounds.size
 #import "LXqMyViewController.h"
-#import "UIColor+LXqRandomColor.h"
 #import "LXqMyTableView.h"
 #import "LXqMyHeaderView.h"
 

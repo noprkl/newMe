@@ -78,6 +78,7 @@
 		046E35211D649E1B00003B08 /* UIColor+LXqRandomColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LXqRandomColor.h"; sourceTree = "<group>"; };
 		046E35221D649E1B00003B08 /* UIColor+LXqRandomColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LXqRandomColor.m"; sourceTree = "<group>"; };
 		046E352B1D64A0F400003B08 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		046E352D1D64A30A00003B08 /* LXqHeaderFile.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXqHeaderFile.pch; sourceTree = "<group>"; };
 		09C8EAD7C52DCC8793276F62 /* libPods-Buy-Buy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Buy-Buy.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		36E3436E8B19A9BCF5175A38 /* Pods-Buy-BuyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Buy-BuyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Buy-BuyTests/Pods-Buy-BuyTests.release.xcconfig"; sourceTree = "<group>"; };
 		3BB21741A3677E4E496285C9 /* libPods-Buy-BuyTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Buy-BuyTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,6 +234,7 @@
 				046E35201D649E1B00003B08 /* main.m */,
 				046E35211D649E1B00003B08 /* UIColor+LXqRandomColor.h */,
 				046E35221D649E1B00003B08 /* UIColor+LXqRandomColor.m */,
+				046E352D1D64A30A00003B08 /* LXqHeaderFile.pch */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -667,6 +669,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Buy-Buy/Others/LXqHeaderFile.pch";
 				INFOPLIST_FILE = "Buy-Buy/Others/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -682,6 +685,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Buy-Buy/Others/LXqHeaderFile.pch";
 				INFOPLIST_FILE = "Buy-Buy/Others/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
