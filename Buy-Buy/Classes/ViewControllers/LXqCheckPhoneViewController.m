@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"验证手机号";
-    self.view.backgroundColor = [UIColor randomColor];
+    self.view.backgroundColor = KMaginBackGround;
     [self.view addSubview:self.checkView];
 }
 

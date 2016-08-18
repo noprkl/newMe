@@ -69,12 +69,16 @@
 {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.text = @"请输入手机号码注册新用户";
-        _titleLabel.tintColor = [UIColor RGBcolorWithRed:100 green:100 blue:100 alpha:1];
-        _titleLabel.textAlignment = NSTextAlignmentLeft;
+        NSString *string = @"请输入手机号码注册新用户";
+        NSMutableAttributedString *mutableAttStr = [[NSMutableAttributedString alloc] initWithString:string];
+        NSDictionary *dict1 = @{
+                                NSForegroundColorAttributeName:[UIColor grayColor],
+                                NSFontAttributeName:[UIFont systemFontOfSize:15]
+                                };
+        NSRange range1 = NSRangeFromString(string);
+        [mutableAttStr addAttributes:dict1 range:range1];
         
-        _titleLabel.font = [UIFont systemFontOfSize:16];
-        //        _titleLabel.layer.backgroundColor = [UIColor RGBcolorWithRed:245 green:245 blue:245 alpha:1].CGColor;
+        _titleLabel.attributedText = mutableAttStr;
     }
     return _titleLabel;
 }
@@ -111,7 +115,7 @@
         _nextButton.backgroundColor = [UIColor RGBcolorWithRed:234 green:234 blue:234 alpha:1];
 
         //设置按钮状态
-        _nextButton.userInteractionEnabled = NO;
+//        _nextButton.userInteractionEnabled = NO;
         [_nextButton addTarget:self action:@selector(pushCheckView) forControlEvents:UIControlEventTouchDown];
         
     }
@@ -218,12 +222,14 @@
 #pragma mark - 约束
 - (void)layoutSubviews{
     [super layoutSubviews];
+
     //这个东西写不写无所谓， 写上有风格
-    __weak typeof(self) weakself = self;
+//    __weak typeof(self) weakself = self;
+
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(weakself.top).offset(64);
+        make.top.equalTo(self.top).offset(64);
         make.size.equalTo(CGSizeMake(SCREEN_SIZE.width, 35));
-        make.left.equalTo(weakself.mas_left).offset(15);
+        make.left.equalTo(self.mas_left).offset(15);
     }];
     [self.lineView1 makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(1);
