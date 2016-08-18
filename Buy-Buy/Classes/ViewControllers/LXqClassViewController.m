@@ -7,17 +7,28 @@
 //
 
 #import "LXqClassViewController.h"
+#import "LXqClassCollectionView.h"
 
 @interface LXqClassViewController ()
 
+/** 表格 */
+@property (strong, nonatomic) LXqClassCollectionView *collectionView;
 @end
 
 @implementation LXqClassViewController
-
+- (LXqClassCollectionView *)collectionView
+{
+    if (!_collectionView) {
+    UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
+        _collectionView = [[LXqClassCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flow];
+    }
+    
+    return _collectionView;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor randomColor];
+    [self.view addSubview:self.collectionView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,14 +36,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

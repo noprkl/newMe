@@ -10,6 +10,9 @@
 
 @interface UIColor (LXqRandomColor)
 
+/** 随机色 */
 + (UIColor *)randomColor;
 
+/** rgb颜色 */
++ (UIColor *)RGBcolorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha;
 @end

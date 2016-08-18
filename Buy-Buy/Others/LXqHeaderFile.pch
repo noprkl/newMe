@@ -12,16 +12,18 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 //第三方头文件
+//masonry的宏
+#define MAS_SHORTHAND
+#define MAS_SHORTHAND_GLOBALS
 #import <Masonry.h>
 
 
 //自定义的分类
 #import "UIColor+LXqRandomColor.h"
 
-
 //定义的宏
 /** 屏幕的size */
 #define SCREEN_SIZE [UIScreen mainScreen].bounds.size
-
+#define KMaginBackGround [UIColor RGBcolorWithRed:245 green:245 blue:245 alpha:1]
 
 #endif /* LXqHeaderFile_pch */

@@ -4,11 +4,12 @@
 //
 //  Created by ma c on 16/8/17.
 //  Copyright © 2016年 LXq. All rights reserved.
-//
+//  个人中心
 
 #import "LXqMyViewController.h"
 #import "LXqMyTableView.h"
 #import "LXqMyHeaderView.h"
+#import "LXqRegisteViewController.h"
 
 @interface LXqMyViewController ()
 
@@ -25,6 +26,13 @@
 {
     if (!_headerView) {
         _headerView = [[LXqMyHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, 200)];
+        
+        //注册按钮跳转
+        __weak typeof(self) weakself = self;
+        _headerView.registeBlock=^{
+            LXqRegisteViewController * regisVC = [[LXqRegisteViewController alloc] init];
+            [weakself.navigationController pushViewController:regisVC animated:YES];
+        };
            }
     return _headerView;
 }

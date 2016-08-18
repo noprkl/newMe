@@ -14,6 +14,10 @@
 @property (strong, nonatomic) UIImageView *iconImageView;
 /** title */
 @property (strong, nonatomic) UILabel *titleLabel;
+/** 下一步imageView */
+@property (strong, nonatomic) UIImageView *nextImageView;
+/** 线 */
+@property (strong, nonatomic) UILabel *lineLabel;
 @end
 
 @implementation LXqMyTableViewCell
@@ -28,8 +32,10 @@
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         
-        [self addSubview:self.iconImageView];
-        [self addSubview:self.titleLabel];
+        [self.contentView addSubview:self.iconImageView];
+        [self.contentView addSubview:self.titleLabel];
+        [self.contentView addSubview:self.nextImageView];
+        [self.contentView addSubview:self.lineLabel];
     
     }
     return self;
@@ -42,15 +48,27 @@
         make.size.mas_equalTo(CGSizeMake(20, 20));
         make.top.mas_equalTo(self.mas_top).offset(10);
         make.left.mas_equalTo(self.mas_left).offset(15);
-//        make.bottom.mas_equalTo(self.mas_bottom).offset(-30);
     }];
+    
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.iconImageView.mas_centerY);
         make.left.mas_equalTo(self.iconImageView.mas_right).offset(15);
         make.top.mas_equalTo(self.mas_top).offset(10);
-//        make.bottom.mas_equalTo(self.mas_bottom).offset(-30);
     }];
+   
+    [self.nextImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+         make.centerY.mas_equalTo(self.titleLabel.mas_centerY);
+        make.size.mas_equalTo(CGSizeMake(20, 20));
+        make.right.mas_equalTo(self.mas_right).offset(-20);
+    }];
+   
+    [self.lineLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(SCREEN_SIZE.width, 2));
+        make.bottom.mas_equalTo(self.mas_bottom).offset(-2);
+    }];
+    
 }
+#pragma mark -懒加载
 - (UIImageView *)iconImageView
 {
     if (!_iconImageView) {
@@ -66,6 +84,24 @@
     }
     return _titleLabel;
 }
+- (UIImageView *)nextImageView
+{
+    if (!_nextImageView) {
+        UIImage *image = [UIImage imageNamed:@"下一步"];
+        _nextImageView = [[UIImageView alloc] initWithImage:image];
+        
+    }
+    return _nextImageView;
+}
+- (UILabel *)lineLabel
+{
+    if (!_lineLabel) {
+        _lineLabel = [[UILabel alloc] init];
+        _lineLabel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_backImage"]];
+    }
+    return _lineLabel;
+}
+
 - (void)awakeFromNib {
     // Initialization code
 }

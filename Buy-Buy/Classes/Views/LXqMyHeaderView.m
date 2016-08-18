@@ -58,11 +58,18 @@
     if (!_regisBtn) {
         _regisBtn = [UIButton buttonWithType:UIButtonTypeSystem];
         [_regisBtn setTitle:@"注册" forState:UIControlStateNormal];
-        
+        [_regisBtn addTarget:self action:@selector(pushRegistrView) forControlEvents:UIControlEventTouchDown];
         
     }
     return _regisBtn;
 }
 
+- (void)pushRegistrView
+{
+    if (_registeBlock) {
+        _registeBlock();
+    }
+    
+}
 
 @end

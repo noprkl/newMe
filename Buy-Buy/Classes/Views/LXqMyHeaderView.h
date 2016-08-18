@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+/** 跳转 */
+typedef void(^RegisteViewBlock)();
 
 @interface LXqMyHeaderView : UIView
 
+/** block */
+@property (copy, nonatomic) RegisteViewBlock registeBlock;
 @end

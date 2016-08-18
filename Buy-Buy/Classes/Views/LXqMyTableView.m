@@ -39,24 +39,30 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellid = @"cellid";
+    static NSString *cellid = @"myTableCellcellid";
     LXqMyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
     if (cell == nil) {
-        cell = [[LXqMyTableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellid];
+        cell = [[LXqMyTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
     }
 #pragma mark - 模型转数据
     
     cell.myModel = self.dataArr[indexPath.row];
-    if (indexPath.row == 3) {
-    
-        cell.detailTextLabel.text = @"400-6010-545";
+    if ([cell.myModel.title isEqualToString:@"客服热线"]) {
+        UILabel *label = [[UILabel alloc] init];
+        label.text = @"400-6010-545";
+        label.backgroundColor = [UIColor whiteColor];
+        label.textColor = [UIColor grayColor];
+        [cell addSubview:label];
 
-    }else{
-        
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerY.mas_equalTo(cell.mas_centerY);
+            make.top.mas_equalTo(cell.mas_top).offset(10);
+            make.right.mas_equalTo(cell.mas_right).offset(-20);
+        }];
     }
     return cell;
 }
+
 //section高度
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
