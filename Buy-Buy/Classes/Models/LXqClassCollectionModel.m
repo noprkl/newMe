@@ -1,16 +1,17 @@
 //
-//  LXqMyTableModel.m
+//  LXqClassCollectionModel.m
 //  Buy-Buy
 //
-//  Created by ma c on 16/8/17.
+//  Created by ma c on 16/8/18.
 //  Copyright © 2016年 LXq. All rights reserved.
 //
 
-#import "LXqMyTableModel.h"
+#import "LXqClassCollectionModel.h"
 
-@implementation LXqMyTableModel
-+ (NSArray *)loadTableModel{
-    NSString *string = [[NSBundle mainBundle] pathForResource:@"LXqMyTableModel.plist" ofType:nil];
+@implementation LXqClassCollectionModel
+
++ (NSArray *)loadColoectionModel{
+    NSString *string = [[NSBundle mainBundle] pathForResource:@"LXqClassCollectionModel.plist" ofType:nil];
     NSArray *dictArr = [NSArray arrayWithContentsOfFile:string];
     
     //
@@ -18,7 +19,7 @@
     //朋友分组
     for (NSDictionary *dict in dictArr) {
         
-        LXqMyTableModel *model = [[LXqMyTableModel alloc] init];
+        LXqClassCollectionModel *model = [[LXqClassCollectionModel alloc] init];
         
         [model setValuesForKeysWithDictionary:dict];
         
@@ -27,4 +28,5 @@
     
     return [dataArr copy];
 }
+
 @end

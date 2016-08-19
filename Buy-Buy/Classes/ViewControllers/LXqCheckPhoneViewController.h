@@ -10,4 +10,6 @@
 
 @interface LXqCheckPhoneViewController : UIViewController
 
+/** 手机号 */
+@property (strong, nonatomic) NSDictionary *userInfo;
 @end

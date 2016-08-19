@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^PushCheckViewBlock)();
+typedef void(^PushCheckViewBlock)(NSDictionary *userInfo);
 
 @interface LXqMyRegisetView : UIView
 

@@ -41,6 +41,7 @@
 {
     if (!_tableVew) {
         _tableVew = [[LXqMyTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    
         CGRect rect = _tableVew.frame;
         rect.origin.y = CGRectGetMaxY(self.headerView.bounds);
         _tableVew.frame = rect;
@@ -51,24 +52,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor randomColor];
+   
     [self.view addSubview:self.headerView];
     [self.view addSubview:self.tableVew];
     
+
 }
-//另一种约束
-//- (void)addSubviews
-//{
-//    self.edgesForExtendedLayout = 0;
-//    
-//    [self.headerView makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.view.top);
-//        make.size.equalTo(CGSizeMake(SCREEN_SIZE.width, 200));
-//    }];
-//    [self.tableVew makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(self.headerView.bottom);
-//    }];
-//    
-//}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

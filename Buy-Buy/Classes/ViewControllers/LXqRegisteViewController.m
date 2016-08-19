@@ -22,8 +22,10 @@
         _registeView = [[LXqMyRegisetView alloc] initWithFrame:self.view.bounds];
         __weak typeof(self) weakSelf = self;
         //下一步按钮
-        _registeView.checkBlock = ^{
+        _registeView.checkBlock= ^(NSDictionary *userInfo){
             LXqCheckPhoneViewController *checkVC = [[LXqCheckPhoneViewController alloc] init];
+            checkVC.userInfo = userInfo;
+            
             [weakSelf.navigationController pushViewController:checkVC animated:YES];
         };
     }
@@ -32,10 +34,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"注册";
-
-    [self.view addSubview:self.registeView];
     
-   }
+    [self.view addSubview:self.registeView];
+
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

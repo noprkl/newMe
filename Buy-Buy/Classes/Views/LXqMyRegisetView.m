@@ -13,8 +13,12 @@
 
 /** 提示文字框 */
 @property (copy, nonatomic) UILabel *titleLabel;
+/** 背景 */
+@property (strong, nonatomic) UIView *backView;
 /** 手机号文本框 */
 @property (strong, nonatomic) UITextField *phoneText;
+/** 线 */
+@property (strong, nonatomic) UILabel *lineLabel;
 /** 密码文本框 */
 @property (strong, nonatomic) UITextField *psdText;
 /** 下一步按钮 */
@@ -31,10 +35,7 @@
 @property (strong, nonatomic) UIButton *qqBtn;
 @property (strong, nonatomic) UIButton *WXBtn;
 @property (strong, nonatomic) UIButton *SinaBtn;
-/** 加线 */
-@property (strong, nonatomic) UIView *lineView1;
-@property (strong, nonatomic) UIView *lineView2;
-@property (strong, nonatomic) UIView *lineView3;
+
 @end
 
 @implementation LXqMyRegisetView
@@ -45,11 +46,10 @@
         
         
         [self addSubview:self.titleLabel];
-        [self addSubview:self.lineView1];
-        [self addSubview:self.phoneText];
-        [self addSubview:self.lineView2];
-        [self addSubview:self.psdText];
-        [self addSubview:self.lineView3];
+        [self addSubview:self.backView];
+        [self.backView addSubview:self.phoneText];
+        [self.backView addSubview:self.lineLabel];
+        [self.backView addSubview:self.psdText];
         [self addSubview:self.nextButton];
         [self addSubview:self.goLoginBtn];
         [self addSubview:self.leftLabel];
@@ -82,22 +82,40 @@
     }
     return _titleLabel;
 }
+- (UIView *)backView
+{
+    if (!_backView) {
+        _backView = [[UIView alloc] init];
+        _backView.backgroundColor = [UIColor whiteColor];
+        _backView.layer.borderWidth = 1;
+        _backView.layer.borderColor = KMLineColor.CGColor;
+    }
+    return _backView;
+}
 - (UITextField *)phoneText
 {
     if (!_phoneText) {
         _phoneText = [[UITextField alloc] init];
-        _phoneText.placeholder = @"   请输入手机号码";
+        _phoneText.placeholder = @"请输入手机号码";
         _phoneText.backgroundColor = [UIColor whiteColor];
         _phoneText.delegate = self;
         [_psdText addTarget:self action:@selector(phoneTextTieldChanged:) forControlEvents:UIControlEventAllEditingEvents];
     }
     return _phoneText;
 }
+- (UILabel *)lineLabel
+{
+    if (!_lineLabel) {
+        _lineLabel = [[UILabel alloc] init];
+        _lineLabel.backgroundColor = KMLineColor;
+    }
+    return _lineLabel;
+}
 - (UITextField *)psdText
 {
     if (!_psdText) {
         _psdText = [[UITextField alloc] init];
-        _psdText.placeholder = @"   设置账号密码";
+        _psdText.placeholder = @"设置账号密码";
         _psdText.delegate = self;
         _psdText.backgroundColor = [UIColor whiteColor];
         [_psdText addTarget:self action:@selector(psdTextTieldChanged:) forControlEvents:UIControlEventAllEditingEvents];
@@ -115,16 +133,17 @@
         _nextButton.backgroundColor = [UIColor RGBcolorWithRed:234 green:234 blue:234 alpha:1];
 
         //设置按钮状态
-//        _nextButton.userInteractionEnabled = NO;
+        _nextButton.userInteractionEnabled = NO;
         [_nextButton addTarget:self action:@selector(pushCheckView) forControlEvents:UIControlEventTouchDown];
-        
+
     }
     return _nextButton;
 }
+
 - (void)pushCheckView
 {
     if (_checkBlock) {
-        _checkBlock();
+        _checkBlock(@{@"userPhoneNumber":self.phoneText.text, @"userPsd":self.psdText.text});
     }
 }
 - (UIButton *)goLoginBtn
@@ -192,34 +211,11 @@
     }
     return _SinaBtn;
 }
-- (UIView *)lineView1
-{
-    if (!_lineView1) {
-        _lineView1 = [[UIView alloc] init];
-        _lineView1.backgroundColor = kMaginColor;
-    }
-    return _lineView1;
-}
-- (UIView *)lineView2
-{
-    if (!_lineView2) {
-        _lineView2 = [[UIView alloc] init];
-        _lineView2.backgroundColor = kMaginColor;
-    }
-    return _lineView2;
-}
-- (UIView *)lineView3
-{
-    if (!_lineView3) {
-        _lineView3 = [[UIView alloc] init];
-        _lineView3.backgroundColor = kMaginColor;
-    }
-    return _lineView3;
-}
 
 
 #pragma mark
 #pragma mark - 约束
+
 - (void)layoutSubviews{
     [super layoutSubviews];
 
@@ -231,34 +227,33 @@
         make.size.equalTo(CGSizeMake(SCREEN_SIZE.width, 35));
         make.left.equalTo(self.mas_left).offset(15);
     }];
-    [self.lineView1 makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(1);
-        make.left.equalTo(self.left).offset(0);
-        make.right.equalTo(self.right).offset(0);
+    [self.backView makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.titleLabel.bottom);
+        make.left.equalTo(self.mas_left);
+        make.right.equalTo(self.right);
+        make.height.equalTo(89);
     }];
+
     [self.phoneText makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.titleLabel.bottom).offset(1);
-        make.size.equalTo(CGSizeMake(SCREEN_SIZE.width, 44));
+        make.top.equalTo(self.backView.top);
+        make.left.equalTo(self.backView.left).offset(15);
+        make.right.equalTo(self.backView.right);
+        make.height.equalTo(44);
     }];
-    //    [self.lineView2 makeConstraints:^(MASConstraintMaker *make) {
-    //        make.height.equalTo(1);
-    //        make.left.equalTo(self.left).offset(16);
-    //        make.right.equalTo(self.right).offset(-16);
-    //        make.top.equalTo(self.phoneText.bottom);
-    //    }];
-    [self.psdText makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.phoneText.bottom).offset(1);
-        make.size.equalTo(CGSizeMake(SCREEN_SIZE.width, 44));
-    }];
-    [self.lineView3 makeConstraints:^(MASConstraintMaker *make) {
+    [self.lineLabel makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.phoneText.bottom);
+        make.left.equalTo(self.backView.left).offset(15);
+        make.right.equalTo(self.backView.right).offset(-15);
         make.height.equalTo(1);
-        make.left.equalTo(self.left).offset(0);
-        make.right.equalTo(self.right).offset(0);
-        make.top.equalTo(self.psdText.bottom);
+    }];
+    [self.psdText makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.lineLabel.bottom);
+        make.left.equalTo(self.backView.left).offset(15);
+        make.right.equalTo(self.backView.right);
+        make.height.equalTo(44);
     }];
     [self.nextButton makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.lineView3.bottom).offset(16);
+        make.top.equalTo(self.backView.bottom).offset(16);
         make.height.equalTo(35);
         make.left.equalTo(self.left).offset(16);
         make.right.equalTo(self.right).offset(-16);
