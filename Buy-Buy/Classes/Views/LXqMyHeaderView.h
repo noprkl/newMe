@@ -9,9 +9,13 @@
 #import <UIKit/UIKit.h>
 /** 跳转 */
 typedef void(^RegisteViewBlock)();
+typedef void(^LoginViewBlock)();
 
 @interface LXqMyHeaderView : UIView
 
 /** block */
 @property (copy, nonatomic) RegisteViewBlock registeBlock;
+/** <#注释#> */
+@property (copy, nonatomic) LoginViewBlock loginBlock;
+
 @end

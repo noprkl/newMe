@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041CBC8E1D67244800D73FC4 /* LXqMyLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041CBC8D1D67244800D73FC4 /* LXqMyLoginView.m */; };
 		046E34681D63FF3B00003B08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 046E34671D63FF3B00003B08 /* Assets.xcassets */; };
 		046E346B1D63FF3B00003B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046E34691D63FF3B00003B08 /* LaunchScreen.storyboard */; };
 		046E34761D63FF3B00003B08 /* Buy_BuyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34751D63FF3B00003B08 /* Buy_BuyTests.m */; };
@@ -55,6 +56,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041CBC8C1D67244800D73FC4 /* LXqMyLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqMyLoginView.h; sourceTree = "<group>"; };
+		041CBC8D1D67244800D73FC4 /* LXqMyLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqMyLoginView.m; sourceTree = "<group>"; };
 		046E34581D63FF3B00003B08 /* Buy-Buy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Buy-Buy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		046E34671D63FF3B00003B08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		046E346A1D63FF3B00003B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -144,6 +147,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		041CBC881D6723D000D73FC4 /* 登录View */ = {
+			isa = PBXGroup;
+			children = (
+				041CBC8C1D67244800D73FC4 /* LXqMyLoginView.h */,
+				041CBC8D1D67244800D73FC4 /* LXqMyLoginView.m */,
+			);
+			name = "登录View";
+			sourceTree = "<group>";
+		};
 		046E344F1D63FF3B00003B08 = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +251,7 @@
 			children = (
 				04AEED321D6599F200B653CB /* 个人界面 */,
 				04AEED281D65967F00B653CB /* 注册view */,
+				041CBC881D6723D000D73FC4 /* 登录View */,
 			);
 			name = "我";
 			sourceTree = "<group>";
@@ -662,6 +675,7 @@
 				04AEED271D658DA100B653CB /* LXqMyRegisetView.m in Sources */,
 				04AEED3B1D66057A00B653CB /* LXqClassCollectionModel.m in Sources */,
 				046E35111D647AD200003B08 /* LXqMyTableModel.m in Sources */,
+				041CBC8E1D67244800D73FC4 /* LXqMyLoginView.m in Sources */,
 				04AEED3F1D6605CF00B653CB /* LXqClassCollectionViewCell.m in Sources */,
 				046E35261D649E1B00003B08 /* UIColor+LXqRandomColor.m in Sources */,
 				046E35321D64A70300003B08 /* LXqClassCollectionView.m in Sources */,

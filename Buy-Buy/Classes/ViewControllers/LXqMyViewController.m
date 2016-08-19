@@ -10,6 +10,7 @@
 #import "LXqMyTableView.h"
 #import "LXqMyHeaderView.h"
 #import "LXqRegisteViewController.h"
+#import "LXqLoginViewController.h"
 
 @interface LXqMyViewController ()
 
@@ -29,10 +30,17 @@
         
         //注册按钮跳转
         __weak typeof(self) weakself = self;
-        _headerView.registeBlock=^{
+        _headerView.registeBlock = ^{
             LXqRegisteViewController * regisVC = [[LXqRegisteViewController alloc] init];
             [weakself.navigationController pushViewController:regisVC animated:YES];
         };
+        //登录按钮跳转
+        _headerView.loginBlock = ^{
+            LXqLoginViewController *logView = [[LXqLoginViewController alloc] init];
+            [weakself.navigationController pushViewController:logView animated:YES];
+        };
+        
+        
            }
     return _headerView;
 }

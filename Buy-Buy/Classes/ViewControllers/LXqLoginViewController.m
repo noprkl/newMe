@@ -7,16 +7,35 @@
 // 登录
 
 #import "LXqLoginViewController.h"
+#import "LXqMyLoginView.h"
+#import "LXqMyViewController.h"
 
 @interface LXqLoginViewController ()
+
+/** 登录View */
+@property (strong, nonatomic) LXqMyLoginView *logView;
 
 @end
 
 @implementation LXqLoginViewController
-
+- (LXqMyLoginView *)logView
+{
+    if (!_logView) {
+        _logView = [[LXqMyLoginView alloc] initWithFrame:self.view.bounds];
+        __weak typeof(self) weakSelf = self;
+        _logView.myViewBlock = ^(){
+            LXqMyViewController *myVC = [[LXqMyViewController alloc] init];
+            [weakSelf.navigationController pushViewController:myVC animated:YES];
+        };
+    }
+    return _logView;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.title = @"登录";
+    
+    [self.view addSubview:self.logView];
+    self.hidesBottomBarWhenPushed = YES;
 }
 
 - (void)didReceiveMemoryWarning {

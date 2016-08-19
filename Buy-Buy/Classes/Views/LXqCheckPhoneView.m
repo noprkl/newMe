@@ -5,6 +5,7 @@
 //  Created by ma c on 16/8/18.
 //  Copyright © 2016年 LXq. All rights reserved.
 //
+#define LASTTIME 10
 
 #import "LXqCheckPhoneView.h"
 
@@ -46,7 +47,7 @@
         [self addSubview:self.registeBtn];
         [self addSubview:self.resendBtn];
         
-        self.lasttime = 60;
+        self.lasttime = LASTTIME;
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeLast) userInfo:nil repeats:YES];
      
     }
@@ -55,29 +56,39 @@
 #pragma mark - 倒计时定时器
 - (void)timeLast
 {
-    self.lasttime -= 1;
 
     if (self.lasttime == 0) {
-//        [self.timer invalidate];
-//        self.timer = nil;
-        self.lasttime = 60;
+        [self.timer invalidate];
+        self.timer = nil;
+
+        self.timeBtn.userInteractionEnabled = YES;
+        NSDictionary *dict = @{
+                               NSForegroundColorAttributeName:[UIColor RGBcolorWithRed:0 green:183 blue:240 alpha:1]
+                               };
+        NSAttributedString *attribute = [[NSAttributedString alloc] initWithString:@"重新发送" attributes:dict];
+        
+        [self.timeBtn setAttributedTitle:attribute forState:UIControlStateNormal];
+        
+    }else if(self.lasttime > 0) {
+        
+        
+        NSString *string = [NSString stringWithFormat:@"%0.2ld秒后重试",self.lasttime];
+        NSMutableAttributedString *mutableAttStr = [[NSMutableAttributedString alloc] initWithString:string];
+        NSDictionary *dict1 = @{
+                                NSForegroundColorAttributeName:[UIColor RGBcolorWithRed:0 green:183 blue:240 alpha:1]
+                                };
+        NSRange range1 = NSMakeRange(0, 2);
+        [mutableAttStr addAttributes:dict1 range:range1];
+        NSDictionary *dict2 = @{
+                                NSForegroundColorAttributeName:[UIColor grayColor]
+                                };
+        NSRange range2 = NSMakeRange(2, 4);
+        [mutableAttStr addAttributes:dict2 range:range2];
+        
+        [self.timeBtn setAttributedTitle:mutableAttStr forState:UIControlStateNormal];
     }
-    NSString *string = [NSString stringWithFormat:@"%0.2ld秒后重试",self.lasttime];
-    NSMutableAttributedString *mutableAttStr = [[NSMutableAttributedString alloc] initWithString:string];
-    NSDictionary *dict1 = @{
-                            NSForegroundColorAttributeName:[UIColor RGBcolorWithRed:0 green:183 blue:240 alpha:1],
-                            NSFontAttributeName:[UIFont systemFontOfSize:15]
-                            };
-    NSRange range1 = NSMakeRange(0, 2);
-    [mutableAttStr addAttributes:dict1 range:range1];
-    NSDictionary *dict2 = @{
-                            NSForegroundColorAttributeName:[UIColor grayColor],
-                            NSFontAttributeName:[UIFont systemFontOfSize:15]
-                            };
-    NSRange range2 = NSMakeRange(2, 4);
-    [mutableAttStr addAttributes:dict2 range:range2];
-    
-    [self.timeBtn setAttributedTitle:mutableAttStr forState:UIControlStateNormal];
+    self.lasttime -= 1;
+
 
 }
 
@@ -195,26 +206,22 @@
     if (!_timeBtn) {
         _timeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         //设置倒数的颜色
+//        _timeBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+//        NSMutableAttributedString *mutableAttStr = [[NSMutableAttributedString alloc] initWithString:@"60秒后重试"];
+//        NSDictionary *dict1 = @{
+//                                NSForegroundColorAttributeName:[UIColor RGBcolorWithRed:0 green:183 blue:240 alpha:1]
+//                               };
+//        NSRange range1 = NSMakeRange(0, 2);
+//        [mutableAttStr addAttributes:dict1 range:range1];
+//        NSDictionary *dict2 = @{
+//                                NSForegroundColorAttributeName:[UIColor grayColor]
+//                                };
+//        NSRange range2 = NSMakeRange(2, 4);
+//        [mutableAttStr addAttributes:dict2 range:range2];
+//        [_timeBtn setAttributedTitle:mutableAttStr forState:UIControlStateNormal];
 
-        NSMutableAttributedString *mutableAttStr = [[NSMutableAttributedString alloc] initWithString:@"60秒后重试"];
-        NSDictionary *dict1 = @{
-                                NSForegroundColorAttributeName:[UIColor RGBcolorWithRed:0 green:183 blue:240 alpha:1],
-                                NSFontAttributeName:[UIFont systemFontOfSize:15]
-                               };
-        NSRange range1 = NSMakeRange(0, 2);
-        [mutableAttStr addAttributes:dict1 range:range1];
-        NSDictionary *dict2 = @{
-                                NSForegroundColorAttributeName:[UIColor grayColor],
-                                NSFontAttributeName:[UIFont systemFontOfSize:15]
-                                };
-        NSRange range2 = NSMakeRange(2, 4);
-        [mutableAttStr addAttributes:dict2 range:range2];
-        
-        [_timeBtn setAttributedTitle:mutableAttStr forState:UIControlStateNormal];
-//        [_timeBtn setTitle:@"60秒后重试" forState:UIControlStateNormal];
-//        _timeBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
-        
-//
+        _timeBtn.userInteractionEnabled = NO;
+        [_timeBtn addTarget:self action:@selector(requestCoderNumber) forControlEvents:UIControlEventTouchDown];
         
     }
     return _timeBtn;

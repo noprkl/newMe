@@ -9,6 +9,7 @@
 #import "LXqRegisteViewController.h"
 #import "LXqMyRegisetView.h"
 #import "LXqCheckPhoneViewController.h"
+
 @interface LXqRegisteViewController ()
 
 /** 注册view */

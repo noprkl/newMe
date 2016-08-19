@@ -1,18 +1,18 @@
 //
-//  LXqMyRegisetView.m
+//  LXqMyLoginView.m
 //  Buy-Buy
 //
-//  Created by ma c on 16/8/18.
+//  Created by ma c on 16/8/19.
 //  Copyright © 2016年 LXq. All rights reserved.
-//
+//  登录view
+
 #define kMaginColor [UIColor RGBcolorWithRed:200 green:198 blue:204 alpha:1]
 
-#import "LXqMyRegisetView.h"
+#import "LXqMyLoginView.h"
 
-@interface LXqMyRegisetView ()<UITextFieldDelegate>
 
-/** 提示文字框 */
-@property (copy, nonatomic) UILabel *titleLabel;
+@interface LXqMyLoginView ()<UITextFieldDelegate>
+
 /** 背景 */
 @property (strong, nonatomic) UIView *backView;
 /** 手机号文本框 */
@@ -21,10 +21,10 @@
 @property (strong, nonatomic) UILabel *lineLabel;
 /** 密码文本框 */
 @property (strong, nonatomic) UITextField *psdText;
-/** 下一步按钮 */
-@property (strong, nonatomic) UIButton *nextButton;
-/** 登录界面跳转按钮 */
-@property (strong, nonatomic) UIButton *goLoginBtn;
+/** 登录 */
+@property (strong, nonatomic) UIButton *LoginBtn;
+/** 注册界面跳转按钮 */
+@property (strong, nonatomic) UIButton *goRegiste;
 /** 左分割线label */
 @property (strong, nonatomic) UILabel *leftLabel;
 /** 右分割线label */
@@ -38,21 +38,20 @@
 
 @end
 
-@implementation LXqMyRegisetView
+@implementation LXqMyLoginView
+
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = KMaginBackGround;
         
-        
-        [self addSubview:self.titleLabel];
         [self addSubview:self.backView];
         [self.backView addSubview:self.phoneText];
         [self.backView addSubview:self.lineLabel];
         [self.backView addSubview:self.psdText];
-        
-        [self addSubview:self.nextButton];
-        [self addSubview:self.goLoginBtn];
+       
+        [self addSubview:self.LoginBtn];
+        [self addSubview:self.goRegiste];
         
         [self addSubview:self.leftLabel];
         [self addSubview:self.onceLabel];
@@ -67,23 +66,6 @@
 #pragma mark
 #pragma mark - 懒加载
 
-- (UILabel *)titleLabel
-{
-    if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc] init];
-        NSString *string = @"请输入手机号码注册新用户";
-        NSMutableAttributedString *mutableAttStr = [[NSMutableAttributedString alloc] initWithString:string];
-        NSDictionary *dict1 = @{
-                                NSForegroundColorAttributeName:[UIColor grayColor],
-                                NSFontAttributeName:[UIFont systemFontOfSize:15]
-                                };
-        NSRange range1 = NSRangeFromString(string);
-        [mutableAttStr addAttributes:dict1 range:range1];
-        
-        _titleLabel.attributedText = mutableAttStr;
-    }
-    return _titleLabel;
-}
 - (UIView *)backView
 {
     if (!_backView) {
@@ -126,38 +108,37 @@
 }
 
 #pragma mark - nextBtn按钮
-- (UIButton *)nextButton
+- (UIButton *)LoginBtn
 {
-    if (!_nextButton) {
-        _nextButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    if (!_LoginBtn) {
+        _LoginBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+        _LoginBtn.tintColor = [UIColor RGBcolorWithRed:145 green:145 blue:145 alpha:1];
+        [_LoginBtn setTitle:@"登录" forState:UIControlStateNormal];
+        _LoginBtn.backgroundColor = [UIColor RGBcolorWithRed:234 green:234 blue:234 alpha:1];
         
-        _nextButton.tintColor = [UIColor RGBcolorWithRed:145 green:145 blue:145 alpha:1];
-        [_nextButton setTitle:@"下一步" forState:UIControlStateNormal];
-        _nextButton.backgroundColor = [UIColor RGBcolorWithRed:234 green:234 blue:234 alpha:1];
-
         //设置按钮状态
-        _nextButton.userInteractionEnabled = NO;
-        [_nextButton addTarget:self action:@selector(pushCheckView) forControlEvents:UIControlEventTouchDown];
-
+        _LoginBtn.userInteractionEnabled = NO;
+        [_LoginBtn addTarget:self action:@selector(pushMyView) forControlEvents:UIControlEventTouchDown];
+        
     }
-    return _nextButton;
+    return _LoginBtn;
 }
 
-- (void)pushCheckView
+- (void)pushMyView
 {
-    if (_checkBlock) {
-        _checkBlock(@{@"userPhoneNumber":self.phoneText.text, @"userPsd":self.psdText.text});
+    if (_myViewBlock) {
+        _myViewBlock();
     }
 }
-- (UIButton *)goLoginBtn
+- (UIButton *)goRegiste
 {
-    if (!_goLoginBtn) {
-        _goLoginBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-        _goLoginBtn.bounds = CGRectMake(0, 0, 17, 46);
-        [_goLoginBtn setTitle:@"去登录" forState:UIControlStateNormal];
-        [_goLoginBtn setTintColor:[UIColor RGBcolorWithRed:0 green:182 blue:240 alpha:1]];
+    if (!_goRegiste) {
+        _goRegiste = [UIButton buttonWithType:UIButtonTypeSystem];
+        _goRegiste.bounds = CGRectMake(0, 0, 17, 46);
+        [_goRegiste setTitle:@"免费注册" forState:UIControlStateNormal];
+        [_goRegiste setTintColor:[UIColor RGBcolorWithRed:0 green:182 blue:240 alpha:1]];
     }
-    return _goLoginBtn;
+    return _goRegiste;
 }
 - (UILabel *)onceLabel
 {
@@ -221,22 +202,17 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-
+    
     //这个东西写不写无所谓， 写上有风格
-//    __weak typeof(self) weakself = self;
-
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    //    __weak typeof(self) weakself = self;
+  
+       [self.backView makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.top).offset(64);
-        make.size.equalTo(CGSizeMake(SCREEN_SIZE.width, 35));
-        make.left.equalTo(self.mas_left).offset(15);
-    }];
-    [self.backView makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.titleLabel.bottom);
         make.left.equalTo(self.mas_left);
         make.right.equalTo(self.right);
         make.height.equalTo(89);
     }];
-
+    
     [self.phoneText makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.backView.top);
         make.left.equalTo(self.backView.left).offset(15);
@@ -255,22 +231,22 @@
         make.right.equalTo(self.backView.right);
         make.height.equalTo(44);
     }];
-    [self.nextButton makeConstraints:^(MASConstraintMaker *make) {
+    [self.LoginBtn makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.backView.bottom).offset(16);
         make.height.equalTo(35);
         make.left.equalTo(self.left).offset(16);
         make.right.equalTo(self.right).offset(-16);
         
     }];
-    [self.goLoginBtn makeConstraints:^(MASConstraintMaker *make) {
+    [self.goRegiste makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.right).offset(-15);
-        make.top.equalTo(self.nextButton.bottom).offset(23);
+        make.top.equalTo(self.LoginBtn.bottom).offset(23);
     }];
     
     [self.onceLabel makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(16);
         make.centerX.equalTo(self.centerX);
-        make.top.equalTo(self.nextButton.bottom).offset(58);
+        make.top.equalTo(self.LoginBtn.bottom).offset(58);
     }];
     [self.leftLabel makeConstraints:^(MASConstraintMaker *make) {
         make.height.equalTo(0.5);
@@ -312,21 +288,22 @@
 - (void)phoneTextTieldChanged:(UITextField *)textField
 {
     if (textField.text.length == 11 && self.psdText.text.length > 5) {
-        self.nextButton.backgroundColor = [UIColor RGBcolorWithRed:56 green:166 blue:241 alpha:1];
-        self.nextButton.userInteractionEnabled = YES;
+        self.LoginBtn.backgroundColor = [UIColor RGBcolorWithRed:56 green:166 blue:241 alpha:1];
+        self.LoginBtn.userInteractionEnabled = YES;
     }else{
-        self.nextButton.backgroundColor = [UIColor RGBcolorWithRed:234 green:234 blue:234 alpha:1];
-        self.nextButton.userInteractionEnabled = NO;
+        self.LoginBtn.backgroundColor = [UIColor RGBcolorWithRed:234 green:234 blue:234 alpha:1];
+        self.LoginBtn.userInteractionEnabled = NO;
     }
 }
 - (void)psdTextTieldChanged:(UITextField *)textField
 {
     if (textField.text.length > 5 && self.phoneText.text.length == 11) {
-        self.nextButton.backgroundColor = [UIColor RGBcolorWithRed:56 green:166 blue:241 alpha:1];
-        self.nextButton.userInteractionEnabled = YES;
+        self.LoginBtn.backgroundColor = [UIColor RGBcolorWithRed:56 green:166 blue:241 alpha:1];
+        self.LoginBtn.userInteractionEnabled = YES;
     }else{
-        self.nextButton.backgroundColor = [UIColor RGBcolorWithRed:234 green:234 blue:234 alpha:1];
-        self.nextButton.userInteractionEnabled = NO;
+        self.LoginBtn.backgroundColor = [UIColor RGBcolorWithRed:234 green:234 blue:234 alpha:1];
+        self.LoginBtn.userInteractionEnabled = NO;
     }
 }
 @end
+

@@ -49,7 +49,7 @@
     if (!_loginBtn) {
         _loginBtn = [UIButton buttonWithType:UIButtonTypeSystem];
         [_loginBtn setTitle:@"登录" forState:UIControlStateNormal];
-        
+        [_loginBtn addTarget:self action:@selector(pushLoginView) forControlEvents:UIControlEventTouchDown];
     }
     return _loginBtn;
 }
@@ -63,7 +63,13 @@
     }
     return _regisBtn;
 }
-
+#pragma mark - block方法
+- (void)pushLoginView
+{
+    if (_loginBlock) {
+        _loginBlock();
+    }
+}
 - (void)pushRegistrView
 {
     if (_registeBlock) {
