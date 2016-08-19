@@ -36,7 +36,17 @@
     
     [self.view addSubview:self.checkView];
 
-
+    //设置返回的按钮
+    UIImage *image = [UIImage imageNamed:@"详情界面返回按钮"];
+    UIBarButtonItem *leftitem = [[UIBarButtonItem alloc] initWithImage:image style:(UIBarButtonItemStylePlain) target:self action:@selector(popView)];
+    
+    leftitem.image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.navigationItem.leftBarButtonItem = leftitem;
+    
+}
+- (void)popView
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
