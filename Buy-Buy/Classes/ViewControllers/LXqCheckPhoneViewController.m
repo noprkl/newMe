@@ -40,8 +40,9 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", nil];
     
     [manager POST:@"http://123.57.141.249:8080/beautalk/appMember/createCode.do" parameters:@{@"MemberId":self.userInfo[@"userPhoneNumber"]} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@", responseObject);
+
         if ([responseObject[@"result"] isEqualToString:@"success"]) {
+        NSLog(@"%@", responseObject);
             
         }else if ([responseObject[@"result"] isEqualToString:@"TelephoneExistError"]){
             NSLog(@"已被注册");
@@ -49,6 +50,7 @@
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"%@", error);
+        NSLog(@"%@", task);
     }];
 
     

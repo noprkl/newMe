@@ -26,15 +26,12 @@
 @property (strong, nonatomic) UIButton *registeBtn;
 /** 重新发送按钮 */
 @property (strong, nonatomic) UIButton *resendBtn;
-/** 倒计时数 */
-//@property (assign, nonatomic) NSInteger lasttime;
-/** 定时器 */
-@property (strong, nonatomic) NSTimer *timer;
+
 @end
 
 @implementation LXqCheckPhoneView
 
-
+#pragma mark - 初始化
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
@@ -52,40 +49,6 @@
     }
     return self;
 }
-#pragma mark - 倒计时定时器
-- (void)timeLast
-{
-
-    __block NSInteger time = LASTTIME;
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
-    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
-    dispatch_source_set_event_handler(timer, ^{
-       
-        if (time <= 0) {
-            dispatch_source_cancel(timer);
-        
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.timeBtn.userInteractionEnabled = YES;
-                NSAttributedString *attribute = [NSAttributedString attributedStringWithString:@"重新发送"];
-                [self.timeBtn setAttributedTitle:attribute forState:UIControlStateNormal];
-            });
-        }else{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.timeBtn.userInteractionEnabled = NO;
-                
-                NSAttributedString *attribute = [NSAttributedString attributedStringWithNumber:time  string:@"秒后重试"];
-                [self.timeBtn setAttributedTitle:attribute forState:UIControlStateNormal];
-            });
-            time --;
-        }
-      
-        
-    });
-    dispatch_resume(timer);
-
-}
-
 #pragma mark - set方法
 - (void)setUserInfo:(NSDictionary *)userInfo
 {
@@ -127,7 +90,7 @@
     [self.timeBtn makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.codeText.centerY);
         make.top.equalTo(self.codeText.top).offset(10);
-        make.right.equalTo(self.right).offset(-10);
+        make.left.equalTo(self.linLabel.left).offset(10);
     }];
 
     [self.registeBtn makeConstraints:^(MASConstraintMaker *make) {
@@ -145,10 +108,8 @@
     }];
     
 }
-
 #pragma mark
 #pragma mark - 懒加载
-
 - (UILabel *)titleLabel
 {
     if (!_titleLabel) {
@@ -229,6 +190,38 @@
     return _resendBtn;
 }
 #pragma mark - 重新请求
-
+#pragma mark - 倒计时定时器
+- (void)timeLast
+{
+    
+    __block NSInteger time = LASTTIME;
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+    dispatch_source_set_event_handler(timer, ^{
+        
+        if (time <= 2) {
+            dispatch_source_cancel(timer);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.timeBtn.userInteractionEnabled = YES;
+                NSAttributedString *attribute = [NSAttributedString attributedStringWithString:@"获取验证码"];
+                [self.timeBtn setAttributedTitle:attribute forState:UIControlStateNormal];
+            });
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.timeBtn.userInteractionEnabled = NO;
+                
+                NSAttributedString *attribute = [NSAttributedString attributedStringWithNumber:time  string:@"秒后重试"];
+                [self.timeBtn setAttributedTitle:attribute forState:UIControlStateNormal];
+            });
+            time --;
+        }
+        
+        
+    });
+    dispatch_resume(timer);
+    
+}
 
 @end
