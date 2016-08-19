@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0406FAA01D6753AD00292722 /* NSAttributedString+LXqAttributeString.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406FA9F1D6753AD00292722 /* NSAttributedString+LXqAttributeString.m */; };
 		041CBC8E1D67244800D73FC4 /* LXqMyLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041CBC8D1D67244800D73FC4 /* LXqMyLoginView.m */; };
 		046E34681D63FF3B00003B08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 046E34671D63FF3B00003B08 /* Assets.xcassets */; };
 		046E346B1D63FF3B00003B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046E34691D63FF3B00003B08 /* LaunchScreen.storyboard */; };
@@ -56,6 +57,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0406FA9E1D6753AD00292722 /* NSAttributedString+LXqAttributeString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+LXqAttributeString.h"; sourceTree = "<group>"; };
+		0406FA9F1D6753AD00292722 /* NSAttributedString+LXqAttributeString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+LXqAttributeString.m"; sourceTree = "<group>"; };
 		041CBC8C1D67244800D73FC4 /* LXqMyLoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqMyLoginView.h; sourceTree = "<group>"; };
 		041CBC8D1D67244800D73FC4 /* LXqMyLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqMyLoginView.m; sourceTree = "<group>"; };
 		046E34581D63FF3B00003B08 /* Buy-Buy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Buy-Buy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +150,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0406FA991D6747B400292722 /* 工具类 */ = {
+			isa = PBXGroup;
+			children = (
+				046E35211D649E1B00003B08 /* UIColor+LXqRandomColor.h */,
+				046E35221D649E1B00003B08 /* UIColor+LXqRandomColor.m */,
+				0406FA9E1D6753AD00292722 /* NSAttributedString+LXqAttributeString.h */,
+				0406FA9F1D6753AD00292722 /* NSAttributedString+LXqAttributeString.m */,
+			);
+			name = "工具类";
+			sourceTree = "<group>";
+		};
+		0406FA9A1D6747C300292722 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				046E351D1D649E1B00003B08 /* AppDelegate.h */,
+				046E351E1D649E1B00003B08 /* AppDelegate.m */,
+				046E35201D649E1B00003B08 /* main.m */,
+				046E352D1D64A30A00003B08 /* LXqHeaderFile.pch */,
+				046E352B1D64A0F400003B08 /* Info.plist */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
 		041CBC881D6723D000D73FC4 /* 登录View */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,13 +285,8 @@
 		046E351C1D649E1B00003B08 /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				046E351D1D649E1B00003B08 /* AppDelegate.h */,
-				046E351E1D649E1B00003B08 /* AppDelegate.m */,
-				046E35201D649E1B00003B08 /* main.m */,
-				046E35211D649E1B00003B08 /* UIColor+LXqRandomColor.h */,
-				046E35221D649E1B00003B08 /* UIColor+LXqRandomColor.m */,
-				046E352D1D64A30A00003B08 /* LXqHeaderFile.pch */,
-				046E352B1D64A0F400003B08 /* Info.plist */,
+				0406FA9A1D6747C300292722 /* Other */,
+				0406FA991D6747B400292722 /* 工具类 */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -666,6 +687,7 @@
 				046E35161D648B8500003B08 /* LXqMyTableViewCell.m in Sources */,
 				046E34FB1D645B2300003B08 /* LXqTimpViewController.m in Sources */,
 				04AEED241D65474F00B653CB /* LXqRegisteViewController.m in Sources */,
+				0406FAA01D6753AD00292722 /* NSAttributedString+LXqAttributeString.m in Sources */,
 				046E35231D649E1B00003B08 /* AppDelegate.m in Sources */,
 				04AEED2B1D65971B00B653CB /* LXqCheckPhoneView.m in Sources */,
 				046E350E1D64796400003B08 /* LXqMyHeaderView.m in Sources */,

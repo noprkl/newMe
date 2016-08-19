@@ -27,7 +27,7 @@
 /** 重新发送按钮 */
 @property (strong, nonatomic) UIButton *resendBtn;
 /** 倒计时数 */
-@property (assign, nonatomic) NSInteger lasttime;
+//@property (assign, nonatomic) NSInteger lasttime;
 /** 定时器 */
 @property (strong, nonatomic) NSTimer *timer;
 @end
@@ -47,9 +47,8 @@
         [self addSubview:self.registeBtn];
         [self addSubview:self.resendBtn];
         
-        self.lasttime = LASTTIME;
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeLast) userInfo:nil repeats:YES];
      
+        [self timeLast];
     }
     return self;
 }
@@ -57,38 +56,33 @@
 - (void)timeLast
 {
 
-    if (self.lasttime == 0) {
-        [self.timer invalidate];
-        self.timer = nil;
-
-        self.timeBtn.userInteractionEnabled = YES;
-        NSDictionary *dict = @{
-                               NSForegroundColorAttributeName:[UIColor RGBcolorWithRed:0 green:183 blue:240 alpha:1]
-                               };
-        NSAttributedString *attribute = [[NSAttributedString alloc] initWithString:@"重新发送" attributes:dict];
+    __block NSInteger time = LASTTIME;
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_source_t timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
+    dispatch_source_set_event_handler(timer, ^{
+       
+        if (time <= 0) {
+            dispatch_source_cancel(timer);
         
-        [self.timeBtn setAttributedTitle:attribute forState:UIControlStateNormal];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.timeBtn.userInteractionEnabled = YES;
+                NSAttributedString *attribute = [NSAttributedString attributedStringWithString:@"重新发送"];
+                [self.timeBtn setAttributedTitle:attribute forState:UIControlStateNormal];
+            });
+        }else{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.timeBtn.userInteractionEnabled = NO;
+                
+                NSAttributedString *attribute = [NSAttributedString attributedStringWithNumber:time  string:@"秒后重试"];
+                [self.timeBtn setAttributedTitle:attribute forState:UIControlStateNormal];
+            });
+            time --;
+        }
+      
         
-    }else if(self.lasttime > 0) {
-        
-        
-        NSString *string = [NSString stringWithFormat:@"%0.2ld秒后重试",self.lasttime];
-        NSMutableAttributedString *mutableAttStr = [[NSMutableAttributedString alloc] initWithString:string];
-        NSDictionary *dict1 = @{
-                                NSForegroundColorAttributeName:[UIColor RGBcolorWithRed:0 green:183 blue:240 alpha:1]
-                                };
-        NSRange range1 = NSMakeRange(0, 2);
-        [mutableAttStr addAttributes:dict1 range:range1];
-        NSDictionary *dict2 = @{
-                                NSForegroundColorAttributeName:[UIColor grayColor]
-                                };
-        NSRange range2 = NSMakeRange(2, 4);
-        [mutableAttStr addAttributes:dict2 range:range2];
-        
-        [self.timeBtn setAttributedTitle:mutableAttStr forState:UIControlStateNormal];
-    }
-    self.lasttime -= 1;
-
+    });
+    dispatch_resume(timer);
 
 }
 
@@ -97,22 +91,9 @@
 {
     _userInfo = userInfo;
     
-    NSDictionary *dict1 = @{
-                            NSForegroundColorAttributeName:[UIColor grayColor]
-                            };
-
-    NSMutableAttributedString *mutableAttStr1 = [[NSMutableAttributedString alloc] initWithString:@"验证码已发送 " attributes:dict1];
-    
-    NSString *string = [NSString stringWithFormat:@" +86 %@", userInfo[@"userPhoneNumber"]];
-    
-    NSDictionary *dict2 = @{
-                            NSForegroundColorAttributeName:[UIColor RGBcolorWithRed:0 green:183 blue:240 alpha:1]
-                            };
-    NSMutableAttributedString *mutableAttStr2 = [[NSMutableAttributedString alloc] initWithString:string attributes:dict2];
-
-    [mutableAttStr1 insertAttributedString:mutableAttStr2 atIndex:mutableAttStr1.length];
-    
-    self.titleLabel.attributedText = mutableAttStr1;
+    NSString *string = [NSString stringWithFormat:@"+86 %@", userInfo[@"userPhoneNumber"]];
+    NSAttributedString *attribute = [NSAttributedString attributedStringWithString:@"验证码已发送 " string:string];
+    self.titleLabel.attributedText = attribute;;
 }
 #pragma mark
 #pragma mark - 约束
@@ -205,23 +186,8 @@
 {
     if (!_timeBtn) {
         _timeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        //设置倒数的颜色
-//        _timeBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-//        NSMutableAttributedString *mutableAttStr = [[NSMutableAttributedString alloc] initWithString:@"60秒后重试"];
-//        NSDictionary *dict1 = @{
-//                                NSForegroundColorAttributeName:[UIColor RGBcolorWithRed:0 green:183 blue:240 alpha:1]
-//                               };
-//        NSRange range1 = NSMakeRange(0, 2);
-//        [mutableAttStr addAttributes:dict1 range:range1];
-//        NSDictionary *dict2 = @{
-//                                NSForegroundColorAttributeName:[UIColor grayColor]
-//                                };
-//        NSRange range2 = NSMakeRange(2, 4);
-//        [mutableAttStr addAttributes:dict2 range:range2];
-//        [_timeBtn setAttributedTitle:mutableAttStr forState:UIControlStateNormal];
-
-        _timeBtn.userInteractionEnabled = NO;
-        [_timeBtn addTarget:self action:@selector(requestCoderNumber) forControlEvents:UIControlEventTouchDown];
+             _timeBtn.userInteractionEnabled = NO;
+        [_timeBtn addTarget:self action:@selector(timeLast) forControlEvents:UIControlEventTouchDown];
         
     }
     return _timeBtn;
@@ -258,29 +224,11 @@
         _resendBtn = [UIButton buttonWithType:UIButtonTypeSystem];
         [_resendBtn setTitle:@"重新发送验证码" forState:UIControlStateNormal];
         _resendBtn.tintColor = [UIColor RGBcolorWithRed:145 green:145 blue:145 alpha:1];
-        [_resendBtn addTarget:self action:@selector(requestCoderNumber) forControlEvents:UIControlEventTouchDown];
-
+        [_resendBtn addTarget:self action:@selector(timeLast) forControlEvents:UIControlEventTouchDown];
     }
     return _resendBtn;
 }
 #pragma mark - 重新请求
-- (void)requestCoderNumber
-{
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", nil];
 
-    [manager POST:@"http://123.57.141.249:8080/beautalk/appMember/  " parameters:@{@"MemberId":self.userInfo[@"userPhoneNumber"]} progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"%@", responseObject);
-        if ([responseObject[@"result"] isEqualToString:@"success"]) {
-            [self performSelector:@selector(timeLast)];
-        }else if ([responseObject[@"result"] isEqualToString:@"TelephoneExistError"]){
-            NSLog(@"已被注册");
-        }
-
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@", error);
-    }];
-
-}
 
 @end

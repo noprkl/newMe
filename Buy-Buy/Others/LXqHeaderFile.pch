@@ -18,8 +18,17 @@
 #import <Masonry.h>
 /** AFN */
 #import <AFNetworking.h>
+
+
+
 //自定义的分类
+/** 随机色 */
 #import "UIColor+LXqRandomColor.h"
+/** 自定义富文本 */
+#import "NSAttributedString+LXqAttributeString.h"
+
+
+
 
 //定义的宏
 /** 屏幕的size */
@@ -28,4 +37,16 @@
 #define KMaginBackGround [UIColor RGBcolorWithRed:245 green:245 blue:245 alpha:1]
 /** 线/字的颜色 */
 #define KMLineColor [UIColor RGBcolorWithRed:234 green:234 blue:234 alpha:1]
+
+
+
+
+/**
+定义的特殊字符
+ userPhoneNumber 输入的用户电话
+ userPsd         输入的用户密码
+ 
+ */
+
+
 #endif /* LXqHeaderFile_pch */

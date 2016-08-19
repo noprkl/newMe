@@ -71,15 +71,8 @@
 {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        NSString *string = @"请输入手机号码注册新用户";
-        NSMutableAttributedString *mutableAttStr = [[NSMutableAttributedString alloc] initWithString:string];
-        NSDictionary *dict1 = @{
-                                NSForegroundColorAttributeName:[UIColor grayColor],
-                                NSFontAttributeName:[UIFont systemFontOfSize:15]
-                                };
-        NSRange range1 = NSRangeFromString(string);
-        [mutableAttStr addAttributes:dict1 range:range1];
-        
+        _titleLabel.font = [UIFont systemFontOfSize:16];
+        NSAttributedString *mutableAttStr = [NSAttributedString attributedStringWithGrayString:@"请输入手机号码注册新用户"];
         _titleLabel.attributedText = mutableAttStr;
     }
     return _titleLabel;
