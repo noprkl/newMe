@@ -10,7 +10,7 @@
 #import "LXqCheckPhoneView.h"
 
 
-@interface LXqCheckPhoneView ()
+@interface LXqCheckPhoneView ()<UITextFieldDelegate>
 
 /** 提示的label */
 @property (strong, nonatomic) UILabel *titleLabel;
@@ -140,6 +140,7 @@
         _codeText = [[UITextField alloc] init];
         _codeText.placeholder = @"请输入验证码";
         _codeText.backgroundColor = [UIColor whiteColor];
+        [_codeText addTarget:self action:@selector(coderNumberTextTieldChanged:) forControlEvents:UIControlEventAllEditingEvents];
     }
     return _codeText;
 }
@@ -148,7 +149,7 @@
     if (!_timeBtn) {
         _timeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
              _timeBtn.userInteractionEnabled = NO;
-        [_timeBtn addTarget:self action:@selector(timeLast) forControlEvents:UIControlEventTouchDown];
+        [_timeBtn addTarget:self action:@selector(getCoderNumber) forControlEvents:UIControlEventTouchDown];
         
     }
     return _timeBtn;
@@ -175,6 +176,10 @@
         //圆角
         _registeBtn.layer.cornerRadius = 3;
         _registeBtn.layer.masksToBounds = YES;
+        
+        //点击方法
+        self.registeBtn.userInteractionEnabled = NO;
+        [_registeBtn addTarget:self action:@selector(registeBtnMethod) forControlEvents:UIControlEventTouchDown];
     }
     return _registeBtn;
 
@@ -185,11 +190,42 @@
         _resendBtn = [UIButton buttonWithType:UIButtonTypeSystem];
         [_resendBtn setTitle:@"重新发送验证码" forState:UIControlStateNormal];
         _resendBtn.tintColor = [UIColor RGBcolorWithRed:145 green:145 blue:145 alpha:1];
-        [_resendBtn addTarget:self action:@selector(timeLast) forControlEvents:UIControlEventTouchDown];
+        [_resendBtn addTarget:self action:@selector(getCoderNumber) forControlEvents:UIControlEventTouchDown];
     }
     return _resendBtn;
 }
-#pragma mark - 重新请求
+#pragma mark - 验证码文本框监听
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if (textField == self.codeText && range.location == 6) {
+        return NO;
+    }
+    return YES;
+}
+- (void)coderNumberTextTieldChanged:(UITextField *)textField
+{
+    if (textField.text.length == 6) {
+        self.registeBtn.userInteractionEnabled = YES;
+        self.registeBtn.backgroundColor = [UIColor RGBcolorWithRed:56 green:166 blue:241 alpha:1];
+    }else{
+        self.registeBtn.userInteractionEnabled = NO;
+        self.registeBtn.backgroundColor = [UIColor RGBcolorWithRed:234 green:234 blue:234 alpha:1];
+    }
+}
+#pragma mark - 注册block
+- (void)registeBtnMethod
+{
+    if (_registeBlock) {
+        _registeBlock(self.codeText.text);
+    }
+}
+#pragma mark - 重新请求block
+- (void)getCoderNumber
+{
+    if (_coderBlock) {
+        _coderBlock();
+    }
+}
 #pragma mark - 倒计时定时器
 - (void)timeLast
 {
@@ -200,10 +236,12 @@
     dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0 * NSEC_PER_SEC);
     dispatch_source_set_event_handler(timer, ^{
         
-        if (time <= 2) {
+        if (time <= 1) {
+            //取消计时
             dispatch_source_cancel(timer);
             
             dispatch_async(dispatch_get_main_queue(), ^{
+                
                 self.timeBtn.userInteractionEnabled = YES;
                 NSAttributedString *attribute = [NSAttributedString attributedStringWithString:@"获取验证码"];
                 [self.timeBtn setAttributedTitle:attribute forState:UIControlStateNormal];

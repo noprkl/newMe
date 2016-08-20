@@ -6,9 +6,9 @@
 //  Copyright © 2016年 LXq. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "LXqBaseViewController.h"
 
-@interface LXqCheckPhoneViewController : UIViewController
+@interface LXqCheckPhoneViewController : LXqBaseViewController
 
 /** 手机号 */
 @property (strong, nonatomic) NSDictionary *userInfo;

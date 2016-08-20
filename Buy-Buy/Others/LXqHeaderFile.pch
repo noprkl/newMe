@@ -18,7 +18,14 @@
 #import <Masonry.h>
 /** AFN */
 #import <AFNetworking.h>
+/** SDWebImage*/
 #import <UIImageView+WebCache.h>
+/** progress */
+//#import <>
+
+
+
+
 
 
 //自定义的分类
@@ -26,6 +33,11 @@
 #import "UIColor+LXqRandomColor.h"
 /** 自定义富文本 */
 #import "NSAttributedString+LXqAttributeString.h"
+/** AFN请求封装 */
+#import "LXqHTTPTool.h"
+/** ViewController基类 */
+#import "LXqBaseViewController.h"
+
 
 
 
@@ -37,8 +49,8 @@
 #define KMaginBackGround [UIColor RGBcolorWithRed:245 green:245 blue:245 alpha:1]
 /** 线/字的颜色 */
 #define KMLineColor [UIColor RGBcolorWithRed:234 green:234 blue:234 alpha:1]
-
-
+/** 基类接口*/
+#define BASEURL  @"http://123.57.141.249:8080/beautalk/"
 
 
 /**
