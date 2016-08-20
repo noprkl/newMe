@@ -18,17 +18,20 @@ PODS:
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
+  - UMengSocialCOM (5.2.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
   - Masonry (~> 1.0.1)
   - SDWebImage (~> 3.8.1)
+  - UMengSocialCOM (~> 5.2.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  UMengSocialCOM: 074c135ce349aa4c8848d3fb8458757bcb6ffb67
 
-PODFILE CHECKSUM: 25fc710804f5c303ea8c70c87734eb25acc42a1d
+PODFILE CHECKSUM: c3b4b6587e798403a200a827145a5b71a300523a
 
 COCOAPODS: 1.0.1

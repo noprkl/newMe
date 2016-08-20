@@ -204,12 +204,17 @@
         _SinaBtn = [UIButton buttonWithType:UIButtonTypeSystem];
         _SinaBtn.bounds = CGRectMake(0, 0, 45, 45);
         [_SinaBtn setImage:[UIImage imageNamed:@"登陆界面微博登录"] forState:UIControlStateNormal];
-        
+        [_SinaBtn addTarget:self action:@selector(SinaLoginMethod) forControlEvents:UIControlEventTouchDown];
     }
     return _SinaBtn;
 }
 #pragma mark - 第三方登录
-
+- (void)sinaLoginMedthod
+{
+    if (_sinaBlock) {
+        _sinaBlock();
+    }
+}
 #pragma mark
 #pragma mark - 约束
 

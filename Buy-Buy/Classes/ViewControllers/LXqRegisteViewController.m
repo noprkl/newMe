@@ -29,6 +29,10 @@
             
             [weakSelf.navigationController pushViewController:checkVC animated:YES];
         };
+        //新浪登录按钮
+        _registeView.sinaBlock = ^{
+            [weakSelf SinaLoginMethod];
+        };
     }
     return _registeView;
 }
