@@ -118,7 +118,7 @@
     return _psdText;
 }
 
-#pragma mark - nextBtn按钮
+#pragma mark - 下一步按钮
 - (UIButton *)nextButton
 {
     if (!_nextButton) {
@@ -204,10 +204,11 @@
         _SinaBtn = [UIButton buttonWithType:UIButtonTypeSystem];
         _SinaBtn.bounds = CGRectMake(0, 0, 45, 45);
         [_SinaBtn setImage:[UIImage imageNamed:@"登陆界面微博登录"] forState:UIControlStateNormal];
+        
     }
     return _SinaBtn;
 }
-
+#pragma mark - 第三方登录
 
 #pragma mark
 #pragma mark - 约束

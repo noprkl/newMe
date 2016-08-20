@@ -22,4 +22,8 @@ typedef void(^HttpRequestErrorBlock)(NSError *error);
                      params:(NSDictionary *)params
                     success:(HttpRequestSuccessBlock)returnSuccess
                       error:(HttpRequestErrorBlock)returnError;
+/** 第三方登录 */
+- (void)QQLoginMethod;
+- (void)WXLoginMethod;
+- (void)SinaLoginMethod;
 @end

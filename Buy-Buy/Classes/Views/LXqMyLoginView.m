@@ -24,7 +24,7 @@
 /** 登录 */
 @property (strong, nonatomic) UIButton *LoginBtn;
 /** 注册界面跳转按钮 */
-@property (strong, nonatomic) UIButton *goRegiste;
+@property (strong, nonatomic) UIButton *freeRegiste;
 /** 左分割线label */
 @property (strong, nonatomic) UILabel *leftLabel;
 /** 右分割线label */
@@ -51,7 +51,7 @@
         [self.backView addSubview:self.psdText];
        
         [self addSubview:self.LoginBtn];
-        [self addSubview:self.goRegiste];
+        [self addSubview:self.freeRegiste];
         
         [self addSubview:self.leftLabel];
         [self addSubview:self.onceLabel];
@@ -130,15 +130,15 @@
         _myViewBlock();
     }
 }
-- (UIButton *)goRegiste
+- (UIButton *)freeRegiste
 {
-    if (!_goRegiste) {
-        _goRegiste = [UIButton buttonWithType:UIButtonTypeSystem];
-        _goRegiste.bounds = CGRectMake(0, 0, 17, 46);
-        [_goRegiste setTitle:@"免费注册" forState:UIControlStateNormal];
-        [_goRegiste setTintColor:[UIColor RGBcolorWithRed:0 green:182 blue:240 alpha:1]];
+    if (!_freeRegiste) {
+        _freeRegiste = [UIButton buttonWithType:UIButtonTypeSystem];
+        _freeRegiste.bounds = CGRectMake(0, 0, 17, 46);
+        [_freeRegiste setTitle:@"免费注册" forState:UIControlStateNormal];
+        [_freeRegiste setTintColor:[UIColor RGBcolorWithRed:0 green:182 blue:240 alpha:1]];
     }
-    return _goRegiste;
+    return _freeRegiste;
 }
 - (UILabel *)onceLabel
 {
@@ -238,7 +238,7 @@
         make.right.equalTo(self.right).offset(-16);
         
     }];
-    [self.goRegiste makeConstraints:^(MASConstraintMaker *make) {
+    [self.freeRegiste makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.right).offset(-15);
         make.top.equalTo(self.LoginBtn.bottom).offset(23);
     }];
