@@ -29,10 +29,19 @@
             
             [weakSelf.navigationController pushViewController:checkVC animated:YES];
         };
+        //QQ登录
+        _registeView.qqBlock = ^{
+            [weakSelf QQLoginMethod];
+        };
+        //微信登录
+        _registeView.wxBlock = ^{
+            [weakSelf WXLoginMethod];
+        };
         //新浪登录按钮
         _registeView.sinaBlock = ^{
             [weakSelf SinaLoginMethod];
         };
+        
     }
     return _registeView;
 }
@@ -41,7 +50,6 @@
     self.title = @"注册";
     
     [self.view addSubview:self.registeView];
-
     
 }
 

@@ -27,6 +27,18 @@
             LXqMyViewController *myVC = [[LXqMyViewController alloc] init];
             [weakSelf.navigationController pushViewController:myVC animated:YES];
         };
+        //QQ登录
+        _logView.qqBlock = ^{
+            [weakSelf QQLoginMethod];
+        };
+        //微信登录
+        _logView.wxBlock = ^{
+            [weakSelf WXLoginMethod];
+        };
+        //新浪登录按钮
+        _logView.sinaBlock = ^{
+            [weakSelf SinaLoginMethod];
+        };
     }
     return _logView;
 }

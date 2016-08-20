@@ -8,6 +8,7 @@
 
 #import "LXqBaseViewController.h"
 
+
 @interface LXqLoginViewController : LXqBaseViewController
 
 @end

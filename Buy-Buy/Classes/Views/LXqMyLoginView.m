@@ -174,6 +174,7 @@
         _qqBtn = [UIButton buttonWithType:UIButtonTypeSystem];
         _qqBtn.bounds = CGRectMake(0, 0, 45, 45);
         [_qqBtn setImage:[UIImage imageNamed:@"登录界面qq登陆"] forState:UIControlStateNormal];
+        [_qqBtn addTarget:self action:@selector(qqBtnLoginMedthod) forControlEvents:UIControlEventTouchDown];
     }
     return _qqBtn;
 }
@@ -183,6 +184,7 @@
         _WXBtn = [UIButton buttonWithType:UIButtonTypeSystem];
         _WXBtn.bounds = CGRectMake(0, 0, 45, 45);
         [_WXBtn setImage:[UIImage imageNamed:@"登录界面微信登录"] forState:UIControlStateNormal];
+        [_WXBtn addTarget:self action:@selector(WXBtnLoginMedthod) forControlEvents:UIControlEventTouchDown];
     }
     return _WXBtn;
 }
@@ -192,10 +194,29 @@
         _SinaBtn = [UIButton buttonWithType:UIButtonTypeSystem];
         _SinaBtn.bounds = CGRectMake(0, 0, 45, 45);
         [_SinaBtn setImage:[UIImage imageNamed:@"登陆界面微博登录"] forState:UIControlStateNormal];
+        [_SinaBtn addTarget:self action:@selector(sinaBtnLoginMedthod) forControlEvents:UIControlEventTouchDown];
     }
     return _SinaBtn;
 }
-
+#pragma mark - 第三方登录block
+- (void)qqBtnLoginMedthod
+{
+    if (_qqBlock) {
+        _qqBlock();
+    }
+}
+- (void)WXBtnLoginMedthod
+{
+    if (_wxBlock) {
+        _wxBlock();
+    }
+}
+- (void)sinaBtnLoginMedthod
+{
+    if (_sinaBlock) {
+        _sinaBlock();
+    }
+}
 
 #pragma mark
 #pragma mark - 约束
