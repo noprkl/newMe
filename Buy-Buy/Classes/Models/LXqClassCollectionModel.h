@@ -10,12 +10,11 @@
 
 @interface LXqClassCollectionModel : NSObject
 
-//分类collection模型属性
-/** 图片 */
-@property (strong, nonatomic) NSString *icon;
-/** 文字 */
-@property (strong, nonatomic) NSString *content;
 
+/** 分类名字 */
+@property (strong, nonatomic) NSArray *classes;
+/** sectionTitle */
+@property (strong, nonatomic) NSString *sectionTitle;
 
 /** KVC */
 + (NSArray *)loadColoectionModel;

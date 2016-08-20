@@ -18,13 +18,11 @@
 
 @implementation LXqClassCollectionViewCell
 #pragma mark - 赋值（set方法）
-- (void)setCollectionModel:(LXqClassCollectionModel *)collectionModel
+- (void)setClassName:(LXqClassName *)className
 {
-    _collectionModel = collectionModel;
-    self.iconView.image = [UIImage imageNamed:collectionModel.icon];
-    
-    
-    NSString *string = collectionModel.content;
+    _className = className;
+    self.iconView.image = [UIImage imageNamed:className.icon];
+    NSString *string = className.content;
     NSMutableAttributedString *mutableAttStr = [[NSMutableAttributedString alloc] initWithString:string];
     NSDictionary *dict1 = @{
                             NSForegroundColorAttributeName:[UIColor grayColor],
@@ -34,22 +32,15 @@
     [mutableAttStr addAttributes:dict1 range:range1];
     
     self.contentLabel.attributedText = mutableAttStr;
-    
 }
-//- (instancetype)init
-//{
-//    if (self = [super init]) {
-//        [self.contentView addSubview:self.iconView];
-//        [self.contentView addSubview:self.contentLabel];
-//    }
-//    return self;
-//}
+
 #pragma mark - 初始化
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
         [self.contentView addSubview:self.iconView];
         [self.contentView addSubview:self.contentLabel];
+
     }
     return self;
 }
@@ -58,10 +49,10 @@
 {
     [super layoutSubviews];
     [self.iconView makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.top).offset(10);
-        make.left.equalTo(self.left).offset(10);
-        make.right.equalTo(self.right).offset(-10);
-        make.height.equalTo(60);
+        make.top.equalTo(self.top).offset(20);
+        make.left.equalTo(self.left).offset(30);
+        make.right.equalTo(self.right).offset(-30);
+        make.height.equalTo(40);
     }];
     [self.contentLabel makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.iconView.bottom);
@@ -84,7 +75,9 @@
 {
     if (!_contentLabel) {
         _contentLabel = [[UILabel alloc] init];
-        
+        _contentLabel.font = [UIFont systemFontOfSize:14];
+        _contentLabel.textAlignment = NSTextAlignmentCenter;
+        _contentLabel.tintColor = KMLineColor;
     }
         return _contentLabel;
 }

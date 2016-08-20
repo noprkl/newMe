@@ -8,14 +8,15 @@
 
 
 #import "LXqClassCollectionView.h"
-#import "LXqClassCollectionViewCell.h"
-#import "LXqClassCollectionModel.h"
+#import "LXqClassCollectionViewCell.h"//cellview
+#import "LXqClassCollectionModel.h"//数据模型
 
+#import "LXqClassCollectionHeaderView.h"//section header view
 #define kSpacing 1
 static NSString *cellid = @"classCollectionCellid";
 static NSString *headId = @"classCollectionHeaderId";
 
-@interface LXqClassCollectionView ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface LXqClassCollectionView ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 /** 数据源 */
 @property (strong, nonatomic) NSArray *dataArr;
@@ -27,6 +28,9 @@ static NSString *headId = @"classCollectionHeaderId";
     if (!_dataArr) {
         _dataArr = [LXqClassCollectionModel loadColoectionModel];
     }
+//    for (NSDictionary *dcit in _dataArr) {
+//        NSLog(@"%@", dcit);
+//    }
     return _dataArr;
 }
 #pragma mark - 初始化
@@ -51,22 +55,30 @@ static NSString *headId = @"classCollectionHeaderId";
         self.bounces = NO;
         self.showsVerticalScrollIndicator = NO;
         self.backgroundColor = KMaginBackGround;
+    
         
         [self registerClass:[LXqClassCollectionViewCell class] forCellWithReuseIdentifier:cellid];
         
+        
         //头部
-        [self registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headId];
+        [self registerClass:[LXqClassCollectionHeaderView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headId];
     }
     return self;
 }
 #pragma mark - 代理 UICollectionViewDelegate UICollectionViewDataSource
+//每组几个
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.dataArr.count;
+    LXqClassCollectionModel *classModel = self.dataArr[section];
+    
+    return classModel.classes.count;
+    
+//    return [[self.dataArr objectAtIndex:section] count];
 }
+//组数
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 1;
+    return self.dataArr.count;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -74,19 +86,31 @@ static NSString *headId = @"classCollectionHeaderId";
 //        UILabel *label = [[UILabel alloc] initWithFrame:cell.bounds];
 //        label.text = [NSString stringWithFormat:@"第%ld组-第%ld个", indexPath.section, indexPath.row];
 //        [cell addSubview:label];
+    
     cell.backgroundColor = [UIColor whiteColor];
     
-    cell.collectionModel = self.dataArr[indexPath.row];
+    //数据
+    LXqClassCollectionModel *model = self.dataArr[indexPath.section];
+    LXqClassName *className = model.classes[indexPath.row];
+    cell.className = className;
+    
     return cell;
 }
 #pragma mark - 头部设置
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
 {
     if (kind == UICollectionElementKindSectionHeader) {
-        UICollectionReusableView *reusable = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headId forIndexPath:indexPath];
-        reusable.backgroundColor = [UIColor RGBcolorWithRed:251 green:244 blue:244 alpha:1];
-        return reusable;
+        
+        LXqClassCollectionHeaderView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headId forIndexPath:indexPath];
+        LXqClassCollectionModel *model = self.dataArr[indexPath.section];
+
+        headerView.titleLabel.text = model.sectionTitle;
+        
+        headerView.backgroundColor = [UIColor RGBcolorWithRed:251 green:244 blue:244 alpha:1];
+        
+        return headerView;
     }
+    
     return nil;
 }
 
