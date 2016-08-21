@@ -28,6 +28,7 @@
     self.iconImageView.image = [UIImage imageNamed:myModel.icon];
     self.titleLabel.text = myModel.title;
 }
+#pragma mark - 初始化
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -40,6 +41,7 @@
     }
     return self;
 }
+#pragma mark - 约束
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -68,6 +70,7 @@
     }];
     
 }
+
 #pragma mark -懒加载
 - (UIImageView *)iconImageView
 {
@@ -76,6 +79,7 @@
     }
     return _iconImageView;
 }
+
 - (UILabel *)titleLabel
 {
     if (!_titleLabel) {
@@ -84,6 +88,7 @@
     }
     return _titleLabel;
 }
+
 - (UIImageView *)nextImageView
 {
     if (!_nextImageView) {
@@ -93,6 +98,7 @@
     }
     return _nextImageView;
 }
+
 - (UILabel *)lineLabel
 {
     if (!_lineLabel) {

@@ -26,7 +26,7 @@
 - (LXqMyHeaderView *)headerView
 {
     if (!_headerView) {
-        _headerView = [[LXqMyHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, 150)];
+        _headerView = [[LXqMyHeaderView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_SIZE.width, 150)];
         
         //注册按钮跳转
         __weak typeof(self) weakself = self;
@@ -39,7 +39,10 @@
             LXqLoginViewController *logView = [[LXqLoginViewController alloc] init];
             [weakself.navigationController pushViewController:logView animated:YES];
         };
-        
+        _headerView.hideBlock = ^(SEL action){
+            [weakself performSelector:@selector(action)];
+
+        };
         
            }
     return _headerView;
@@ -51,7 +54,7 @@
         _tableVew = [[LXqMyTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     
         CGRect rect = _tableVew.frame;
-        rect.origin.y = CGRectGetMaxY(self.headerView.bounds);
+        rect.origin.y = CGRectGetMaxY(self.headerView.frame);
         _tableVew.frame = rect;
     }
     return _tableVew;

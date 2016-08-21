@@ -76,6 +76,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:@"success" forKey:@"ISLOGIN"];
     [self.navigationController popViewControllerAnimated:YES];
 
+    
     NSDictionary *parame = @{
                              @"LoginName":self.userInfo[@"userPhoneNumber"],
                              @"Lpassword":self.userInfo[@"userPsd"]
@@ -83,6 +84,7 @@
     [self getRequestWithPath:@"appMember/appLogin.do" params:parame success:^(id successJson) {
         NSLog(@"登录成功%@", successJson);
         [[NSUserDefaults standardUserDefaults] setObject:successJson forKey:@"ISLOGIN"];
+        
     } error:^(NSError *error) {
         NSLog(@"登录失败%@", error);
     }];

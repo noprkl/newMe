@@ -9,6 +9,7 @@
 #import "LXqMyTableView.h"
 #import "LXqMyTableModel.h"
 #import "LXqMyTableViewCell.h"
+#import "LXqMyHeaderView.h"
 
 @interface LXqMyTableView ()<UITableViewDataSource, UITableViewDelegate>
 /** 数据源 */
@@ -65,18 +66,30 @@
     return cell;
 }
 
-//section高度
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 30;
-}
+
 //cell高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 44;
 }
-
-#pragma mark - 头部
+#pragma mark - header
+//section高度
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30;
+}
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//     = [[LXqMyHeaderView alloc] initWithFrame:self.tableHeaderView.bounds];
+//    
+//    header.loginBlock = ^{
+//        NSString *isLogin = [[NSUserDefaults standardUserDefaults] valueForKey:@"ISLOGIN"];
+//        
+//    };
+//    return header;
+//    
+//}
+#pragma mark - footer
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     return 100;
@@ -84,7 +97,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     NSString *isLogin = [[NSUserDefaults standardUserDefaults] valueForKey:@"ISLOGIN"];
-  
+    
     if (isLogin) {
         UIView *footView = [[UIView alloc] initWithFrame:self.tableFooterView.bounds];
         footView.backgroundColor = KMaginBackGround;
@@ -119,5 +132,6 @@
     }
     return _dataArr;
 }
+
 
 @end

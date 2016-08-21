@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^ViewHiddenBlock)(SEL);
+
 @interface LXqMyTableView : UITableView
+
+/** 控件隐藏 */
+@property (strong, nonatomic) ViewHiddenBlock hideBlock;
 
 @end
