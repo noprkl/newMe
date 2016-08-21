@@ -14,6 +14,8 @@
 /** 数据源 */
 @property (strong, nonatomic) NSArray *dataArr;
 
+
+
 @end
 @implementation LXqMyTableView
 
@@ -29,13 +31,13 @@
 }
 
 #pragma mark - 代理
-- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index
-{
-    return 1;
-}
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.dataArr.count;
+    NSString *isLogin = [[NSUserDefaults standardUserDefaults] valueForKey:@"ISLOGIN"];
+    if (isLogin) {
+        return self.dataArr.count;
+    }
+    return 4;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -66,7 +68,7 @@
 //section高度
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 70;
+    return 30;
 }
 //cell高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -74,6 +76,41 @@
     return 44;
 }
 
+#pragma mark - 头部
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 100;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    NSString *isLogin = [[NSUserDefaults standardUserDefaults] valueForKey:@"ISLOGIN"];
+  
+    if (isLogin) {
+        UIView *footView = [[UIView alloc] initWithFrame:self.tableFooterView.bounds];
+        footView.backgroundColor = KMaginBackGround;
+        
+        UIButton *esitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        esitBtn.backgroundColor = [UIColor RGBcolorWithRed:0 green:204 blue:244 alpha:1];
+        //退出按钮设置
+        [esitBtn setTitle:@"退出" forState:UIControlStateNormal];
+        [esitBtn addTarget:self action:@selector(esitMedthod) forControlEvents:UIControlEventTouchDown];
+        [footView addSubview:esitBtn];
+        
+        [esitBtn makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(footView.top).offset(40);
+            make.left.equalTo(footView.left).offset(50);
+            make.right.equalTo(footView.right).offset(-50);
+            make.height.equalTo(45);
+        }];
+        return footView;
+    }
+    return nil;
+}
+- (void)esitMedthod
+{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"ISLOGIN"];
+    [self reloadData];
+}
 #pragma mark - 数据源加载
 - (NSArray *)dataArr
 {

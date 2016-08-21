@@ -76,7 +76,6 @@
             NSLog(@"WX登录");
             
         }
-        
     });
 }
 - (void)SinaLoginMethod

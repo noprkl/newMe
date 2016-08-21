@@ -9,6 +9,7 @@
 #import "LXqRegisteViewController.h"
 #import "LXqMyRegisetView.h"
 #import "LXqCheckPhoneViewController.h"
+#import "LXqLoginViewController.h"
 
 @interface LXqRegisteViewController ()
 
@@ -23,11 +24,17 @@
         _registeView = [[LXqMyRegisetView alloc] initWithFrame:self.view.bounds];
         __weak typeof(self) weakSelf = self;
         //下一步按钮
-        _registeView.checkBlock= ^(NSDictionary *userInfo){
+        _registeView.checkBlock = ^(NSDictionary *userInfo){
+           
             LXqCheckPhoneViewController *checkVC = [[LXqCheckPhoneViewController alloc] init];
             checkVC.userInfo = userInfo;
-            
             [weakSelf.navigationController pushViewController:checkVC animated:YES];
+        };
+        //去登录
+        _registeView.goLoginBlock = ^{
+            
+            LXqLoginViewController *loginVC = [[LXqLoginViewController alloc] init];
+            [weakSelf.navigationController pushViewController:loginVC animated:YES];
         };
         //QQ登录
         _registeView.qqBlock = ^{

@@ -15,6 +15,14 @@
 /** 注册按钮 */
 @property (strong, nonatomic) UIButton *regisBtn;
 
+//登录成功
+/** 头像 */
+@property (strong, nonatomic) UIImageView *iconView;
+/** 用户名 */
+@property (strong, nonatomic) UILabel *userNameLabel;
+/** 等级 */
+@property (strong, nonatomic) UILabel *userLevelLabel;
+
 @end
 
 @implementation LXqMyHeaderView
@@ -25,22 +33,12 @@
         //登录/注册按钮
         [self addSubview:self.loginBtn];
         [self addSubview:self.regisBtn];
-        //添加约束
-        [self.loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            
-            make.top.mas_equalTo(self.mas_top).offset(110);
-            make.left.mas_equalTo(self.mas_left).offset(108);
-            make.bottom.mas_equalTo(self.mas_bottom).offset(-55);
-            make.right.mas_equalTo(self.regisBtn.mas_left).offset(-93);
-        }];
+       
+         //登录成功
         
-        [self.regisBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(self.mas_top).offset(110);
-            make.right.mas_equalTo(self.mas_right).offset(-108);
-            make.bottom.mas_equalTo(self.mas_bottom).offset(-55);
-            //            make.left.mas_equalTo(self.loginBtn.mas_right).offset(93);
-        }];
-
+        [self addSubview:self.iconView];
+        [self addSubview:self.userNameLabel];
+        [self addSubview:self.userLevelLabel];
     }
     return self;
 }
@@ -63,6 +61,39 @@
     }
     return _regisBtn;
 }
+//登录成功
+- (UIImageView *)iconView
+{
+    if (!_iconView) {
+        _iconView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+
+        _iconView.layer.cornerRadius = 20;
+        _iconView.layer.masksToBounds = YES;
+        _iconView.image = [UIImage imageNamed:@"注册界面微博登录 (2)"];
+        
+        _iconView.hidden = YES;
+    }
+    return _iconView;
+}
+- (UILabel *)userNameLabel
+{
+    if (!_userNameLabel) {
+        _userNameLabel = [[UILabel alloc] init];
+//        _userNameLabel.tintColor = [UIColor whiteColor];
+        _userNameLabel.font = [UIFont systemFontOfSize:18];
+        _userNameLabel.hidden = YES;
+    }
+    return _userNameLabel;
+}
+- (UILabel *)userLevelLabel
+{
+    if (!_userLevelLabel) {
+        _userLevelLabel = [[UILabel alloc] init];
+        _userLevelLabel.font = [UIFont systemFontOfSize:18];
+        _userLevelLabel.hidden = YES;
+    }
+    return _userLevelLabel;
+}
 #pragma mark - block方法
 - (void)pushLoginView
 {
@@ -77,5 +108,38 @@
     }
     
 }
-
+#pragma mark - 约束
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    //未登录约束
+    [self.loginBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.mas_equalTo(self.mas_top).offset(110);
+        make.left.mas_equalTo(self.mas_left).offset(108);
+        make.right.mas_equalTo(self.regisBtn.mas_left).offset(-93);
+        make.height.equalTo(30);
+    }];
+    
+    [self.regisBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.mas_top).offset(110);
+        make.right.mas_equalTo(self.mas_right).offset(-108);
+        make.height.equalTo(30);            //            make.left.mas_equalTo(self.loginBtn.mas_right).offset(93);
+    }];
+    //登录成功的约束
+    [self.iconView makeConstraints:^(MASConstraintMaker *make) {
+        make.top.offset(25);
+        make.left.offset(60);
+    }];
+    [self.userNameLabel makeConstraints:^(MASConstraintMaker *make) {
+        make.top.offset(40);
+        make.left.equalTo(self.iconView.right).offset(40);
+        make.height.equalTo(20);
+    }];
+    [self.userLevelLabel makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.userNameLabel.bottom).offset(20);
+        make.left.equalTo(self.iconView.right).offset(40);
+        make.height.equalTo(20);
+    }];
+}
 @end

@@ -26,5 +26,17 @@
 		<key>title</key>
 		<string>客服热线</string>
 	</dict>
+	<dict>
+		<key>icon</key>
+		<string>我的界面我的优惠券图标</string>
+		<key>title</key>
+		<string>我的优惠券</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>我的界面邀请好友图标</string>
+		<key>title</key>
+		<string>邀请好友</string>
+	</dict>
 </array>
 </plist>

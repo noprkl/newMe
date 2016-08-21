@@ -118,8 +118,7 @@
     return _psdText;
 }
 
-#pragma mark - 下一步按钮
-- (UIButton *)nextButton
+- (UIButton *)nextButton/** 下一步*/
 {
     if (!_nextButton) {
         _nextButton = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -136,12 +135,7 @@
     return _nextButton;
 }
 
-- (void)pushCheckView
-{
-    if (_checkBlock) {
-        _checkBlock(@{@"userPhoneNumber":self.phoneText.text, @"userPsd":self.psdText.text});
-    }
-}
+
 - (UIButton *)goLoginBtn
 {
     if (!_goLoginBtn) {
@@ -149,6 +143,8 @@
         _goLoginBtn.bounds = CGRectMake(0, 0, 17, 46);
         [_goLoginBtn setTitle:@"去登录" forState:UIControlStateNormal];
         [_goLoginBtn setTintColor:[UIColor RGBcolorWithRed:0 green:182 blue:240 alpha:1]];
+        
+        [_goLoginBtn addTarget:self action:@selector(pushLoginViewMedthod) forControlEvents:UIControlEventTouchDown];
     }
     return _goLoginBtn;
 }
@@ -211,6 +207,18 @@
     return _SinaBtn;
 }
 #pragma mark - 第三方登录block
+- (void)pushLoginViewMedthod
+{
+    if (_goLoginBlock) {
+        _goLoginBlock();
+    }
+}
+- (void)pushCheckView
+{
+    if (_checkBlock) {
+        _checkBlock(@{@"userPhoneNumber":self.phoneText.text, @"userPsd":self.psdText.text});
+    }
+}
 - (void)qqBtnLoginMedthod
 {
     if (_qqBlock) {
@@ -229,6 +237,7 @@
         _sinaBlock();
     }
 }
+
 
 #pragma mark
 #pragma mark - 约束

@@ -9,6 +9,7 @@
 #import "LXqLoginViewController.h"
 #import "LXqMyLoginView.h"
 #import "LXqMyViewController.h"
+#import "LXqRegisteViewController.h"
 
 @interface LXqLoginViewController ()
 
@@ -32,10 +33,15 @@
         _logView = [[LXqMyLoginView alloc] initWithFrame:self.view.bounds];
         __weak typeof(self) weakSelf = self;
         _logView.myViewBlock = ^(NSDictionary *userInfo){
-            LXqMyViewController *myVC = [[LXqMyViewController alloc] init];
-            [weakSelf.navigationController pushViewController:myVC animated:YES];
+           
             weakSelf.userInfo = userInfo;
             [weakSelf getLoginRewuest];
+        };
+        //免费注册
+        _logView.freeRegisteBlock = ^{
+            
+            LXqRegisteViewController *registeVC = [[LXqRegisteViewController alloc] init];
+            [weakSelf.navigationController pushViewController:registeVC animated:YES];
         };
         //QQ登录
         _logView.qqBlock = ^{
@@ -67,12 +73,16 @@
      密码 :Lpassword
      优惠券ID:CouponsId 【可不填】
      */
+    [[NSUserDefaults standardUserDefaults] setObject:@"success" forKey:@"ISLOGIN"];
+    [self.navigationController popViewControllerAnimated:YES];
+
     NSDictionary *parame = @{
                              @"LoginName":self.userInfo[@"userPhoneNumber"],
                              @"Lpassword":self.userInfo[@"userPsd"]
                              };
     [self getRequestWithPath:@"appMember/appLogin.do" params:parame success:^(id successJson) {
         NSLog(@"登录成功%@", successJson);
+        [[NSUserDefaults standardUserDefaults] setObject:successJson forKey:@"ISLOGIN"];
     } error:^(NSError *error) {
         NSLog(@"登录失败%@", error);
     }];
@@ -82,14 +92,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

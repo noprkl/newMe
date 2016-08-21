@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^PushMyViewBlock)(NSDictionary *loginInfo);
+typedef void(^PushRegisteViewBlock)();
+
 typedef void(^QQLoginBlock)();
 typedef void(^WXLoginBlock)();
 typedef void(^SinaLoginBlock)();
@@ -16,6 +18,9 @@ typedef void(^SinaLoginBlock)();
 @interface LXqMyLoginView : UIView
 /** 跳转push */
 @property (strong, nonatomic) PushMyViewBlock myViewBlock;
+/** 免费注册 */
+@property (strong, nonatomic) PushRegisteViewBlock freeRegisteBlock;
+
 /** qq登录 */
 @property (strong, nonatomic) QQLoginBlock qqBlock;
 /** 微信登录 */

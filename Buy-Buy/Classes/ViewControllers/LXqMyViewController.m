@@ -26,7 +26,7 @@
 - (LXqMyHeaderView *)headerView
 {
     if (!_headerView) {
-        _headerView = [[LXqMyHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, 200)];
+        _headerView = [[LXqMyHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, 150)];
         
         //注册按钮跳转
         __weak typeof(self) weakself = self;
@@ -66,7 +66,11 @@
     
 
 }
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [self.tableVew reloadData];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

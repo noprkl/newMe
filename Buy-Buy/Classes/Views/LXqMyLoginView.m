@@ -138,6 +138,7 @@
         _freeRegiste.bounds = CGRectMake(0, 0, 17, 46);
         [_freeRegiste setTitle:@"免费注册" forState:UIControlStateNormal];
         [_freeRegiste setTintColor:[UIColor RGBcolorWithRed:0 green:182 blue:240 alpha:1]];
+        [_freeRegiste addTarget:self action:@selector(pushRegisteViewMedthod) forControlEvents:UIControlEventTouchDown];
     }
     return _freeRegiste;
 }
@@ -199,7 +200,7 @@
     }
     return _SinaBtn;
 }
-#pragma mark - 第三方登录block
+#pragma mark - 第三方登录 block
 - (void)qqBtnLoginMedthod
 {
     if (_qqBlock) {
@@ -218,7 +219,13 @@
         _sinaBlock();
     }
 }
-
+- (void)pushRegisteViewMedthod
+{
+    if (_freeRegisteBlock) {
+        _freeRegisteBlock();
+    }
+    
+}
 #pragma mark
 #pragma mark - 约束
 
