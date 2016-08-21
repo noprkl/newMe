@@ -17,6 +17,7 @@ typedef void(^SinaLoginBlock)();
 
 /** checkBlock */
 @property (strong, nonatomic) PushCheckViewBlock checkBlock;
+
 /** qq登录 */
 @property (strong, nonatomic) QQLoginBlock qqBlock;
 /** 微信登录 */

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^PushMyViewBlock)();
+typedef void(^PushMyViewBlock)(NSDictionary *loginInfo);
 typedef void(^QQLoginBlock)();
 typedef void(^WXLoginBlock)();
 typedef void(^SinaLoginBlock)();

@@ -36,7 +36,7 @@
 /** AFN请求封装 */
 #import "LXqHTTPTool.h"
 /** ViewController基类 */
-#import "LXqBaseViewController.h"
+//#import "LXqBaseViewController.h"
 
 
 

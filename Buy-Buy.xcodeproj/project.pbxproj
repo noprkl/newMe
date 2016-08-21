@@ -174,8 +174,7 @@
 				0406FAA21D6848B700292722 /* HttpTool.m */,
 				0406FAA41D68499500292722 /* LXqHTTPTool.h */,
 				0406FAA51D68499500292722 /* LXqHTTPTool.m */,
-				0406FAA71D6853EA00292722 /* LXqBaseViewController.h */,
-				0406FAA81D6853EA00292722 /* LXqBaseViewController.m */,
+				0406FAB81D69394900292722 /* 基类 */,
 				0406FAAA1D68544E00292722 /* 类别 */,
 			);
 			name = "工具类";
@@ -202,6 +201,15 @@
 				0406FA9F1D6753AD00292722 /* NSAttributedString+LXqAttributeString.m */,
 			);
 			name = "类别";
+			sourceTree = "<group>";
+		};
+		0406FAB81D69394900292722 /* 基类 */ = {
+			isa = PBXGroup;
+			children = (
+				0406FAA71D6853EA00292722 /* LXqBaseViewController.h */,
+				0406FAA81D6853EA00292722 /* LXqBaseViewController.m */,
+			);
+			name = "基类";
 			sourceTree = "<group>";
 		};
 		041CBC881D6723D000D73FC4 /* 登录View */ = {
@@ -307,8 +315,8 @@
 			isa = PBXGroup;
 			children = (
 				04AEED321D6599F200B653CB /* 个人界面 */,
-				04AEED281D65967F00B653CB /* 注册view */,
 				041CBC881D6723D000D73FC4 /* 登录View */,
+				04AEED281D65967F00B653CB /* 注册view */,
 			);
 			name = "我";
 			sourceTree = "<group>";
@@ -350,10 +358,10 @@
 			children = (
 				046E34F31D645B2300003B08 /* LXqMyViewController.h */,
 				046E34F41D645B2300003B08 /* LXqMyViewController.m */,
-				04AEED221D65474F00B653CB /* LXqRegisteViewController.h */,
-				04AEED231D65474F00B653CB /* LXqRegisteViewController.m */,
 				04AEED1E1D6546F700B653CB /* LXqLoginViewController.h */,
 				04AEED1F1D6546F700B653CB /* LXqLoginViewController.m */,
+				04AEED221D65474F00B653CB /* LXqRegisteViewController.h */,
+				04AEED231D65474F00B653CB /* LXqRegisteViewController.m */,
 				04AEED2F1D65975600B653CB /* LXqCheckPhoneViewController.h */,
 				04AEED301D65975600B653CB /* LXqCheckPhoneViewController.m */,
 			);
