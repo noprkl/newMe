@@ -52,6 +52,21 @@
     return _checkView;;
 }
 #pragma mark - 网络请求
+//得到验证码
+- (void)postGetCoderNumber
+{
+    NSDictionary *parame = @{
+                             @"MemberId":self.userInfo[@"userPhoneNumber"]
+                             };
+    [self postRequestWithPath:@"appMember/createCode.do" params:parame success:^(id successJson) {
+        
+        //重新计时
+        [self.checkView timeLast];
+        
+    } error:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
+}
 //注册请求
 - (void)getRegisteRequest:(NSString *)coderNumber
 {
@@ -74,33 +89,45 @@
                              };
     
     [self getRequestWithPath:@"appMember/appRegistration.do" params:parame success:^(id successJson) {
-        NSLog(@"%@", successJson);
+        if ([successJson[@"result"] isEqualToString:@"success"]) {
+            [self autoLoginMethod];
+        }else if ([successJson[@"result"] isEqualToString:@"coderError"]){
+
+            [self showToastMessage:@"验证码错误"];
+        }else{
+            NSLog(@"注册失败");
+            [self showToastMessage:@"注册失败"];
+        }
 
     } error:^(NSError *error) {
-        NSLog(@"失败%@", error);
-
+        NSLog(@"登录失败%@", error);
+            [self showToastMessage:@"登录失败"];
     }];
 }
-//得到验证码
-- (void)postGetCoderNumber
+#pragma mark - 自动登录
+- (void)autoLoginMethod
 {
     NSDictionary *parame = @{
-                             @"MemberId":self.userInfo[@"userPhoneNumber"]
+                             @"LoginName":self.userInfo[@"userPhoneNumber"],
+                             @"Lpassword":self.userInfo[@"userPsd"]
                              };
-    [self postRequestWithPath:@"appMember/createCode.do" params:parame success:^(id successJson) {
+    
+    [self getRequestWithPath:@"appMember/appLogin.do" params:parame success:^(id successJson) {
         
-        //重新计时
-        [self.checkView timeLast];
-//        if ([successJson[@"result"] isEqualToString:@"success"]) {
-//            NSLog(@"%@", successJson);
-//            
-//        }else if ([successJson[@"result"] isEqualToString:@"TelephoneExistError"]){
-//            NSLog(@"已被注册");
-//        }
+        if ([successJson[@"result"] isEqualToString:@"0"]) {
+                        [self showToastMessage:@"登录成功"];
+            [[NSUserDefaults standardUserDefaults] setObject:successJson forKey:@"ISLOGIN"];
+            
+            [self performSelector:@selector(popMyViewController) withObject:nil afterDelay:1];
+        }
     } error:^(NSError *error) {
-        NSLog(@"%@", error);
+        NSLog(@"登录失败%@", error);
+        [self showToastMessage:@"登录失败"];
     }];
-
+}
+- (void)popMyViewController
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 #pragma mark - 设置UIBarButtonItem
 - (void)setLeftBarItem

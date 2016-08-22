@@ -6,8 +6,8 @@
 //  Copyright © 2016年 LXq. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "LXqBaseViewController.h"
 
-@interface LXqBuyViewController : UIViewController
+@interface LXqBuyViewController : LXqBaseViewController
 
 @end

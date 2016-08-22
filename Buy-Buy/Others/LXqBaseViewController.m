@@ -9,7 +9,8 @@
 #import "LXqBaseViewController.h"
 #import <UMSocialSnsPlatformManager.h>
 #import <UMSocialAccountManager.h>
-
+#import "UIView+Toast.h"//提示
+#import <SVProgressHUD.h>//菊花标
 @interface LXqBaseViewController ()
 
 @end
@@ -20,32 +21,44 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+
 - (void)getRequestWithPath:(NSString *)path
                     params:(NSDictionary *)params
                    success:(HttpRequestSuccessBlock)returnSuccess
                      error:(HttpRequestErrorBlock)returnError
 {
-   
+    [SVProgressHUD show];
+    
     [LXqHTTPTool getRequestWithPath:path params:params success:^(id successJson) {
-        returnError(successJson);
+        [SVProgressHUD dismiss];
+        returnSuccess(successJson);
     } error:^(NSError *error) {
+        [SVProgressHUD dismiss];
+        [self showToastMessage:@"请检查网络连接"];
         returnError(error);
     }];
 
     
     
 }
+
 - (void)postRequestWithPath:(NSString *)path
                      params:(NSDictionary *)params
                     success:(HttpRequestSuccessBlock)returnSuccess
                       error:(HttpRequestErrorBlock)returnError;
 {
+    [SVProgressHUD show];
     [LXqHTTPTool postRequestWithPath:path params:params success:^(id successJson) {
-        returnError(successJson);
+        [SVProgressHUD dismiss];
+        [self showToastMessage:@"请检查网络连接"];
+        returnSuccess(successJson);
     } error:^(NSError *error) {
+        [SVProgressHUD dismiss];
+        
         returnError(error);
     }];
 }
+
 - (void)QQLoginMethod
 {
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQQ];
@@ -63,6 +76,7 @@
             
         }});
 }
+
 - (void)WXLoginMethod
 {
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession];
@@ -78,6 +92,7 @@
         }
     });
 }
+
 - (void)SinaLoginMethod
 {
     UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToSina];
@@ -94,11 +109,14 @@
             
         }});
 }
+
+- (void)showToastMessage:(NSString *)message
+{
+    [self.view makeToast:message duration:2 position:@"center"];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
 
 @end

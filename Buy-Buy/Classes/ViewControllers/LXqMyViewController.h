@@ -10,4 +10,7 @@
 
 @interface LXqMyViewController : LXqBaseViewController
 
+/** 传入登录得打的信息 */
+@property (strong, nonatomic) NSDictionary *userMessage;
+
 @end

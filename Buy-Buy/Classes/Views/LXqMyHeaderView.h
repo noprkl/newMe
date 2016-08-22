@@ -11,8 +11,8 @@
 typedef void(^RegisteViewBlock)();
 typedef void(^LoginViewBlock)();
 
-/** 调动控件隐藏 */
-typedef void(^ViewHiddenBlock)(SEL action);
+//刷新
+typedef void(^ReloadHeaderBlock)();
 
 @interface LXqMyHeaderView : UIView
 
@@ -20,9 +20,21 @@ typedef void(^ViewHiddenBlock)(SEL action);
 @property (copy, nonatomic) LoginViewBlock loginBlock;
 /** 注册按钮回调 */
 @property (copy, nonatomic) RegisteViewBlock registeBlock;
+/** 刷新header */
+@property (copy, nonatomic) ReloadHeaderBlock reloadBock;
 
-/** 控件隐藏 */
-@property (strong, nonatomic) ViewHiddenBlock hideBlock;
+- (void)viewHiddenMedthod;
 
-//- (void)hideViewMetdod;
+///** 登录按钮 */
+//@property (strong, nonatomic) UIButton *loginBtn;
+///** 注册按钮 */
+//@property (strong, nonatomic) UIButton *regisBtn;
+//
+//登录成功
+/** 头像 */
+@property (strong, nonatomic) UIImageView *iconView;
+/** 用户名 */
+@property (strong, nonatomic) UILabel *userNameLabel;
+/** 等级 */
+@property (strong, nonatomic) UILabel *userLevelLabel;
 @end

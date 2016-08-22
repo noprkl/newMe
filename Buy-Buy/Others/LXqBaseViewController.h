@@ -26,4 +26,8 @@ typedef void(^HttpRequestErrorBlock)(NSError *error);
 - (void)QQLoginMethod;
 - (void)WXLoginMethod;
 - (void)SinaLoginMethod;
+
+/** 提示框 */
+- (void)showToastMessage:(NSString *)message;
+
 @end

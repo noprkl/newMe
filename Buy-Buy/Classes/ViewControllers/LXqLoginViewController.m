@@ -73,21 +73,40 @@
      密码 :Lpassword
      优惠券ID:CouponsId 【可不填】
      */
-    [[NSUserDefaults standardUserDefaults] setObject:@"success" forKey:@"ISLOGIN"];
-    [self.navigationController popViewControllerAnimated:YES];
-
     
     NSDictionary *parame = @{
                              @"LoginName":self.userInfo[@"userPhoneNumber"],
                              @"Lpassword":self.userInfo[@"userPsd"]
                              };
+    
     [self getRequestWithPath:@"appMember/appLogin.do" params:parame success:^(id successJson) {
-        NSLog(@"登录成功%@", successJson);
-        [[NSUserDefaults standardUserDefaults] setObject:successJson forKey:@"ISLOGIN"];
+
+        if ([successJson[@"ErrorMessage"] isEqualToString:@"登陆成功"]) {
+            [self showToastMessage:@"登陆成功"];
+            [[NSUserDefaults standardUserDefaults] setObject:successJson forKey:@"ISLOGIN"];
+            
+            [self performSelector:@selector(popMyViewController) withObject:nil afterDelay:1];
+            //把参数传到tableVC
+            if (_getMessageBlock) {
+                _getMessageBlock(successJson);
+            }
+        }else if ([successJson[@"ErrorMessage"] isEqualToString:@"密码错误"]){
+
+            [self showToastMessage:@"密码错误"];
+        }else if ([successJson[@"ErrorMessage"] isEqualToString:@"用户不存在"]){
+            [self showToastMessage:@"用户不存在"];
+        }else{
+            [self showToastMessage:@"登录失败"];
+        }
         
     } error:^(NSError *error) {
         NSLog(@"登录失败%@", error);
+        [self showToastMessage:@"登录失败"];
     }];
+}
+- (void)popMyViewController
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

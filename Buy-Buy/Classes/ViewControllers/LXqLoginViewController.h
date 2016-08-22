@@ -8,7 +8,11 @@
 
 #import "LXqBaseViewController.h"
 
+typedef void(^GetUserMessageBlock)(NSDictionary *userMessage);
 
 @interface LXqLoginViewController : LXqBaseViewController
+
+/** <#注释#> */
+@property (strong, nonatomic) GetUserMessageBlock getMessageBlock;
 
 @end

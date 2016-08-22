@@ -30,13 +30,12 @@
     LXqHTTPTool *manager = [LXqHTTPTool shareAFNManager];
     
     [manager POST:path parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        if (returnSuccess) {
             returnSuccess(responseObject);
-        }
+    
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        if (returnError) {
+        
             returnError(error);
-        }
+        
         
     }];
 

@@ -8,9 +8,12 @@
 
 #import "LXqMyViewController.h"
 #import "LXqMyTableView.h"
-#import "LXqMyHeaderView.h"
+
 #import "LXqRegisteViewController.h"
 #import "LXqLoginViewController.h"
+
+#import "LXqMyHeaderView.h"
+
 
 @interface LXqMyViewController ()
 
@@ -22,12 +25,19 @@
 @end
 
 @implementation LXqMyViewController
+- (void)setUserMessage:(NSDictionary *)userMessage
+{
+    _userMessage = userMessage;
+    NSLog(@"%@", userMessage);
+    
+    self.headerView.userNameLabel.text = userMessage[@"MemberName"];
+    self.headerView.userLevelLabel.text = userMessage[@"MemberLvl"];
+}
 #pragma mark - 头部
 - (LXqMyHeaderView *)headerView
 {
     if (!_headerView) {
-        _headerView = [[LXqMyHeaderView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_SIZE.width, 150)];
-        
+        _headerView = [[LXqMyHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, 125)];
         //注册按钮跳转
         __weak typeof(self) weakself = self;
         _headerView.registeBlock = ^{
@@ -39,23 +49,23 @@
             LXqLoginViewController *logView = [[LXqLoginViewController alloc] init];
             [weakself.navigationController pushViewController:logView animated:YES];
         };
-        _headerView.hideBlock = ^(SEL action){
-            [weakself performSelector:@selector(action)];
-
-        };
-        
-           }
+    }
     return _headerView;
 }
+
 #pragma mark - table
 - (LXqMyTableView *)tableVew
 {
     if (!_tableVew) {
         _tableVew = [[LXqMyTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    
-        CGRect rect = _tableVew.frame;
-        rect.origin.y = CGRectGetMaxY(self.headerView.frame);
-        _tableVew.frame = rect;
+        
+        _tableVew.tableHeaderView = self.headerView;
+
+        __weak typeof(self) weakself = self;
+        _tableVew.reloadBlock = ^{
+            [weakself reloadView];
+        };
+
     }
     return _tableVew;
 }
@@ -63,16 +73,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor randomColor];
-   
-    [self.view addSubview:self.headerView];
-    [self.view addSubview:self.tableVew];
     
-
+    [self.view addSubview:self.tableVew];
 }
+
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:YES];
+    [super viewWillAppear:animated];
+
+    [self reloadView];
+}
+- (void)reloadView
+{
     [self.tableVew reloadData];
+    [self.headerView viewHiddenMedthod];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -8,6 +8,7 @@
 
 #import "LXqMyHeaderView.h"
 
+
 @interface LXqMyHeaderView ()
 
 /** 登录按钮 */
@@ -16,12 +17,12 @@
 @property (strong, nonatomic) UIButton *regisBtn;
 
 //登录成功
-/** 头像 */
-@property (strong, nonatomic) UIImageView *iconView;
-/** 用户名 */
-@property (strong, nonatomic) UILabel *userNameLabel;
-/** 等级 */
-@property (strong, nonatomic) UILabel *userLevelLabel;
+///** 头像 */
+//@property (strong, nonatomic) UIImageView *iconView;
+///** 用户名 */
+//@property (strong, nonatomic) UILabel *userNameLabel;
+///** 等级 */
+//@property (strong, nonatomic) UILabel *userLevelLabel;
 
 @end
 
@@ -72,7 +73,6 @@
         _iconView.image = [UIImage imageNamed:@"注册界面微博登录 (2)"];
         
         _iconView.hidden = YES;
-//        _iconView.backgroundColor = [UIColor redColor];
     }
     return _iconView;
 }
@@ -81,11 +81,9 @@
 {
     if (!_userNameLabel) {
         _userNameLabel = [[UILabel alloc] init];
-//        _userNameLabel.tintColor = [UIColor whiteColor];
         _userNameLabel.font = [UIFont systemFontOfSize:18];
         _userNameLabel.hidden = YES;
-        _userNameLabel.text = @"userNameLabel";
-//        _userNameLabel.backgroundColor = [UIColor redColor];
+//        _userNameLabel.text = @"userNameLabel";
     }
     return _userNameLabel;
 }
@@ -96,8 +94,6 @@
         _userLevelLabel = [[UILabel alloc] init];
         _userLevelLabel.font = [UIFont systemFontOfSize:18];
         _userLevelLabel.hidden = YES;
-        _userLevelLabel.text = @"userNameLabel";
-//        _userLevelLabel.backgroundColor = [UIColor redColor];
     }
     return _userLevelLabel;
 }
@@ -152,20 +148,31 @@
         make.height.equalTo(20);
     }];
 }
-#pragma mark - 登录成功的空间隐藏
+#pragma mark - 隐藏view
 - (void)viewHiddenMedthod
 {
-    self.loginBtn.hidden = !self.loginBtn.hidden;
-    self.regisBtn.hidden = !self.regisBtn.hidden ;
-    
-    self.iconView.hidden = !self.iconView.hidden;
-    self.userLevelLabel.hidden = !self.userLevelLabel.hidden;
-    self.userNameLabel.hidden = !self.userNameLabel.hidden;
+    NSDictionary *isLogin = [[NSUserDefaults standardUserDefaults] valueForKey:@"ISLOGIN"];
+    if (isLogin.count) {
+        
+        self.loginBtn.hidden = YES;
+        self.regisBtn.hidden = YES;
+        
+        self.iconView.hidden = NO;
+        self.userLevelLabel.hidden = NO;
+        self.userNameLabel.hidden = NO;
+    }else{
+        self.loginBtn.hidden = NO;
+        self.regisBtn.hidden = NO;
+        
+        self.iconView.hidden = YES;
+        self.userLevelLabel.hidden = YES;
+        self.userNameLabel.hidden = YES;
+    }
 }
-- (void)hideViewMetdod
+- (void)hideView
 {
-    if (_hideBlock) {
-        _hideBlock(@selector(viewHiddenMedthod));
+    if (_reloadBock) {
+        _reloadBock();
     }
 }
 @end

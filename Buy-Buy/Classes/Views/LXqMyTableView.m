@@ -9,12 +9,10 @@
 #import "LXqMyTableView.h"
 #import "LXqMyTableModel.h"
 #import "LXqMyTableViewCell.h"
-#import "LXqMyHeaderView.h"
 
 @interface LXqMyTableView ()<UITableViewDataSource, UITableViewDelegate>
 /** 数据源 */
 @property (strong, nonatomic) NSArray *dataArr;
-
 
 
 @end
@@ -26,7 +24,8 @@
       
         self.delegate = self;
         self.dataSource = self;
-        self.bounces = NO;
+//        self.bounces = NO;
+        
     }
     return self;
 }
@@ -34,8 +33,8 @@
 #pragma mark - 代理
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSString *isLogin = [[NSUserDefaults standardUserDefaults] valueForKey:@"ISLOGIN"];
-    if (isLogin) {
+    NSDictionary *isLogin = [[NSUserDefaults standardUserDefaults] valueForKey:@"ISLOGIN"];
+    if (isLogin.count) {
         return self.dataArr.count;
     }
     return 4;
@@ -66,7 +65,11 @@
     return cell;
 }
 
-
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+}
 //cell高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -78,17 +81,7 @@
 {
     return 30;
 }
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//     = [[LXqMyHeaderView alloc] initWithFrame:self.tableHeaderView.bounds];
-//    
-//    header.loginBlock = ^{
-//        NSString *isLogin = [[NSUserDefaults standardUserDefaults] valueForKey:@"ISLOGIN"];
-//        
-//    };
-//    return header;
-//    
-//}
+
 #pragma mark - footer
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
@@ -96,16 +89,15 @@
 }
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    NSString *isLogin = [[NSUserDefaults standardUserDefaults] valueForKey:@"ISLOGIN"];
-    
-    if (isLogin) {
+    NSDictionary *isLogin = [[NSUserDefaults standardUserDefaults] valueForKey:@"ISLOGIN"];
+    NSLog(@"%@", isLogin);
+    if (isLogin.count) {
         UIView *footView = [[UIView alloc] initWithFrame:self.tableFooterView.bounds];
         footView.backgroundColor = KMaginBackGround;
         
         UIButton *esitBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        esitBtn.backgroundColor = [UIColor RGBcolorWithRed:0 green:204 blue:244 alpha:1];
         //退出按钮设置
-        [esitBtn setTitle:@"退出" forState:UIControlStateNormal];
+        [esitBtn setImage:[UIImage imageNamed:@"我的界面退出登录按钮"] forState:UIControlStateNormal];
         [esitBtn addTarget:self action:@selector(esitMedthod) forControlEvents:UIControlEventTouchDown];
         [footView addSubview:esitBtn];
         
@@ -122,7 +114,10 @@
 - (void)esitMedthod
 {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"ISLOGIN"];
-    [self reloadData];
+    
+    if (_reloadBlock) {
+        _reloadBlock();
+    }
 }
 #pragma mark - 数据源加载
 - (NSArray *)dataArr

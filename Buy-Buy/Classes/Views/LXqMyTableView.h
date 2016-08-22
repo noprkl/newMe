@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^ViewHiddenBlock)(SEL);
+typedef void(^ReloadTableViewBlock)();
 
 @interface LXqMyTableView : UITableView
 
-/** 控件隐藏 */
-@property (strong, nonatomic) ViewHiddenBlock hideBlock;
-
+/** 刷新tableview */
+@property (strong, nonatomic) ReloadTableViewBlock reloadBlock;
 @end

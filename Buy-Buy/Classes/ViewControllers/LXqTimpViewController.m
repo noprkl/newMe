@@ -9,11 +9,25 @@
 #import "LXqTimpViewController.h"
 
 @interface LXqTimpViewController ()
-
+/** 放置scrollview */
+@property (strong, nonatomic) UIScrollView *baseScrollview;
+/** 轮播视图 */
+@property (strong, nonatomic) UIScrollView  *scrollView;
+/** 放置按钮 */
+@property (strong, nonatomic) UIView *twoBtnView;
+/** 放置tableView */
+@property (strong, nonatomic) UIView *twoTableView;
 @end
 
 @implementation LXqTimpViewController
-
+- (UIScrollView *)baseScrollview
+{
+    if (!_baseScrollview) {
+        _baseScrollview = [[UIScrollView alloc] init];
+        
+    }
+    return _baseScrollview;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
