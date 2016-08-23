@@ -87,4 +87,16 @@
     
     return [mutableAttStr1 copy];
 }
+
+/** 字符串 (红) */
++ (NSAttributedString *)attributedStringWithRedString:(NSString *)string
+{
+    NSDictionary *dict1 = @{
+                            NSForegroundColorAttributeName:[UIColor RGBcolorWithRed:255 green:91 blue:61 alpha:1]
+                            };
+    NSMutableAttributedString *mutableAttStr1 = [[NSMutableAttributedString alloc] initWithString:string attributes:dict1];
+    
+    return [mutableAttStr1 copy];
+}
+
 @end

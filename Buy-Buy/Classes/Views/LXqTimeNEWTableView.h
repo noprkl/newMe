@@ -1,13 +1,13 @@
 //
-//  LXqNewTableView.h
+//  LXqTimeNEWTableView.h
 //  Buy-Buy
 //
-//  Created by ma c on 16/8/22.
+//  Created by ma c on 16/8/23.
 //  Copyright © 2016年 LXq. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface LXqNewTableView : UITableView
+@interface LXqTimeNEWTableView : UITableView
 
 @end

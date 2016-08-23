@@ -1,24 +1,27 @@
 //
-//  LXqNewTableView.m
+//  LXqTimeNEWTableView.m
 //  Buy-Buy
 //
-//  Created by ma c on 16/8/22.
+//  Created by ma c on 16/8/23.
 //  Copyright © 2016年 LXq. All rights reserved.
 //
 
-#import "LXqNewTableView.h"
+#import "LXqTimeNEWTableView.h"
 
-@interface LXqNewTableView ()<UITableViewDelegate, UITableViewDataSource>
+@interface LXqTimeNEWTableView ()<UITableViewDataSource, UITableViewDelegate>
 
 @end
 
-@implementation LXqNewTableView
+@implementation LXqTimeNEWTableView
+
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
 {
     self = [super initWithFrame:frame style:style];
     if (self) {
         self.delegate = self;
         self.dataSource = self;
+        self.separatorColor = KMLineColor;
+//        self.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         self.bounces = NO;
     }
     return self;
@@ -29,16 +32,17 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellid = @"NewTableCellid";
+    static NSString *cellid = @"NEWTableCellid";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"NewTableCell--%ld", indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"NEWTableCell--%ld", indexPath.row];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 170;
 }
+
 @end

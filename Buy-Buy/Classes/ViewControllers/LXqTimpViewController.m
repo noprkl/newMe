@@ -9,9 +9,9 @@
 #import "LXqTimpViewController.h"
 #import <SDCycleScrollView.h>
 
-
-#import "LXqNewTableView.h"
-#import "LXqPriceTableView.h"
+#import "LXqTimeCenterView.h"
+#import "LXqTimeNEWTableView.h"
+#import "LXqTimeDFSTableView.h"
 
 @interface LXqTimpViewController ()<SDCycleScrollViewDelegate, UIScrollViewDelegate>
 
@@ -20,16 +20,10 @@
 /** 轮播视图 */
 @property (strong, nonatomic) SDCycleScrollView  *cycleScrollView;
 /** 放置按钮的View */
-@property (strong, nonatomic) UIView *twoBtnView;
-/** 新品团购Button */
-@property (strong, nonatomic) UIButton *NewBtn;
-/** 品牌团购 */
-@property (strong, nonatomic) UIButton *PriceBtn;
-/** 放置tableView的View */
-@property (strong, nonatomic) UIView *twoTableView;
+@property (strong, nonatomic) LXqTimeCenterView *centerView;
 /** table1 */
-@property (strong, nonatomic) LXqNewTableView *NewTableView;
-@property (strong, nonatomic) LXqPriceTableView *PriceTableView;
+@property (strong, nonatomic) LXqTimeNEWTableView *NEWTableView;
+@property (strong, nonatomic) LXqTimeDFSTableView *DFSTableView;
 @end
 
 @implementation LXqTimpViewController
@@ -38,8 +32,7 @@
 {
     if (!_baseScrollview) {
         _baseScrollview = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-        _baseScrollview.contentSize = CGSizeMake(0, 1980);
-        _baseScrollview.backgroundColor = [UIColor orangeColor];
+        _baseScrollview.contentSize = CGSizeMake(0, 2100);
         _baseScrollview.delegate = self;
         _baseScrollview.showsVerticalScrollIndicator = NO;
     }
@@ -49,65 +42,65 @@
 {
     if (!_cycleScrollView) {
         _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, 230) delegate:self placeholderImage:[UIImage imageNamed:@"image0"]];
-        _cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
-        _cycleScrollView.autoScrollTimeInterval = 2;
-        
+        _cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
+        _cycleScrollView.autoScrollTimeInterval = 3;
     }
     return _cycleScrollView;
 }
-- (UIView *)twoBtnView
+- (LXqTimeCenterView *)centerView
 {
-    if (!_twoBtnView) {
-        _twoBtnView = [[UIView alloc] initWithFrame:CGRectMake(0, 230, SCREEN_SIZE.width, 50)];
-        [_twoBtnView addSubview:self.NewBtn];
-        [_twoBtnView addSubview:self.PriceBtn];
-    }
-    return _twoBtnView;
-}
-- (UIButton *)NewBtn
-{
-    if (!_NewBtn) {
-        _NewBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_NewBtn setTitle:@"新品团购" forState:UIControlStateNormal];
-        _NewBtn.backgroundColor = [UIColor randomColor];
+    if (!_centerView) {
+        _centerView = [[LXqTimeCenterView alloc] initWithFrame:CGRectMake(0, 230, SCREEN_SIZE.width, 50)];
+        _centerView.backgroundColor = [UIColor whiteColor];
+        __weak typeof(self) weakSelf = self;
+        _centerView.NEWBtnBlock = ^(){
 
-//        [_NewBtn addTarget:self action:@selector(transAnimation) forControlEvents:UIControlEventTouchDown];
-//        _NewBtn.selected = YES;
-    }
-    return _NewBtn;
-}
+            [UIView animateWithDuration:1 animations:^{
+                CGRect NewTableRect = weakSelf.NEWTableView.frame;
+                CGRect PriceTableRect = weakSelf.DFSTableView.frame;
+                NewTableRect.origin.x = 0;
+                PriceTableRect.origin.x = SCREEN_SIZE.width;
+                
+                weakSelf.NEWTableView.frame = NewTableRect;
+                weakSelf.DFSTableView.frame = PriceTableRect;
+            }];
+        };
+        _centerView.DFSBtnBlock = ^(){
+            [UIView animateWithDuration:1 animations:^{
+                CGRect NewTableRect = weakSelf.NEWTableView.frame;
+                CGRect PriceTableRect = weakSelf.DFSTableView.frame;
+                NewTableRect.origin.x = -SCREEN_SIZE.width;
+                PriceTableRect.origin.x = 0;
+                weakSelf.NEWTableView.frame = NewTableRect;
+                weakSelf.DFSTableView.frame = PriceTableRect;
+            }];
 
-- (UIButton *)PriceBtn
-{
-    if (!_PriceBtn) {
-        _PriceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_PriceBtn setTitle:@"品牌团购" forState:UIControlStateNormal];
-        _PriceBtn.backgroundColor = [UIColor randomColor];
-//        [_PriceBtn addTarget:self action:@selector(transAnimation) forControlEvents:UIControlEventTouchDown];
-    }
-    return _PriceBtn;
-}
-#pragma mark - 转场动画
-
-- (LXqNewTableView *)NewTableView
-{
-    if (!_NewTableView) {
-        _NewTableView = [[LXqNewTableView alloc] initWithFrame:CGRectMake(0, 280, SCREEN_SIZE.width, 1700) style:UITableViewStylePlain];
-        _NewTableView.backgroundColor = [UIColor purpleColor];
-        _NewTableView.bounces = NO;
-    }
-    return _NewTableView;
-}
-- (LXqPriceTableView *)PriceTableView
-{
-    if (!_PriceTableView) {
-        _PriceTableView = [[LXqPriceTableView alloc] initWithFrame:CGRectMake(SCREEN_SIZE.width, 280, SCREEN_SIZE.width, 1700) style:UITableViewStylePlain];
-        _PriceTableView.backgroundColor = [UIColor blueColor];
         
-        _PriceTableView.bounces = NO;
+        };
+    }
+    return _centerView;
+}
+
+#pragma mark - 按钮动画
+
+- (LXqTimeNEWTableView *)NEWTableView
+{
+    if (!_NEWTableView) {
+        _NEWTableView = [[LXqTimeNEWTableView alloc] initWithFrame:CGRectMake(0, 280, SCREEN_SIZE.width, 1700) style:UITableViewStylePlain];
+        _NEWTableView.bounces = NO;
+    }
+    return _NEWTableView;
+}
+- (LXqTimeDFSTableView *)DFSTableView
+{
+    if (!_DFSTableView) {
+        _DFSTableView = [[LXqTimeDFSTableView alloc] initWithFrame:CGRectMake(SCREEN_SIZE.width, 280, SCREEN_SIZE.width, 1700) style:UITableViewStylePlain];
+        _DFSTableView.backgroundColor = [UIColor blueColor];
+        
+        _DFSTableView.bounces = NO;
         
     }
-    return _PriceTableView;
+    return _DFSTableView;
 }
 #pragma mark - 方法
 - (void)addSubviews
@@ -115,61 +108,60 @@
     [self.view addSubview:self.baseScrollview];
     [self.baseScrollview addSubview:self.cycleScrollView];
 
-    [self.baseScrollview addSubview:self.NewTableView];
-    [self.baseScrollview addSubview:self.PriceTableView];
+    [self.baseScrollview addSubview:self.NEWTableView];
+    [self.baseScrollview addSubview:self.DFSTableView];
 
-    [self.baseScrollview addSubview:self.twoBtnView];
+    [self.baseScrollview addSubview:self.centerView];
    
     
 }
-#pragma mark - 约束
-- (void)makeConstraints
-{
-    [self.cycleScrollView makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.baseScrollview.top);
-        make.left.equalTo(self.baseScrollview.left);
-        make.width.equalTo(SCREEN_SIZE.width);
-        make.height.equalTo(230);
-    }];
-    [self.NewBtn makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.twoBtnView.top);
-        make.left.equalTo(self.twoBtnView.left);
-        make.bottom.equalTo(self.twoBtnView.bottom);
-        make.right.equalTo(self.twoBtnView.centerX);
-    }];
-    
-    [self.PriceBtn makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.twoBtnView.top);
-        make.right.equalTo(self.twoBtnView.right);
-        make.bottom.equalTo(self.twoBtnView.bottom);
-        make.left.equalTo(self.twoBtnView.centerX);
-    }];
-    
-}
-//按钮停留
+
+#pragma mark
+#pragma mark -  按钮停留
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-   
+    CGRect rect = self.centerView.frame;
+
     if (scrollView.contentOffset.y > 230) {
-        CGRect rect = self.twoBtnView.frame;
         rect.origin.y = scrollView.contentOffset.y;
-        self.twoBtnView.frame = rect;
     }else{
-        CGRect rect = self.twoBtnView.frame;
         rect.origin.y = 230;
-        self.twoBtnView.frame = rect;
     }
-    
+    self.centerView.frame = rect;
+}
+#pragma mark
+#pragma mark - 网络请求
 
-
+- (void)requestData
+{
+    /**
+     URL:http://123.57.141.249:8080/beautalk/appHome/appHome.do 返回数据:List<Map<String,Object>>
+     跳转类型 : RelatedType 无需应用此字段,统一跳转至广告页(含轮播广告位及商品列 表)
+     关联ID(活动ID) : RelatedId
+     图片地址 : ImgView
+     是否有中间页:IfMiddlePage
+     */
+    [self getRequestWithPath:@"appHome/appHome.do" params:nil success:^(id successJson) {
+        NSLog(@"%@", successJson);
+        NSMutableArray *dataArr = [NSMutableArray array];
+        for (NSDictionary *dict in successJson) {
+            NSString *imageUrl = dict[@"ImgView"];
+            [dataArr addObject:imageUrl];
+        }
+        self.cycleScrollView.imageURLStringsGroup = dataArr;
+        
+    } error:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = 0;
     
     [self addSubviews];
-    [self makeConstraints];
+    [self requestData];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

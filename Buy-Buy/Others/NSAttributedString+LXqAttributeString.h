@@ -20,5 +20,7 @@
 + (NSAttributedString *)attributedStringWithString:(NSString *)string;
 /** 字符串（灰）*/
 + (NSAttributedString *)attributedStringWithGrayString:(NSString *)string;
+/** 字符串 (红) */
++ (NSAttributedString *)attributedStringWithRedString:(NSString *)string;
 
 @end

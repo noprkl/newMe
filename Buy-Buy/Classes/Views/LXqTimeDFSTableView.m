@@ -1,25 +1,25 @@
 //
-//  LXqPriceTableView.m
+//  LXqTimeDFSTableView.m
 //  Buy-Buy
 //
-//  Created by ma c on 16/8/22.
+//  Created by ma c on 16/8/23.
 //  Copyright © 2016年 LXq. All rights reserved.
 //
 
-#import "LXqPriceTableView.h"
+#import "LXqTimeDFSTableView.h"
 
-@interface LXqPriceTableView ()<UITableViewDelegate, UITableViewDataSource>
+@interface LXqTimeDFSTableView ()<UITableViewDataSource, UITableViewDelegate>
 
 @end
 
-@implementation LXqPriceTableView
+@implementation LXqTimeDFSTableView
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
 {
     self = [super initWithFrame:frame style:style];
     if (self) {
         self.delegate = self;
         self.dataSource = self;
-        self.bounces = YES;
+        self.bounces = NO;
     }
     return self;
 }
@@ -29,17 +29,18 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellid = @"PriceTableCellid";
+    static NSString *cellid = @"DFSTableCellid";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"PriceTableCell--%ld", indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"DFSTableCell--%ld", indexPath.row];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 170;
 }
+
 
 @end
