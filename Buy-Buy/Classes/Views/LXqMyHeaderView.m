@@ -160,6 +160,9 @@
         self.iconView.hidden = NO;
         self.userLevelLabel.hidden = NO;
         self.userNameLabel.hidden = NO;
+        self.userNameLabel.text = isLogin[@"MemberName"];
+        self.userLevelLabel.text = isLogin[@"MemberLvl"];
+        
     }else{
         self.loginBtn.hidden = NO;
         self.regisBtn.hidden = NO;

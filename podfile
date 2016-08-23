@@ -9,6 +9,7 @@ target 'Buy-Buy' do
    pod 'AFNetworking', '~> 3.1.0'
    pod 'UMengSocialCOM', '~> 5.2.1'
    pod 'SVProgressHUD'
+   pod 'SDCycleScrollView', '~> 1.65'
   # Pods for Buy-Buy
 
   target 'Buy-BuyTests' do

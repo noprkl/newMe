@@ -30,8 +30,7 @@
     _userMessage = userMessage;
     NSLog(@"%@", userMessage);
     
-    self.headerView.userNameLabel.text = userMessage[@"MemberName"];
-    self.headerView.userLevelLabel.text = userMessage[@"MemberLvl"];
+
 }
 #pragma mark - 头部
 - (LXqMyHeaderView *)headerView
