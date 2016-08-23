@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^NEWBtnTouchBlock)();
-typedef void(^DFSBtnTouchBlock)();
+typedef BOOL(^NEWBtnTouchBlock)();
+typedef BOOL(^DFSBtnTouchBlock)();
 
 @interface LXqTimeCenterView : UIView
 /** 新品调用 */
 @property (copy, nonatomic) NEWBtnTouchBlock NEWBtnBlock;
 @property (copy, nonatomic) DFSBtnTouchBlock DFSBtnBlock;
+
+//- (BOOL)BEWBtnSelected:(NEWBtnTouchBlock)NEWBtnBlock;
 @end

@@ -7,13 +7,26 @@
 //
 
 #import "LXqTimeNEWTableView.h"
+#import "LXqTimeNEWTableViewCell.h"
+#import "LXqTimeNEWTableModel.h"
+
+#import <MJExtension.h>
+static NSString *cellid = @"NEWTableCellid";
 
 @interface LXqTimeNEWTableView ()<UITableViewDataSource, UITableViewDelegate>
-
+///** 数据源 */
+//@property (strong, nonatomic) NSArray *dataArr;
 @end
 
 @implementation LXqTimeNEWTableView
 
+- (NSArray *)dataArr
+{
+    if (!_dataArr) {
+        _dataArr = [NSArray array];
+    }
+    return _dataArr;
+}
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
 {
     self = [super initWithFrame:frame style:style];
@@ -21,23 +34,21 @@
         self.delegate = self;
         self.dataSource = self;
         self.separatorColor = KMLineColor;
-//        self.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         self.bounces = NO;
+        [self registerClass:[LXqTimeNEWTableViewCell class] forCellReuseIdentifier:cellid];
+        
     }
     return self;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.dataArr.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellid = @"NEWTableCellid";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
-    }
-    cell.textLabel.text = [NSString stringWithFormat:@"NEWTableCell--%ld", indexPath.row];
+    LXqTimeNEWTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
+    cell.NEWTableModel = self.dataArr[indexPath.row];
+   
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

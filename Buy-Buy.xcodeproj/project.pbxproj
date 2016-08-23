@@ -33,7 +33,6 @@
 		046E35251D649E1B00003B08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E35201D649E1B00003B08 /* main.m */; };
 		046E35261D649E1B00003B08 /* UIColor+LXqRandomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E35221D649E1B00003B08 /* UIColor+LXqRandomColor.m */; };
 		046E35321D64A70300003B08 /* LXqClassCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E35311D64A70300003B08 /* LXqClassCollectionView.m */; };
-		048B5A7A1D6C434400EA8F95 /* LXqTimeDFSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048B5A791D6C434400EA8F95 /* LXqTimeDFSTableViewCell.m */; };
 		04AEED201D6546F700B653CB /* LXqLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AEED1F1D6546F700B653CB /* LXqLoginViewController.m */; };
 		04AEED241D65474F00B653CB /* LXqRegisteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AEED231D65474F00B653CB /* LXqRegisteViewController.m */; };
 		04AEED271D658DA100B653CB /* LXqMyRegisetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AEED261D658DA100B653CB /* LXqMyRegisetView.m */; };
@@ -42,6 +41,9 @@
 		04AEED3B1D66057A00B653CB /* LXqClassCollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AEED3A1D66057A00B653CB /* LXqClassCollectionModel.m */; };
 		04AEED3F1D6605CF00B653CB /* LXqClassCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AEED3E1D6605CF00B653CB /* LXqClassCollectionViewCell.m */; };
 		04AEED411D660A1C00B653CB /* LXqClassCollectionModel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04AEED401D660A1C00B653CB /* LXqClassCollectionModel.plist */; };
+		04E749551D6C4CCA004FB6BA /* LXqTimeNEWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E749541D6C4CCA004FB6BA /* LXqTimeNEWTableViewCell.m */; };
+		04E749581D6C4CF9004FB6BA /* LXqTimeDFSTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E749571D6C4CF9004FB6BA /* LXqTimeDFSTableViewCell.m */; };
+		04E7495B1D6C53C9004FB6BA /* LXqTimeNEWTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E7495A1D6C53C9004FB6BA /* LXqTimeNEWTableModel.m */; };
 		04FD08501D6C275A004C1AAA /* LXqTimeNEWTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FD084F1D6C275A004C1AAA /* LXqTimeNEWTableView.m */; };
 		04FD08531D6C2790004C1AAA /* LXqTimeDFSTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FD08521D6C2790004C1AAA /* LXqTimeDFSTableView.m */; };
 		04FD08561D6C27F2004C1AAA /* LXqTimeCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FD08551D6C27F2004C1AAA /* LXqTimeCenterView.m */; };
@@ -120,8 +122,6 @@
 		046E352D1D64A30A00003B08 /* LXqHeaderFile.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXqHeaderFile.pch; sourceTree = "<group>"; };
 		046E35301D64A70300003B08 /* LXqClassCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqClassCollectionView.h; sourceTree = "<group>"; };
 		046E35311D64A70300003B08 /* LXqClassCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqClassCollectionView.m; sourceTree = "<group>"; };
-		048B5A781D6C434400EA8F95 /* LXqTimeDFSTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqTimeDFSTableViewCell.h; sourceTree = "<group>"; };
-		048B5A791D6C434400EA8F95 /* LXqTimeDFSTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqTimeDFSTableViewCell.m; sourceTree = "<group>"; };
 		04AEED1E1D6546F700B653CB /* LXqLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqLoginViewController.h; sourceTree = "<group>"; };
 		04AEED1F1D6546F700B653CB /* LXqLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqLoginViewController.m; sourceTree = "<group>"; };
 		04AEED221D65474F00B653CB /* LXqRegisteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqRegisteViewController.h; sourceTree = "<group>"; };
@@ -137,6 +137,12 @@
 		04AEED3D1D6605CF00B653CB /* LXqClassCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqClassCollectionViewCell.h; sourceTree = "<group>"; };
 		04AEED3E1D6605CF00B653CB /* LXqClassCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqClassCollectionViewCell.m; sourceTree = "<group>"; };
 		04AEED401D660A1C00B653CB /* LXqClassCollectionModel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = LXqClassCollectionModel.plist; sourceTree = "<group>"; };
+		04E749531D6C4CCA004FB6BA /* LXqTimeNEWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqTimeNEWTableViewCell.h; sourceTree = "<group>"; };
+		04E749541D6C4CCA004FB6BA /* LXqTimeNEWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqTimeNEWTableViewCell.m; sourceTree = "<group>"; };
+		04E749561D6C4CF9004FB6BA /* LXqTimeDFSTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqTimeDFSTableViewCell.h; sourceTree = "<group>"; };
+		04E749571D6C4CF9004FB6BA /* LXqTimeDFSTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqTimeDFSTableViewCell.m; sourceTree = "<group>"; };
+		04E749591D6C53C9004FB6BA /* LXqTimeNEWTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqTimeNEWTableModel.h; sourceTree = "<group>"; };
+		04E7495A1D6C53C9004FB6BA /* LXqTimeNEWTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqTimeNEWTableModel.m; sourceTree = "<group>"; };
 		04FD084E1D6C275A004C1AAA /* LXqTimeNEWTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqTimeNEWTableView.h; sourceTree = "<group>"; };
 		04FD084F1D6C275A004C1AAA /* LXqTimeNEWTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqTimeNEWTableView.m; sourceTree = "<group>"; };
 		04FD08511D6C2790004C1AAA /* LXqTimeDFSTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqTimeDFSTableView.h; sourceTree = "<group>"; };
@@ -315,6 +321,7 @@
 			children = (
 				04AEED381D66055000B653CB /* 分类 */,
 				046E352E1D64A5E600003B08 /* 我 */,
+				04E7495C1D6C53D1004FB6BA /* 限时特购 */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -387,8 +394,8 @@
 			children = (
 				04FD084E1D6C275A004C1AAA /* LXqTimeNEWTableView.h */,
 				04FD084F1D6C275A004C1AAA /* LXqTimeNEWTableView.m */,
-				048B5A781D6C434400EA8F95 /* LXqTimeDFSTableViewCell.h */,
-				048B5A791D6C434400EA8F95 /* LXqTimeDFSTableViewCell.m */,
+				04E749531D6C4CCA004FB6BA /* LXqTimeNEWTableViewCell.h */,
+				04E749541D6C4CCA004FB6BA /* LXqTimeNEWTableViewCell.m */,
 			);
 			name = LXqTimeNEWTableView;
 			sourceTree = "<group>";
@@ -398,6 +405,8 @@
 			children = (
 				04FD08511D6C2790004C1AAA /* LXqTimeDFSTableView.h */,
 				04FD08521D6C2790004C1AAA /* LXqTimeDFSTableView.m */,
+				04E749561D6C4CF9004FB6BA /* LXqTimeDFSTableViewCell.h */,
+				04E749571D6C4CF9004FB6BA /* LXqTimeDFSTableViewCell.m */,
 			);
 			name = LXqTimeDFSTableView;
 			sourceTree = "<group>";
@@ -487,6 +496,15 @@
 				0406FAAC1D68598800292722 /* test.plist */,
 			);
 			name = "分类";
+			sourceTree = "<group>";
+		};
+		04E7495C1D6C53D1004FB6BA /* 限时特购 */ = {
+			isa = PBXGroup;
+			children = (
+				04E749591D6C53C9004FB6BA /* LXqTimeNEWTableModel.h */,
+				04E7495A1D6C53C9004FB6BA /* LXqTimeNEWTableModel.m */,
+			);
+			name = "限时特购";
 			sourceTree = "<group>";
 		};
 		08DA341F63731D3A7667A093 /* Frameworks */ = {
@@ -782,11 +800,12 @@
 				046E35051D6477C700003B08 /* LXqMyTableView.m in Sources */,
 				046E35161D648B8500003B08 /* LXqMyTableViewCell.m in Sources */,
 				046E34FB1D645B2300003B08 /* LXqTimpViewController.m in Sources */,
-				048B5A7A1D6C434400EA8F95 /* LXqTimeDFSTableViewCell.m in Sources */,
 				04AEED241D65474F00B653CB /* LXqRegisteViewController.m in Sources */,
 				0406FAA01D6753AD00292722 /* NSAttributedString+LXqAttributeString.m in Sources */,
 				046E35231D649E1B00003B08 /* AppDelegate.m in Sources */,
 				04AEED2B1D65971B00B653CB /* LXqCheckPhoneView.m in Sources */,
+				04E7495B1D6C53C9004FB6BA /* LXqTimeNEWTableModel.m in Sources */,
+				04E749551D6C4CCA004FB6BA /* LXqTimeNEWTableViewCell.m in Sources */,
 				04FD08501D6C275A004C1AAA /* LXqTimeNEWTableView.m in Sources */,
 				046E350E1D64796400003B08 /* LXqMyHeaderView.m in Sources */,
 				0406FAA91D6853EA00292722 /* LXqBaseViewController.m in Sources */,
@@ -800,6 +819,7 @@
 				04AEED271D658DA100B653CB /* LXqMyRegisetView.m in Sources */,
 				04AEED3B1D66057A00B653CB /* LXqClassCollectionModel.m in Sources */,
 				046E35111D647AD200003B08 /* LXqMyTableModel.m in Sources */,
+				04E749581D6C4CF9004FB6BA /* LXqTimeDFSTableViewCell.m in Sources */,
 				041CBC8E1D67244800D73FC4 /* LXqMyLoginView.m in Sources */,
 				04AEED3F1D6605CF00B653CB /* LXqClassCollectionViewCell.m in Sources */,
 				046E35261D649E1B00003B08 /* UIColor+LXqRandomColor.m in Sources */,

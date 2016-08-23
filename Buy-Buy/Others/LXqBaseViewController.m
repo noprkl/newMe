@@ -29,13 +29,14 @@
 {
     [SVProgressHUD show];
     
-    [LXqHTTPTool getRequestWithPath:path params:params success:^(id successJson) {
-        [SVProgressHUD dismiss];
-        returnSuccess(successJson);
-    } error:^(NSError *error) {
-        [SVProgressHUD dismiss];
-        [self showToastMessage:@"请检查网络连接"];
-        returnError(error);
+    [LXqHTTPTool getRequestWithPath:path
+                             params:params
+                            success:^(id successJson) {
+                                [SVProgressHUD dismiss];
+                                returnSuccess(successJson);
+                            } error:^(NSError *error) {                                [SVProgressHUD dismiss];
+                                [self showToastMessage:@"请检查网络连接"];
+                                returnError(error);
     }];
 
     
@@ -48,14 +49,16 @@
                       error:(HttpRequestErrorBlock)returnError;
 {
     [SVProgressHUD show];
-    [LXqHTTPTool postRequestWithPath:path params:params success:^(id successJson) {
-        [SVProgressHUD dismiss];
-        [self showToastMessage:@"请检查网络连接"];
-        returnSuccess(successJson);
-    } error:^(NSError *error) {
-        [SVProgressHUD dismiss];
-        
-        returnError(error);
+    [LXqHTTPTool postRequestWithPath:path
+                              params:params
+                             success:^(id successJson) {
+                                 [SVProgressHUD dismiss];
+                                 returnSuccess(successJson);
+                             }
+                               error:^(NSError *error) {
+                                   [SVProgressHUD dismiss];
+                                   [self showToastMessage:@"请检查网络连接"];
+                                   returnError(error);
     }];
 }
 
@@ -71,9 +74,6 @@
             
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:snsPlatform.platformName];
             NSLog(@"\nusername = %@,\n usid = %@,\n token = %@ iconUrl = %@,\n unionId = %@,\n thirdPlatformUserProfile = %@,\n thirdPlatformResponse = %@ \n, message = %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL, snsAccount.unionId, response.thirdPlatformUserProfile, response.thirdPlatformResponse, response.message);
-            
-            NSLog(@"QQ登录");
-            
         }});
 }
 
@@ -87,8 +87,6 @@
             
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:snsPlatform.platformName];
             NSLog(@"\nusername = %@,\n usid = %@,\n token = %@ iconUrl = %@,\n unionId = %@,\n thirdPlatformUserProfile = %@,\n thirdPlatformResponse = %@ \n, message = %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL, snsAccount.unionId, response.thirdPlatformUserProfile, response.thirdPlatformResponse, response.message);
-            NSLog(@"WX登录");
-            
         }
     });
 }
@@ -105,8 +103,6 @@
             
             UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:snsPlatform.platformName];
             NSLog(@"\nusername = %@,\n usid = %@,\n token = %@ iconUrl = %@,\n unionId = %@,\n thirdPlatformUserProfile = %@,\n thirdPlatformResponse = %@ \n, message = %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL, snsAccount.unionId, response.thirdPlatformUserProfile, response.thirdPlatformResponse, response.message);
-            NSLog(@"sina登录");
-            
         }});
 }
 

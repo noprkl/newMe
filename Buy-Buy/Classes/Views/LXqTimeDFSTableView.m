@@ -7,6 +7,9 @@
 //
 
 #import "LXqTimeDFSTableView.h"
+#import "LXqTimeDFSTableViewCell.h"
+
+static NSString *cellid = @"DFSTableCellid";
 
 @interface LXqTimeDFSTableView ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -20,6 +23,7 @@
         self.delegate = self;
         self.dataSource = self;
         self.bounces = NO;
+        [self registerClass:[LXqTimeDFSTableViewCell class] forCellReuseIdentifier:cellid];
     }
     return self;
 }
@@ -29,12 +33,10 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellid = @"DFSTableCellid";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellid];
-    }
+    LXqTimeDFSTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
+  
     cell.textLabel.text = [NSString stringWithFormat:@"DFSTableCell--%ld", indexPath.row];
+    
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

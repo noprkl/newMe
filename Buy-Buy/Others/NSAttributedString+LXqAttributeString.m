@@ -11,7 +11,8 @@
 #import "NSAttributedString+LXqAttributeString.h"
 
 @implementation NSAttributedString (LXqAttributeString)
-
+#pragma mark
+#pragma mark - 组合字符串富文本
 /** 数字(蓝)+字符串（灰） */
 + (NSAttributedString *)attributedStringWithNumber:(NSInteger)num string:(NSString *)string
 {
@@ -66,6 +67,27 @@
 
     return [mutableAttStr1 copy];
 }
+/** 字符串（红）+ 字符串（灰）*/
++ (NSAttributedString *)attributedStringWithRedString:(NSString *)string1 grayString:(NSString *)string2
+{
+    
+    NSDictionary *dict1 = @{
+                            NSForegroundColorAttributeName:[UIColor RGBcolorWithRed:255 green:91 blue:61 alpha:1],
+                            NSFontAttributeName:[UIFont systemFontOfSize:16]
+                            };
+    NSMutableAttributedString *mutableAttStr1 = [[NSMutableAttributedString alloc] initWithString:string1 attributes:dict1];
+    
+    NSDictionary *dict2 = @{
+                            NSForegroundColorAttributeName:[UIColor grayColor],
+                            NSFontAttributeName:[UIFont systemFontOfSize:13]
+                            };
+    NSMutableAttributedString *mutableAttStr2 = [[NSMutableAttributedString alloc] initWithString:string2 attributes:dict2];
+    [mutableAttStr1 insertAttributedString:mutableAttStr2 atIndex:string1.length];
+    
+    return [mutableAttStr1 copy];
+}
+#pragma mark
+#pragma mark - 组合字符串富文本
 /** 字符串（蓝） */
 + (NSAttributedString *)attributedStringWithString:(NSString *)string
 {
@@ -98,5 +120,6 @@
     
     return [mutableAttStr1 copy];
 }
+
 
 @end

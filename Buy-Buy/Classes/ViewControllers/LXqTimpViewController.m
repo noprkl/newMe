@@ -8,10 +8,13 @@
 
 #import "LXqTimpViewController.h"
 #import <SDCycleScrollView.h>
+#import <MJExtension.h>
 
 #import "LXqTimeCenterView.h"
 #import "LXqTimeNEWTableView.h"
 #import "LXqTimeDFSTableView.h"
+
+#import "LXqTimeNEWTableModel.h"
 
 @interface LXqTimpViewController ()<SDCycleScrollViewDelegate, UIScrollViewDelegate>
 
@@ -24,6 +27,16 @@
 /** table1 */
 @property (strong, nonatomic) LXqTimeNEWTableView *NEWTableView;
 @property (strong, nonatomic) LXqTimeDFSTableView *DFSTableView;
+
+//接收的数据
+/** <#注释#> */
+//@property (strong, nonatomic) lxq *<#name#>;
+
+/** newtable数据 */
+@property (strong, nonatomic) NSArray *NEWArr;
+/** dfstable数据 */
+@property (strong, nonatomic) NSArray *DFSArr;
+
 @end
 
 @implementation LXqTimpViewController
@@ -38,6 +51,7 @@
     }
     return _baseScrollview;
 }
+
 - (SDCycleScrollView *)cycleScrollView
 {
     if (!_cycleScrollView) {
@@ -47,6 +61,7 @@
     }
     return _cycleScrollView;
 }
+
 - (LXqTimeCenterView *)centerView
 {
     if (!_centerView) {
@@ -64,6 +79,8 @@
                 weakSelf.NEWTableView.frame = NewTableRect;
                 weakSelf.DFSTableView.frame = PriceTableRect;
             }];
+            return YES;
+
         };
         _centerView.DFSBtnBlock = ^(){
             [UIView animateWithDuration:1 animations:^{
@@ -74,65 +91,58 @@
                 weakSelf.NEWTableView.frame = NewTableRect;
                 weakSelf.DFSTableView.frame = PriceTableRect;
             }];
-
-        
+            return YES;
         };
     }
     return _centerView;
 }
 
-#pragma mark - 按钮动画
-
 - (LXqTimeNEWTableView *)NEWTableView
 {
     if (!_NEWTableView) {
         _NEWTableView = [[LXqTimeNEWTableView alloc] initWithFrame:CGRectMake(0, 280, SCREEN_SIZE.width, 1700) style:UITableViewStylePlain];
-        _NEWTableView.bounces = NO;
     }
     return _NEWTableView;
 }
+
 - (LXqTimeDFSTableView *)DFSTableView
 {
     if (!_DFSTableView) {
         _DFSTableView = [[LXqTimeDFSTableView alloc] initWithFrame:CGRectMake(SCREEN_SIZE.width, 280, SCREEN_SIZE.width, 1700) style:UITableViewStylePlain];
-        _DFSTableView.backgroundColor = [UIColor blueColor];
-        
-        _DFSTableView.bounces = NO;
-        
     }
     return _DFSTableView;
 }
-#pragma mark - 方法
+- (NSArray *)NEWArr
+{
+    if (!_NEWArr) {
+        _NEWArr = [NSArray array];
+    }
+    return _NEWArr;
+}
+- (NSArray *)DFSArr
+{
+    if (!_DFSArr) {
+        _DFSArr = [NSArray array];
+    }
+    return _DFSArr;
+}
+#pragma mark - 添加视图
 - (void)addSubviews
 {
     [self.view addSubview:self.baseScrollview];
     [self.baseScrollview addSubview:self.cycleScrollView];
-
+    
     [self.baseScrollview addSubview:self.NEWTableView];
     [self.baseScrollview addSubview:self.DFSTableView];
-
+    
     [self.baseScrollview addSubview:self.centerView];
    
-    
+   
 }
 
-#pragma mark
-#pragma mark -  按钮停留
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    CGRect rect = self.centerView.frame;
-
-    if (scrollView.contentOffset.y > 230) {
-        rect.origin.y = scrollView.contentOffset.y;
-    }else{
-        rect.origin.y = 230;
-    }
-    self.centerView.frame = rect;
-}
-#pragma mark
 #pragma mark - 网络请求
-
-- (void)requestData
+#pragma mark  轮播图片请求
+- (void)requestCycleScrollData
 {
     /**
      URL:http://123.57.141.249:8080/beautalk/appHome/appHome.do 返回数据:List<Map<String,Object>>
@@ -141,27 +151,69 @@
      图片地址 : ImgView
      是否有中间页:IfMiddlePage
      */
-    [self getRequestWithPath:@"appHome/appHome.do" params:nil success:^(id successJson) {
-        NSLog(@"%@", successJson);
-        NSMutableArray *dataArr = [NSMutableArray array];
-        for (NSDictionary *dict in successJson) {
-            NSString *imageUrl = dict[@"ImgView"];
-            [dataArr addObject:imageUrl];
-        }
-        self.cycleScrollView.imageURLStringsGroup = dataArr;
-        
-    } error:^(NSError *error) {
-        NSLog(@"%@", error);
+    [self getRequestWithPath:@"appHome/appHome.do"
+                      params:nil success:^(id successJson) {
+                          NSMutableArray *dataArr = [NSMutableArray array];
+                          for (NSDictionary *dict in successJson) {
+                              NSString *imageUrl = dict[@"ImgView"];
+                              [dataArr addObject:imageUrl];
+                          }
+                          self.cycleScrollView.imageURLStringsGroup = dataArr;
+                      } error:^(NSError *error) {
+                          NSLog(@"%@", error);
     }];
 }
+
+#pragma mark  NEWTabel数据请求
+- (void)requestTableViewData
+{
+    /**
+     htp://123.57.141.249:8080/beautalk/appActivity/appHomeGoodsList.do 返回数据:List<Map<String,Object>>
+     商品ID : GoodsId
+     国家名称 : CountryName
+     国旗图片 : CountryImg
+     缩略图 :ImgView
+     购买数量 : BuyCount
+     折扣 :Discount
+     商品名称:Title 外币价格:ForeignPrice 人民币价格:Price
+     其他价格 :OtherPrice 活动时间(距离结束时间) :RestTime
+     */
+    [self getRequestWithPath:@"appActivity/appHomeGoodsList.do"
+                      params:nil
+                     success:^(id successJson) {
+                         if (successJson) {
+                             self.NEWTableView.dataArr = [LXqTimeNEWTableModel mj_objectArrayWithKeyValuesArray:successJson];
+                             [self.NEWTableView reloadData];
+                         }
+                     } error:^(NSError *error) {
+                         NSLog(@"%@", error);
+
+    }];
+}
+#pragma mark
+#pragma mark - 生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = 0;
     
     [self addSubviews];
-    [self requestData];
+    [self requestCycleScrollData];
+    [self requestTableViewData];
 }
 
+#pragma mark
+#pragma mark -  scrollView代理
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGRect rect = self.centerView.frame;
+    
+    if (scrollView.contentOffset.y > 230) {
+        rect.origin.y = scrollView.contentOffset.y;
+    }else{
+        rect.origin.y = 230;
+    }
+    self.centerView.frame = rect;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

@@ -54,30 +54,44 @@
 - (UIButton *)NEWBtn
 {
     if (!_NEWBtn) {
-        _NEWBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+        _NEWBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         //图片
-        [_NEWBtn setImage:[UIImage imageNamed:@"限时特卖界面新品团购图标"] forState:UIControlStateNormal];
+        [_NEWBtn setImage:[UIImage imageNamed:@"新品团未选中"] forState:UIControlStateNormal];
+        [_NEWBtn setImage:[UIImage imageNamed:@"新品团选中"] forState:UIControlStateSelected];
+        _NEWBtn.selected = YES;
+        
         //字体
-        NSAttributedString *attribute = [NSAttributedString attributedStringWithRedString:@"新品团购"];
+        _NEWBtn.titleLabel.font = [UIFont systemFontOfSize:16];
         [_NEWBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 15, 0, 0)];
-        [_NEWBtn setAttributedTitle:attribute forState:UIControlStateNormal];
+        
+        NSAttributedString *attributeNormal = [NSAttributedString attributedStringWithString:@"新品团购"];
+        [_NEWBtn setAttributedTitle:attributeNormal forState:UIControlStateNormal];
+        
+        NSAttributedString *attributeSelect = [NSAttributedString attributedStringWithRedString:@"新品团购"];
+        [_NEWBtn setAttributedTitle:attributeSelect forState:UIControlStateSelected];
         
         [_NEWBtn addTarget:self action:@selector(showNewTableView) forControlEvents:UIControlEventTouchDown];
+        
     }
     return _NEWBtn;
 }
 - (UIButton *)DFSBtn
 {
     if (!_DFSBtn) {
-        _DFSBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+        _DFSBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         //图片
-        [_DFSBtn setImage:[UIImage imageNamed:@"限时特卖界面品牌团购图标"] forState:UIControlStateNormal];
+        [_DFSBtn setImage:[UIImage imageNamed:@"品牌团未选中"] forState:UIControlStateNormal];
+        [_DFSBtn setImage:[UIImage imageNamed:@"品牌团选中"] forState:UIControlStateSelected];
+        _DFSBtn.selected = NO;
         //字体
-        NSAttributedString *attribute = [NSAttributedString attributedStringWithString:@"品牌团购"];
         _DFSBtn.titleLabel.font = [UIFont systemFontOfSize:16];
         [_DFSBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 15, 0, 0)];
-        [_DFSBtn setAttributedTitle:attribute forState:UIControlStateNormal];
         
+        NSAttributedString *attributeNormal = [NSAttributedString attributedStringWithString:@"品牌团购"];
+        [_DFSBtn setAttributedTitle:attributeNormal forState:UIControlStateNormal];
+        
+        NSAttributedString *attributeSelect = [NSAttributedString attributedStringWithRedString:@"品牌团购"];
+        [_DFSBtn setAttributedTitle:attributeSelect forState:UIControlStateSelected];
         [_DFSBtn addTarget:self action:@selector(showDFSTableView) forControlEvents:UIControlEventTouchDown];
     }
     return _DFSBtn;
@@ -87,13 +101,24 @@
 - (void)showNewTableView
 {
     if (_NEWBtnBlock) {
-        _NEWBtnBlock();
+//        _NEWBtnBlock();
+
+        BOOL select = _NEWBtnBlock();
+        if (select) {
+            self.NEWBtn.selected = YES;
+            self.DFSBtn.selected = NO;
+        }
     }
 }
 - (void)showDFSTableView
 {
     if (_DFSBtnBlock) {
-        _DFSBtnBlock();
+//        _DFSBtnBlock();
+       BOOL select = _DFSBtnBlock();
+        if (select) {
+            self.NEWBtn.selected = NO;
+            self.DFSBtn.selected = YES;
+        }
     }
 }
 @end
