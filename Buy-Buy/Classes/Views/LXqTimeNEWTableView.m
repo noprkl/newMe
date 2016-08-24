@@ -8,7 +8,6 @@
 
 #import "LXqTimeNEWTableView.h"
 #import "LXqTimeNEWTableViewCell.h"
-#import "LXqTimeNEWTableModel.h"
 
 #import <MJExtension.h>
 static NSString *cellid = @"NEWTableCellid";
@@ -55,5 +54,10 @@ static NSString *cellid = @"NEWTableCellid";
 {
     return 170;
 }
-
+#pragma mark
+#pragma mark - 代理
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 @end

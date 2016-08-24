@@ -70,19 +70,20 @@
 /** 字符串（红）+ 字符串（灰）*/
 + (NSAttributedString *)attributedStringWithRedString:(NSString *)string1 grayString:(NSString *)string2
 {
-    
+    NSString *string = [@"¥" stringByAppendingString:string1];
     NSDictionary *dict1 = @{
                             NSForegroundColorAttributeName:[UIColor RGBcolorWithRed:255 green:91 blue:61 alpha:1],
-                            NSFontAttributeName:[UIFont systemFontOfSize:16]
+                            NSFontAttributeName:[UIFont boldSystemFontOfSize:18]
                             };
-    NSMutableAttributedString *mutableAttStr1 = [[NSMutableAttributedString alloc] initWithString:string1 attributes:dict1];
+    NSMutableAttributedString *mutableAttStr1 = [[NSMutableAttributedString alloc] initWithString:string attributes:dict1];
     
     NSDictionary *dict2 = @{
                             NSForegroundColorAttributeName:[UIColor grayColor],
-                            NSFontAttributeName:[UIFont systemFontOfSize:13]
+                            NSFontAttributeName:[UIFont systemFontOfSize:13],
+                            NSStrikethroughStyleAttributeName:@(2)
                             };
     NSMutableAttributedString *mutableAttStr2 = [[NSMutableAttributedString alloc] initWithString:string2 attributes:dict2];
-    [mutableAttStr1 insertAttributedString:mutableAttStr2 atIndex:string1.length];
+    [mutableAttStr1 insertAttributedString:mutableAttStr2 atIndex:string.length];
     
     return [mutableAttStr1 copy];
 }

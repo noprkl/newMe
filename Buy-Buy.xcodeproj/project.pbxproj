@@ -16,6 +16,7 @@
 		0406FAB61D68790400292722 /* LXqClassCollectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406FAB51D68790400292722 /* LXqClassCollectionHeaderView.m */; };
 		041CBC8E1D67244800D73FC4 /* LXqMyLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041CBC8D1D67244800D73FC4 /* LXqMyLoginView.m */; };
 		042E95271D6B12BD00EDE406 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E95261D6B12BD00EDE406 /* UIView+Toast.m */; };
+		045416A81D6D1C020051174C /* LXqTimeDFSTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 045416A71D6D1C020051174C /* LXqTimeDFSTableModel.m */; };
 		046E34681D63FF3B00003B08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 046E34671D63FF3B00003B08 /* Assets.xcassets */; };
 		046E346B1D63FF3B00003B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046E34691D63FF3B00003B08 /* LaunchScreen.storyboard */; };
 		046E34761D63FF3B00003B08 /* Buy_BuyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34751D63FF3B00003B08 /* Buy_BuyTests.m */; };
@@ -87,6 +88,8 @@
 		041CBC8D1D67244800D73FC4 /* LXqMyLoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqMyLoginView.m; sourceTree = "<group>"; };
 		042E95251D6B12BD00EDE406 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		042E95261D6B12BD00EDE406 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
+		045416A61D6D1C020051174C /* LXqTimeDFSTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqTimeDFSTableModel.h; sourceTree = "<group>"; };
+		045416A71D6D1C020051174C /* LXqTimeDFSTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqTimeDFSTableModel.m; sourceTree = "<group>"; };
 		046E34581D63FF3B00003B08 /* Buy-Buy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Buy-Buy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		046E34671D63FF3B00003B08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		046E346A1D63FF3B00003B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -503,6 +506,8 @@
 			children = (
 				04E749591D6C53C9004FB6BA /* LXqTimeNEWTableModel.h */,
 				04E7495A1D6C53C9004FB6BA /* LXqTimeNEWTableModel.m */,
+				045416A61D6D1C020051174C /* LXqTimeDFSTableModel.h */,
+				045416A71D6D1C020051174C /* LXqTimeDFSTableModel.m */,
 			);
 			name = "限时特购";
 			sourceTree = "<group>";
@@ -799,6 +804,7 @@
 				04FD08561D6C27F2004C1AAA /* LXqTimeCenterView.m in Sources */,
 				046E35051D6477C700003B08 /* LXqMyTableView.m in Sources */,
 				046E35161D648B8500003B08 /* LXqMyTableViewCell.m in Sources */,
+				045416A81D6D1C020051174C /* LXqTimeDFSTableModel.m in Sources */,
 				046E34FB1D645B2300003B08 /* LXqTimpViewController.m in Sources */,
 				04AEED241D65474F00B653CB /* LXqRegisteViewController.m in Sources */,
 				0406FAA01D6753AD00292722 /* NSAttributedString+LXqAttributeString.m in Sources */,

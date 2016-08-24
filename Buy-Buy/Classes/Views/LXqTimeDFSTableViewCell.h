@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LXqTimeDFSTableModel.h"
 
 @interface LXqTimeDFSTableViewCell : UITableViewCell
 
+/** 模型 */
+@property (strong, nonatomic) LXqTimeDFSTableModel *DFSModel;
 @end

@@ -15,6 +15,7 @@
 #import "LXqTimeDFSTableView.h"
 
 #import "LXqTimeNEWTableModel.h"
+#import "LXqTimeDFSTableModel.h"
 
 @interface LXqTimpViewController ()<SDCycleScrollViewDelegate, UIScrollViewDelegate>
 
@@ -27,15 +28,6 @@
 /** table1 */
 @property (strong, nonatomic) LXqTimeNEWTableView *NEWTableView;
 @property (strong, nonatomic) LXqTimeDFSTableView *DFSTableView;
-
-//接收的数据
-/** <#注释#> */
-//@property (strong, nonatomic) lxq *<#name#>;
-
-/** newtable数据 */
-@property (strong, nonatomic) NSArray *NEWArr;
-/** dfstable数据 */
-@property (strong, nonatomic) NSArray *DFSArr;
 
 @end
 
@@ -79,6 +71,8 @@
                 weakSelf.NEWTableView.frame = NewTableRect;
                 weakSelf.DFSTableView.frame = PriceTableRect;
             }];
+            
+            [weakSelf.NEWTableView reloadData];
             return YES;
 
         };
@@ -91,6 +85,7 @@
                 weakSelf.NEWTableView.frame = NewTableRect;
                 weakSelf.DFSTableView.frame = PriceTableRect;
             }];
+            [weakSelf.DFSTableView reloadData];
             return YES;
         };
     }
@@ -100,7 +95,7 @@
 - (LXqTimeNEWTableView *)NEWTableView
 {
     if (!_NEWTableView) {
-        _NEWTableView = [[LXqTimeNEWTableView alloc] initWithFrame:CGRectMake(0, 280, SCREEN_SIZE.width, 1700) style:UITableViewStylePlain];
+        _NEWTableView = [[LXqTimeNEWTableView alloc] initWithFrame:CGRectMake(0, 280, SCREEN_SIZE.width, _NEWTableView.dataArr.count) style:UITableViewStylePlain];
     }
     return _NEWTableView;
 }
@@ -108,24 +103,11 @@
 - (LXqTimeDFSTableView *)DFSTableView
 {
     if (!_DFSTableView) {
-        _DFSTableView = [[LXqTimeDFSTableView alloc] initWithFrame:CGRectMake(SCREEN_SIZE.width, 280, SCREEN_SIZE.width, 1700) style:UITableViewStylePlain];
+        _DFSTableView = [[LXqTimeDFSTableView alloc] initWithFrame:CGRectMake(SCREEN_SIZE.width, 280, SCREEN_SIZE.width, _DFSTableView.dataArr.count) style:UITableViewStylePlain];
     }
     return _DFSTableView;
 }
-- (NSArray *)NEWArr
-{
-    if (!_NEWArr) {
-        _NEWArr = [NSArray array];
-    }
-    return _NEWArr;
-}
-- (NSArray *)DFSArr
-{
-    if (!_DFSArr) {
-        _DFSArr = [NSArray array];
-    }
-    return _DFSArr;
-}
+
 #pragma mark - 添加视图
 - (void)addSubviews
 {
@@ -165,7 +147,7 @@
 }
 
 #pragma mark  NEWTabel数据请求
-- (void)requestTableViewData
+- (void)requestNEWTableViewData
 {
     /**
      htp://123.57.141.249:8080/beautalk/appActivity/appHomeGoodsList.do 返回数据:List<Map<String,Object>>
@@ -183,12 +165,47 @@
                      success:^(id successJson) {
                          if (successJson) {
                              self.NEWTableView.dataArr = [LXqTimeNEWTableModel mj_objectArrayWithKeyValuesArray:successJson];
+                             //重新布局
+                             CGRect rect = self.NEWTableView.frame;
+                             rect.size.height = self.NEWTableView.dataArr.count * 170;
+                             self.NEWTableView.frame = rect;
+                            
+                             self.baseScrollview.contentSize = CGSizeMake(0, self.NEWTableView.dataArr.count * 170 + 340);
+
                              [self.NEWTableView reloadData];
                          }
                      } error:^(NSError *error) {
                          NSLog(@"%@", error);
 
     }];
+}
+#pragma mark  DFSTabel数据请求
+- (void)requestDFSTableViewData
+{
+    /**
+     URL：htp://123.57.141.249:8080/beautalk/appActivity/appActivityList.do
+     返回数据：List<Map<String,Object>>
+     */
+    [self getRequestWithPath:@"appActivity/appActivityList.do"
+                      params:nil
+                     success:^(id successJson) {
+                         if (successJson) {
+                             self.DFSTableView.dataArr = [LXqTimeDFSTableModel mj_objectArrayWithKeyValuesArray:successJson];
+                             NSLog(@"%@", self.DFSTableView.dataArr);
+                             //重新布局
+                             CGRect rect = self.DFSTableView.frame;
+                             rect.size.height = self.DFSTableView.dataArr.count * 170;
+                             self.DFSTableView.frame = rect;
+                             self.baseScrollview.contentSize = CGSizeMake(0, self.DFSTableView.dataArr.count * 170 + 340);
+                             
+                             [self.DFSTableView reloadData];
+
+                         }
+                         
+                     } error:^(NSError *error) {
+                         NSLog(@"%@", error);
+                         
+                     }];
 }
 #pragma mark
 #pragma mark - 生命周期
@@ -198,7 +215,8 @@
     
     [self addSubviews];
     [self requestCycleScrollData];
-    [self requestTableViewData];
+    [self requestNEWTableViewData];
+    [self requestDFSTableViewData];
 }
 
 #pragma mark

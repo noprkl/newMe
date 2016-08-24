@@ -129,7 +129,7 @@
     [self.priceLabel makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.bottom).offset(-30);
         make.left.equalTo(self.iconView.right).offset(10);
-        make.right.equalTo(self.shopCarBtn.left).offset(40);
+//        make.right.equalTo(self.shopCarBtn.left).offset(40);
     }];
     [self.shopCarBtn makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.bottom).offset(-20);

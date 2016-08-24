@@ -15,6 +15,11 @@
 @end
 
 @implementation LXqTimeDFSTableViewCell
+- (void)setDFSModel:(LXqTimeDFSTableModel *)DFSModel
+{
+    _DFSModel = DFSModel;
+    [self.iconImageView sd_setImageWithURL:[NSURL URLWithString:DFSModel.ImgView]];
+}
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -26,7 +31,6 @@
 {
     if (!_iconImageView) {
         _iconImageView = [[UIImageView alloc] init];
-        _iconImageView.image = [UIImage imageNamed:@"图标"];
     }
     return _iconImageView;
 }
@@ -37,7 +41,7 @@
         make.top.equalTo(self.top);
         make.left.equalTo(self.left);
         make.right.equalTo(self.right);
-        make.bottom.equalTo(self.bottom).offset(10);
+        make.bottom.equalTo(self.bottom).offset(-10);
     }];
 }
 - (void)awakeFromNib {

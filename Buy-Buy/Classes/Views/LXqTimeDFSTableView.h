@@ -10,4 +10,6 @@
 
 @interface LXqTimeDFSTableView : UITableView
 
+/** 数据源 */
+@property (strong, nonatomic) NSArray *dataArr;
 @end

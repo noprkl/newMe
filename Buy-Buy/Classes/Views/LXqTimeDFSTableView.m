@@ -12,10 +12,19 @@
 static NSString *cellid = @"DFSTableCellid";
 
 @interface LXqTimeDFSTableView ()<UITableViewDataSource, UITableViewDelegate>
+///** 数据源 */
+//@property (strong, nonatomic) NSArray *dataArr;
 
 @end
 
 @implementation LXqTimeDFSTableView
+- (NSArray *)dataArr
+{
+    if (!_dataArr) {
+        _dataArr = [NSArray array];
+    }
+    return _dataArr;
+}
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
 {
     self = [super initWithFrame:frame style:style];
@@ -29,13 +38,13 @@ static NSString *cellid = @"DFSTableCellid";
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    return self.dataArr.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LXqTimeDFSTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
   
-    cell.textLabel.text = [NSString stringWithFormat:@"DFSTableCell--%ld", indexPath.row];
+    cell.DFSModel = self.dataArr[indexPath.row];
     
     return cell;
 }
@@ -43,6 +52,12 @@ static NSString *cellid = @"DFSTableCellid";
 {
     return 170;
 }
-
+#pragma mark
+#pragma mark - 代理
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
 
 @end
