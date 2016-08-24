@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^PushDFSGoodsViewBlock)();
+
 @interface LXqTimeDFSTableView : UITableView
 
 /** 数据源 */
 @property (strong, nonatomic) NSArray *dataArr;
+
+/** 跳转到详细的DFS界面 */
+@property (strong, nonatomic) PushDFSGoodsViewBlock pushDFSBlock;
 @end

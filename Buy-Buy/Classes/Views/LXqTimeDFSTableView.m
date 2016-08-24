@@ -50,14 +50,16 @@ static NSString *cellid = @"DFSTableCellid";
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 170;
+    return 200;
 }
 #pragma mark
 #pragma mark - 代理
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    if (_pushDFSBlock) {
+        _pushDFSBlock();
+    }
 }
 
 @end

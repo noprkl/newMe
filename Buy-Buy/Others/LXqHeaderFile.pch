@@ -51,7 +51,8 @@
 #define KMLineColor [UIColor RGBcolorWithRed:234 green:234 blue:234 alpha:1]
 /** 基类接口*/
 #define BASEURL  @"http://123.57.141.249:8080/beautalk/"
-
+/** __weak弱指针 */
+#define WeakSelf __weak typeof(self) weakSelf = self
 
 /**
 定义的特殊字符

@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^PushNEWGoodsViewBlock)(NSString *goodsId);
+
 @interface LXqTimeNEWTableView : UITableView
 
 /** 数据源 */
 @property (strong, nonatomic) NSArray *dataArr;
+/** 跳转到详细的商品界面 */
+@property (strong, nonatomic) PushNEWGoodsViewBlock pushNEWBlock;
+
 @end

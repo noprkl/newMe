@@ -11,6 +11,7 @@
 #import "LXqMyViewController.h"
 #import "LXqBuyViewController.h"
 #import "LXqClassViewController.h"
+#import "LXqBaseTabBarController.h"
 
 /** 友盟 */
 #import <UMSocial.h>
@@ -31,7 +32,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     //标签栏
-    UITabBarController *tabC = [[UITabBarController alloc] init];
+    LXqBaseTabBarController *tabC = [[LXqBaseTabBarController alloc] init];
     self.tabbC = tabC;
     //页面
     LXqTimpViewController *LXqTimeVC = [[LXqTimpViewController alloc] init];

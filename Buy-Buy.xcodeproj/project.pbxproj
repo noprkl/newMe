@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040666651D6D8D6D009C8915 /* LXqNEWGoodsCenterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 040666641D6D8D6D009C8915 /* LXqNEWGoodsCenterButton.m */; };
 		0406FAA01D6753AD00292722 /* NSAttributedString+LXqAttributeString.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406FA9F1D6753AD00292722 /* NSAttributedString+LXqAttributeString.m */; };
 		0406FAA31D6848B700292722 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406FAA21D6848B700292722 /* HttpTool.m */; };
 		0406FAA61D68499500292722 /* LXqHTTPTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406FAA51D68499500292722 /* LXqHTTPTool.m */; };
@@ -17,6 +18,8 @@
 		041CBC8E1D67244800D73FC4 /* LXqMyLoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041CBC8D1D67244800D73FC4 /* LXqMyLoginView.m */; };
 		042E95271D6B12BD00EDE406 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 042E95261D6B12BD00EDE406 /* UIView+Toast.m */; };
 		045416A81D6D1C020051174C /* LXqTimeDFSTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 045416A71D6D1C020051174C /* LXqTimeDFSTableModel.m */; };
+		045416AB1D6D2D950051174C /* LXqBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045416AA1D6D2D950051174C /* LXqBaseTabBarController.m */; };
+		045416F01D6D31B50051174C /* LXqTimeNEWGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045416EF1D6D31B50051174C /* LXqTimeNEWGoodsViewController.m */; };
 		046E34681D63FF3B00003B08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 046E34671D63FF3B00003B08 /* Assets.xcassets */; };
 		046E346B1D63FF3B00003B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046E34691D63FF3B00003B08 /* LaunchScreen.storyboard */; };
 		046E34761D63FF3B00003B08 /* Buy_BuyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34751D63FF3B00003B08 /* Buy_BuyTests.m */; };
@@ -71,6 +74,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040666631D6D8D6D009C8915 /* LXqNEWGoodsCenterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqNEWGoodsCenterButton.h; sourceTree = "<group>"; };
+		040666641D6D8D6D009C8915 /* LXqNEWGoodsCenterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqNEWGoodsCenterButton.m; sourceTree = "<group>"; };
 		0406FA9E1D6753AD00292722 /* NSAttributedString+LXqAttributeString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+LXqAttributeString.h"; sourceTree = "<group>"; };
 		0406FA9F1D6753AD00292722 /* NSAttributedString+LXqAttributeString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+LXqAttributeString.m"; sourceTree = "<group>"; };
 		0406FAA11D6848B700292722 /* HttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTool.h; sourceTree = "<group>"; };
@@ -90,6 +95,10 @@
 		042E95261D6B12BD00EDE406 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		045416A61D6D1C020051174C /* LXqTimeDFSTableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqTimeDFSTableModel.h; sourceTree = "<group>"; };
 		045416A71D6D1C020051174C /* LXqTimeDFSTableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqTimeDFSTableModel.m; sourceTree = "<group>"; };
+		045416A91D6D2D950051174C /* LXqBaseTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqBaseTabBarController.h; sourceTree = "<group>"; };
+		045416AA1D6D2D950051174C /* LXqBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqBaseTabBarController.m; sourceTree = "<group>"; };
+		045416EE1D6D31B50051174C /* LXqTimeNEWGoodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqTimeNEWGoodsViewController.h; sourceTree = "<group>"; };
+		045416EF1D6D31B50051174C /* LXqTimeNEWGoodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqTimeNEWGoodsViewController.m; sourceTree = "<group>"; };
 		046E34581D63FF3B00003B08 /* Buy-Buy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Buy-Buy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		046E34671D63FF3B00003B08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		046E346A1D63FF3B00003B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -191,6 +200,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040666581D6D3E32009C8915 /* centerView */ = {
+			isa = PBXGroup;
+			children = (
+				04FD08541D6C27F2004C1AAA /* LXqTimeCenterView.h */,
+				04FD08551D6C27F2004C1AAA /* LXqTimeCenterView.m */,
+			);
+			name = centerView;
+			sourceTree = "<group>";
+		};
+		040666621D6D8CF9009C8915 /* GoodsCenterButton */ = {
+			isa = PBXGroup;
+			children = (
+				040666631D6D8D6D009C8915 /* LXqNEWGoodsCenterButton.h */,
+				040666641D6D8D6D009C8915 /* LXqNEWGoodsCenterButton.m */,
+			);
+			name = GoodsCenterButton;
+			sourceTree = "<group>";
+		};
 		0406FA991D6747B400292722 /* 工具类 */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,6 +261,8 @@
 			children = (
 				0406FAA71D6853EA00292722 /* LXqBaseViewController.h */,
 				0406FAA81D6853EA00292722 /* LXqBaseViewController.m */,
+				045416A91D6D2D950051174C /* LXqBaseTabBarController.h */,
+				045416AA1D6D2D950051174C /* LXqBaseTabBarController.m */,
 			);
 			name = "基类";
 			sourceTree = "<group>";
@@ -241,10 +270,10 @@
 		0406FAB91D6ACD8000292722 /* 限时特购 */ = {
 			isa = PBXGroup;
 			children = (
-				04FD08541D6C27F2004C1AAA /* LXqTimeCenterView.h */,
-				04FD08551D6C27F2004C1AAA /* LXqTimeCenterView.m */,
-				048B5A761D6C430E00EA8F95 /* LXqTimeNEWTableView */,
-				048B5A771D6C432000EA8F95 /* LXqTimeDFSTableView */,
+				040666581D6D3E32009C8915 /* centerView */,
+				048B5A761D6C430E00EA8F95 /* NEWTable */,
+				048B5A771D6C432000EA8F95 /* DFSTable */,
+				040666621D6D8CF9009C8915 /* GoodsCenterButton */,
 			);
 			name = "限时特购";
 			sourceTree = "<group>";
@@ -322,9 +351,9 @@
 		046E34ED1D645B2300003B08 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				04E7495C1D6C53D1004FB6BA /* 限时特购 */,
 				04AEED381D66055000B653CB /* 分类 */,
 				046E352E1D64A5E600003B08 /* 我 */,
-				04E7495C1D6C53D1004FB6BA /* 限时特购 */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -392,7 +421,7 @@
 			name = "分类";
 			sourceTree = "<group>";
 		};
-		048B5A761D6C430E00EA8F95 /* LXqTimeNEWTableView */ = {
+		048B5A761D6C430E00EA8F95 /* NEWTable */ = {
 			isa = PBXGroup;
 			children = (
 				04FD084E1D6C275A004C1AAA /* LXqTimeNEWTableView.h */,
@@ -400,10 +429,10 @@
 				04E749531D6C4CCA004FB6BA /* LXqTimeNEWTableViewCell.h */,
 				04E749541D6C4CCA004FB6BA /* LXqTimeNEWTableViewCell.m */,
 			);
-			name = LXqTimeNEWTableView;
+			name = NEWTable;
 			sourceTree = "<group>";
 		};
-		048B5A771D6C432000EA8F95 /* LXqTimeDFSTableView */ = {
+		048B5A771D6C432000EA8F95 /* DFSTable */ = {
 			isa = PBXGroup;
 			children = (
 				04FD08511D6C2790004C1AAA /* LXqTimeDFSTableView.h */,
@@ -411,7 +440,7 @@
 				04E749561D6C4CF9004FB6BA /* LXqTimeDFSTableViewCell.h */,
 				04E749571D6C4CF9004FB6BA /* LXqTimeDFSTableViewCell.m */,
 			);
-			name = LXqTimeDFSTableView;
+			name = DFSTable;
 			sourceTree = "<group>";
 		};
 		04AEED211D65470100B653CB /* 我 */ = {
@@ -457,6 +486,8 @@
 			children = (
 				046E34F51D645B2300003B08 /* LXqTimpViewController.h */,
 				046E34F61D645B2300003B08 /* LXqTimpViewController.m */,
+				045416EE1D6D31B50051174C /* LXqTimeNEWGoodsViewController.h */,
+				045416EF1D6D31B50051174C /* LXqTimeNEWGoodsViewController.m */,
 			);
 			name = "限时特购";
 			sourceTree = "<group>";
@@ -802,9 +833,11 @@
 				042E95271D6B12BD00EDE406 /* UIView+Toast.m in Sources */,
 				046E34FA1D645B2300003B08 /* LXqMyViewController.m in Sources */,
 				04FD08561D6C27F2004C1AAA /* LXqTimeCenterView.m in Sources */,
+				040666651D6D8D6D009C8915 /* LXqNEWGoodsCenterButton.m in Sources */,
 				046E35051D6477C700003B08 /* LXqMyTableView.m in Sources */,
 				046E35161D648B8500003B08 /* LXqMyTableViewCell.m in Sources */,
 				045416A81D6D1C020051174C /* LXqTimeDFSTableModel.m in Sources */,
+				045416AB1D6D2D950051174C /* LXqBaseTabBarController.m in Sources */,
 				046E34FB1D645B2300003B08 /* LXqTimpViewController.m in Sources */,
 				04AEED241D65474F00B653CB /* LXqRegisteViewController.m in Sources */,
 				0406FAA01D6753AD00292722 /* NSAttributedString+LXqAttributeString.m in Sources */,
@@ -833,6 +866,7 @@
 				0406FAA31D6848B700292722 /* HttpTool.m in Sources */,
 				046E34F91D645B2300003B08 /* LXqClassViewController.m in Sources */,
 				046E35251D649E1B00003B08 /* main.m in Sources */,
+				045416F01D6D31B50051174C /* LXqTimeNEWGoodsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

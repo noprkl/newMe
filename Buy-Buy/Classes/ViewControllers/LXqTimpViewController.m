@@ -10,12 +10,17 @@
 #import <SDCycleScrollView.h>
 #import <MJExtension.h>
 
+//下层view
 #import "LXqTimeCenterView.h"
 #import "LXqTimeNEWTableView.h"
 #import "LXqTimeDFSTableView.h"
 
+//字典->模型转换
 #import "LXqTimeNEWTableModel.h"
 #import "LXqTimeDFSTableModel.h"
+
+//另外的控制器
+#import "LXqTimeNEWGoodsViewController.h"
 
 @interface LXqTimpViewController ()<SDCycleScrollViewDelegate, UIScrollViewDelegate>
 
@@ -72,7 +77,7 @@
                 weakSelf.DFSTableView.frame = PriceTableRect;
             }];
             
-            [weakSelf.NEWTableView reloadData];
+            weakSelf.baseScrollview.contentSize = CGSizeMake(0, self.NEWTableView.dataArr.count * 170 + 340);
             return YES;
 
         };
@@ -85,7 +90,7 @@
                 weakSelf.NEWTableView.frame = NewTableRect;
                 weakSelf.DFSTableView.frame = PriceTableRect;
             }];
-            [weakSelf.DFSTableView reloadData];
+            weakSelf.baseScrollview.contentSize = CGSizeMake(0, self.DFSTableView.dataArr.count * 200 + 340);
             return YES;
         };
     }
@@ -96,6 +101,13 @@
 {
     if (!_NEWTableView) {
         _NEWTableView = [[LXqTimeNEWTableView alloc] initWithFrame:CGRectMake(0, 280, SCREEN_SIZE.width, _NEWTableView.dataArr.count) style:UITableViewStylePlain];
+       //点击cell 跳转
+        __weak typeof(self) weakSelf = self;
+        _NEWTableView.pushNEWBlock = ^(NSString *goodsId){
+            LXqTimeNEWGoodsViewController *NEWGoodsVC = [[LXqTimeNEWGoodsViewController alloc] init];
+            NEWGoodsVC.goodsId = goodsId;
+            [weakSelf.navigationController pushViewController:NEWGoodsVC animated:YES];
+        };
     }
     return _NEWTableView;
 }
@@ -169,9 +181,6 @@
                              CGRect rect = self.NEWTableView.frame;
                              rect.size.height = self.NEWTableView.dataArr.count * 170;
                              self.NEWTableView.frame = rect;
-                            
-                             self.baseScrollview.contentSize = CGSizeMake(0, self.NEWTableView.dataArr.count * 170 + 340);
-
                              [self.NEWTableView reloadData];
                          }
                      } error:^(NSError *error) {
@@ -191,13 +200,11 @@
                      success:^(id successJson) {
                          if (successJson) {
                              self.DFSTableView.dataArr = [LXqTimeDFSTableModel mj_objectArrayWithKeyValuesArray:successJson];
-                             NSLog(@"%@", self.DFSTableView.dataArr);
+
                              //重新布局
                              CGRect rect = self.DFSTableView.frame;
-                             rect.size.height = self.DFSTableView.dataArr.count * 170;
+                             rect.size.height = self.DFSTableView.dataArr.count * 200;
                              self.DFSTableView.frame = rect;
-                             self.baseScrollview.contentSize = CGSizeMake(0, self.DFSTableView.dataArr.count * 170 + 340);
-                             
                              [self.DFSTableView reloadData];
 
                          }
