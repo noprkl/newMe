@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		040666651D6D8D6D009C8915 /* LXqNEWGoodsCenterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 040666641D6D8D6D009C8915 /* LXqNEWGoodsCenterButton.m */; };
+		040666681D6DB7A9009C8915 /* LXqGoodsTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040666671D6DB7A9009C8915 /* LXqGoodsTitleView.m */; };
+		0406666B1D6DF8C7009C8915 /* LXqGoodsTitleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406666A1D6DF8C7009C8915 /* LXqGoodsTitleModel.m */; };
+		040666781D6E9AB9009C8915 /* LXqGoodsHeaderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 040666771D6E9AB9009C8915 /* LXqGoodsHeaderModel.m */; };
+		0406667B1D6E9C43009C8915 /* LXqGoodsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406667A1D6E9C43009C8915 /* LXqGoodsHeaderView.m */; };
 		0406FAA01D6753AD00292722 /* NSAttributedString+LXqAttributeString.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406FA9F1D6753AD00292722 /* NSAttributedString+LXqAttributeString.m */; };
 		0406FAA31D6848B700292722 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406FAA21D6848B700292722 /* HttpTool.m */; };
 		0406FAA61D68499500292722 /* LXqHTTPTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0406FAA51D68499500292722 /* LXqHTTPTool.m */; };
@@ -20,6 +23,9 @@
 		045416A81D6D1C020051174C /* LXqTimeDFSTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 045416A71D6D1C020051174C /* LXqTimeDFSTableModel.m */; };
 		045416AB1D6D2D950051174C /* LXqBaseTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045416AA1D6D2D950051174C /* LXqBaseTabBarController.m */; };
 		045416F01D6D31B50051174C /* LXqTimeNEWGoodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 045416EF1D6D31B50051174C /* LXqTimeNEWGoodsViewController.m */; };
+		045BE3BD1D6EAF3000D1BCA8 /* LXqGoodsDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 045BE3BC1D6EAF3000D1BCA8 /* LXqGoodsDetailModel.m */; };
+		045BE3C01D6EB15B00D1BCA8 /* LXqGoodsDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 045BE3BF1D6EB15B00D1BCA8 /* LXqGoodsDetailView.m */; };
+		045BE3C41D6EC30600D1BCA8 /* LXqGoodsImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 045BE3C31D6EC30600D1BCA8 /* LXqGoodsImageView.m */; };
 		046E34681D63FF3B00003B08 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 046E34671D63FF3B00003B08 /* Assets.xcassets */; };
 		046E346B1D63FF3B00003B08 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 046E34691D63FF3B00003B08 /* LaunchScreen.storyboard */; };
 		046E34761D63FF3B00003B08 /* Buy_BuyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34751D63FF3B00003B08 /* Buy_BuyTests.m */; };
@@ -74,8 +80,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		040666631D6D8D6D009C8915 /* LXqNEWGoodsCenterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqNEWGoodsCenterButton.h; sourceTree = "<group>"; };
-		040666641D6D8D6D009C8915 /* LXqNEWGoodsCenterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqNEWGoodsCenterButton.m; sourceTree = "<group>"; };
+		040666661D6DB7A9009C8915 /* LXqGoodsTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqGoodsTitleView.h; sourceTree = "<group>"; };
+		040666671D6DB7A9009C8915 /* LXqGoodsTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqGoodsTitleView.m; sourceTree = "<group>"; };
+		040666691D6DF8C7009C8915 /* LXqGoodsTitleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqGoodsTitleModel.h; sourceTree = "<group>"; };
+		0406666A1D6DF8C7009C8915 /* LXqGoodsTitleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqGoodsTitleModel.m; sourceTree = "<group>"; };
+		040666761D6E9AB9009C8915 /* LXqGoodsHeaderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqGoodsHeaderModel.h; sourceTree = "<group>"; };
+		040666771D6E9AB9009C8915 /* LXqGoodsHeaderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqGoodsHeaderModel.m; sourceTree = "<group>"; };
+		040666791D6E9C43009C8915 /* LXqGoodsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqGoodsHeaderView.h; sourceTree = "<group>"; };
+		0406667A1D6E9C43009C8915 /* LXqGoodsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqGoodsHeaderView.m; sourceTree = "<group>"; };
 		0406FA9E1D6753AD00292722 /* NSAttributedString+LXqAttributeString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+LXqAttributeString.h"; sourceTree = "<group>"; };
 		0406FA9F1D6753AD00292722 /* NSAttributedString+LXqAttributeString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+LXqAttributeString.m"; sourceTree = "<group>"; };
 		0406FAA11D6848B700292722 /* HttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTool.h; sourceTree = "<group>"; };
@@ -99,6 +111,12 @@
 		045416AA1D6D2D950051174C /* LXqBaseTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqBaseTabBarController.m; sourceTree = "<group>"; };
 		045416EE1D6D31B50051174C /* LXqTimeNEWGoodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqTimeNEWGoodsViewController.h; sourceTree = "<group>"; };
 		045416EF1D6D31B50051174C /* LXqTimeNEWGoodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqTimeNEWGoodsViewController.m; sourceTree = "<group>"; };
+		045BE3BB1D6EAF3000D1BCA8 /* LXqGoodsDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqGoodsDetailModel.h; sourceTree = "<group>"; };
+		045BE3BC1D6EAF3000D1BCA8 /* LXqGoodsDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqGoodsDetailModel.m; sourceTree = "<group>"; };
+		045BE3BE1D6EB15B00D1BCA8 /* LXqGoodsDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqGoodsDetailView.h; sourceTree = "<group>"; };
+		045BE3BF1D6EB15B00D1BCA8 /* LXqGoodsDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqGoodsDetailView.m; sourceTree = "<group>"; };
+		045BE3C21D6EC30600D1BCA8 /* LXqGoodsImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqGoodsImageView.h; sourceTree = "<group>"; };
+		045BE3C31D6EC30600D1BCA8 /* LXqGoodsImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqGoodsImageView.m; sourceTree = "<group>"; };
 		046E34581D63FF3B00003B08 /* Buy-Buy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Buy-Buy.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		046E34671D63FF3B00003B08 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		046E346A1D63FF3B00003B08 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -209,13 +227,32 @@
 			name = centerView;
 			sourceTree = "<group>";
 		};
-		040666621D6D8CF9009C8915 /* GoodsCenterButton */ = {
+		040666621D6D8CF9009C8915 /* 商品详情 */ = {
 			isa = PBXGroup;
 			children = (
-				040666631D6D8D6D009C8915 /* LXqNEWGoodsCenterButton.h */,
-				040666641D6D8D6D009C8915 /* LXqNEWGoodsCenterButton.m */,
+				040666791D6E9C43009C8915 /* LXqGoodsHeaderView.h */,
+				0406667A1D6E9C43009C8915 /* LXqGoodsHeaderView.m */,
+				040666661D6DB7A9009C8915 /* LXqGoodsTitleView.h */,
+				040666671D6DB7A9009C8915 /* LXqGoodsTitleView.m */,
+				045BE3BE1D6EB15B00D1BCA8 /* LXqGoodsDetailView.h */,
+				045BE3BF1D6EB15B00D1BCA8 /* LXqGoodsDetailView.m */,
+				045BE3C21D6EC30600D1BCA8 /* LXqGoodsImageView.h */,
+				045BE3C31D6EC30600D1BCA8 /* LXqGoodsImageView.m */,
 			);
-			name = GoodsCenterButton;
+			name = "商品详情";
+			sourceTree = "<group>";
+		};
+		040666751D6E9A95009C8915 /* 商品详情 */ = {
+			isa = PBXGroup;
+			children = (
+				040666691D6DF8C7009C8915 /* LXqGoodsTitleModel.h */,
+				0406666A1D6DF8C7009C8915 /* LXqGoodsTitleModel.m */,
+				040666761D6E9AB9009C8915 /* LXqGoodsHeaderModel.h */,
+				040666771D6E9AB9009C8915 /* LXqGoodsHeaderModel.m */,
+				045BE3BB1D6EAF3000D1BCA8 /* LXqGoodsDetailModel.h */,
+				045BE3BC1D6EAF3000D1BCA8 /* LXqGoodsDetailModel.m */,
+			);
+			name = "商品详情";
 			sourceTree = "<group>";
 		};
 		0406FA991D6747B400292722 /* 工具类 */ = {
@@ -273,7 +310,6 @@
 				040666581D6D3E32009C8915 /* centerView */,
 				048B5A761D6C430E00EA8F95 /* NEWTable */,
 				048B5A771D6C432000EA8F95 /* DFSTable */,
-				040666621D6D8CF9009C8915 /* GoodsCenterButton */,
 			);
 			name = "限时特购";
 			sourceTree = "<group>";
@@ -285,6 +321,15 @@
 				041CBC8D1D67244800D73FC4 /* LXqMyLoginView.m */,
 			);
 			name = "登录View";
+			sourceTree = "<group>";
+		};
+		045BE3C11D6EBAC600D1BCA8 /* 商品详情 */ = {
+			isa = PBXGroup;
+			children = (
+				045416EE1D6D31B50051174C /* LXqTimeNEWGoodsViewController.h */,
+				045416EF1D6D31B50051174C /* LXqTimeNEWGoodsViewController.m */,
+			);
+			name = "商品详情";
 			sourceTree = "<group>";
 		};
 		046E344F1D63FF3B00003B08 = {
@@ -351,6 +396,7 @@
 		046E34ED1D645B2300003B08 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				040666751D6E9A95009C8915 /* 商品详情 */,
 				04E7495C1D6C53D1004FB6BA /* 限时特购 */,
 				04AEED381D66055000B653CB /* 分类 */,
 				046E352E1D64A5E600003B08 /* 我 */,
@@ -361,6 +407,7 @@
 		046E34EE1D645B2300003B08 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				045BE3C11D6EBAC600D1BCA8 /* 商品详情 */,
 				04AEED331D659A0500B653CB /* 限时特购 */,
 				04AEED341D659A1900B653CB /* 分类 */,
 				04AEED351D659A2200B653CB /* 购物车 */,
@@ -372,6 +419,7 @@
 		046E34F71D645B2300003B08 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				040666621D6D8CF9009C8915 /* 商品详情 */,
 				0406FAB91D6ACD8000292722 /* 限时特购 */,
 				046E352F1D64A6D800003B08 /* 分类 */,
 				046E35171D649BC700003B08 /* 我 */,
@@ -486,8 +534,6 @@
 			children = (
 				046E34F51D645B2300003B08 /* LXqTimpViewController.h */,
 				046E34F61D645B2300003B08 /* LXqTimpViewController.m */,
-				045416EE1D6D31B50051174C /* LXqTimeNEWGoodsViewController.h */,
-				045416EF1D6D31B50051174C /* LXqTimeNEWGoodsViewController.m */,
 			);
 			name = "限时特购";
 			sourceTree = "<group>";
@@ -833,19 +879,23 @@
 				042E95271D6B12BD00EDE406 /* UIView+Toast.m in Sources */,
 				046E34FA1D645B2300003B08 /* LXqMyViewController.m in Sources */,
 				04FD08561D6C27F2004C1AAA /* LXqTimeCenterView.m in Sources */,
-				040666651D6D8D6D009C8915 /* LXqNEWGoodsCenterButton.m in Sources */,
+				040666781D6E9AB9009C8915 /* LXqGoodsHeaderModel.m in Sources */,
 				046E35051D6477C700003B08 /* LXqMyTableView.m in Sources */,
+				045BE3BD1D6EAF3000D1BCA8 /* LXqGoodsDetailModel.m in Sources */,
 				046E35161D648B8500003B08 /* LXqMyTableViewCell.m in Sources */,
 				045416A81D6D1C020051174C /* LXqTimeDFSTableModel.m in Sources */,
 				045416AB1D6D2D950051174C /* LXqBaseTabBarController.m in Sources */,
+				040666681D6DB7A9009C8915 /* LXqGoodsTitleView.m in Sources */,
 				046E34FB1D645B2300003B08 /* LXqTimpViewController.m in Sources */,
 				04AEED241D65474F00B653CB /* LXqRegisteViewController.m in Sources */,
 				0406FAA01D6753AD00292722 /* NSAttributedString+LXqAttributeString.m in Sources */,
 				046E35231D649E1B00003B08 /* AppDelegate.m in Sources */,
 				04AEED2B1D65971B00B653CB /* LXqCheckPhoneView.m in Sources */,
+				0406666B1D6DF8C7009C8915 /* LXqGoodsTitleModel.m in Sources */,
 				04E7495B1D6C53C9004FB6BA /* LXqTimeNEWTableModel.m in Sources */,
 				04E749551D6C4CCA004FB6BA /* LXqTimeNEWTableViewCell.m in Sources */,
 				04FD08501D6C275A004C1AAA /* LXqTimeNEWTableView.m in Sources */,
+				045BE3C41D6EC30600D1BCA8 /* LXqGoodsImageView.m in Sources */,
 				046E350E1D64796400003B08 /* LXqMyHeaderView.m in Sources */,
 				0406FAA91D6853EA00292722 /* LXqBaseViewController.m in Sources */,
 				04FD08531D6C2790004C1AAA /* LXqTimeDFSTableView.m in Sources */,
@@ -856,10 +906,12 @@
 				0406FAB01D68601200292722 /* LXqClassName.m in Sources */,
 				0406FAA61D68499500292722 /* LXqHTTPTool.m in Sources */,
 				04AEED271D658DA100B653CB /* LXqMyRegisetView.m in Sources */,
+				0406667B1D6E9C43009C8915 /* LXqGoodsHeaderView.m in Sources */,
 				04AEED3B1D66057A00B653CB /* LXqClassCollectionModel.m in Sources */,
 				046E35111D647AD200003B08 /* LXqMyTableModel.m in Sources */,
 				04E749581D6C4CF9004FB6BA /* LXqTimeDFSTableViewCell.m in Sources */,
 				041CBC8E1D67244800D73FC4 /* LXqMyLoginView.m in Sources */,
+				045BE3C01D6EB15B00D1BCA8 /* LXqGoodsDetailView.m in Sources */,
 				04AEED3F1D6605CF00B653CB /* LXqClassCollectionViewCell.m in Sources */,
 				046E35261D649E1B00003B08 /* UIColor+LXqRandomColor.m in Sources */,
 				046E35321D64A70300003B08 /* LXqClassCollectionView.m in Sources */,

@@ -13,4 +13,5 @@
 
 /** 模型 */
 @property (strong, nonatomic) LXqTimeNEWTableModel *NEWTableModel;
+
 @end

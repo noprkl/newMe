@@ -87,6 +87,35 @@
     
     return [mutableAttStr1 copy];
 }
+/** 字符串（红）+ 字符串（灰）+ 字符串（黑）*/
++ (NSAttributedString *)attributedStringWithRedString:(NSString *)string1 grayString:(NSString *)string2 blackString:(NSString *)string3
+{
+    NSDictionary *dict1 = @{
+                            NSForegroundColorAttributeName:[UIColor RGBcolorWithRed:255 green:91 blue:61 alpha:1],
+                            NSFontAttributeName:[UIFont boldSystemFontOfSize:18]
+                            };
+    NSMutableAttributedString *mutableAttStr1 = [[NSMutableAttributedString alloc] initWithString:string1 attributes:dict1];
+    
+    NSDictionary *dict2 = @{
+                            NSForegroundColorAttributeName:[UIColor grayColor],
+                            NSFontAttributeName:[UIFont systemFontOfSize:13],
+                            NSStrikethroughStyleAttributeName:@(2)
+                            };
+    NSMutableAttributedString *mutableAttStr2 = [[NSMutableAttributedString alloc] initWithString:string2 attributes:dict2];
+    
+    NSString *string_3 = [NSString stringWithFormat:@"(%@)", string3];
+    NSDictionary *dict3 = @{
+                            NSForegroundColorAttributeName:[UIColor blackColor],
+                            NSFontAttributeName:[UIFont systemFontOfSize:14],
+                            NSStrikethroughStyleAttributeName:@(2)
+                            };
+    NSMutableAttributedString *mutableAttStr3 = [[NSMutableAttributedString alloc] initWithString:string_3 attributes:dict3];
+    
+    [mutableAttStr1 insertAttributedString:mutableAttStr2 atIndex:mutableAttStr1.length];
+    [mutableAttStr1 insertAttributedString:mutableAttStr3 atIndex:mutableAttStr1.length];
+ 
+    return [mutableAttStr1 copy];
+}
 #pragma mark
 #pragma mark - 组合字符串富文本
 /** 字符串（蓝） */

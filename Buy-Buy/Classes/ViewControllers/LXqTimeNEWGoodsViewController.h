@@ -12,4 +12,6 @@
 
 /** 商品编号 */
 @property (strong, nonatomic) NSString *goodsId;
+/** 国旗 */
+@property (strong, nonatomic) NSString *flagUrl;
 @end

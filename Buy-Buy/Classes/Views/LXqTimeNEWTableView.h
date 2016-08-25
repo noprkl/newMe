@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^PushNEWGoodsViewBlock)(NSString *goodsId);
+typedef void(^PushNEWGoodsViewBlock)(NSString *goodsId, NSString *flagUrl);
 
 @interface LXqTimeNEWTableView : UITableView
 

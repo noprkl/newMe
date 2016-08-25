@@ -19,6 +19,9 @@
 + (NSAttributedString *)attributedStringWithString:(NSString *)string1 string:(NSString *)string2;
 /** 字符串（红）+ 字符串（灰）*/
 + (NSAttributedString *)attributedStringWithRedString:(NSString *)string1 grayString:(NSString *)string2;
+/** 字符串（红）+ 字符串（灰）+ 字符串（黑）*/
++ (NSAttributedString *)attributedStringWithRedString:(NSString *)string1 grayString:(NSString *)string2 blackString:(NSString *)string3;
+
 #pragma mark
 #pragma mark - 字符串富文本
 /** 字符串（蓝）*/

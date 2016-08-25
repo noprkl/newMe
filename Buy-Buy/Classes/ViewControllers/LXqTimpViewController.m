@@ -32,6 +32,7 @@
 @property (strong, nonatomic) LXqTimeCenterView *centerView;
 /** table1 */
 @property (strong, nonatomic) LXqTimeNEWTableView *NEWTableView;
+
 @property (strong, nonatomic) LXqTimeDFSTableView *DFSTableView;
 
 @end
@@ -103,9 +104,10 @@
         _NEWTableView = [[LXqTimeNEWTableView alloc] initWithFrame:CGRectMake(0, 280, SCREEN_SIZE.width, _NEWTableView.dataArr.count) style:UITableViewStylePlain];
        //点击cell 跳转
         __weak typeof(self) weakSelf = self;
-        _NEWTableView.pushNEWBlock = ^(NSString *goodsId){
+        _NEWTableView.pushNEWBlock = ^(NSString *goodsId, NSString *flagUrl){
             LXqTimeNEWGoodsViewController *NEWGoodsVC = [[LXqTimeNEWGoodsViewController alloc] init];
             NEWGoodsVC.goodsId = goodsId;
+            NEWGoodsVC.flagUrl = flagUrl;
             [weakSelf.navigationController pushViewController:NEWGoodsVC animated:YES];
         };
     }

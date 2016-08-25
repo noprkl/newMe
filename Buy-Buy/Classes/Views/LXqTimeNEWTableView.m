@@ -60,7 +60,7 @@ static NSString *cellid = @"NEWTableCellid";
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (_pushNEWBlock) {
-        _pushNEWBlock([self.dataArr[indexPath.row] GoodsId]);
+        _pushNEWBlock([self.dataArr[indexPath.row] GoodsId], [self.dataArr[indexPath.row] CountryImg]);
     }
     
 }

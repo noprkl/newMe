@@ -11,4 +11,5 @@
 @interface LXqTimeDFSTableModel : NSObject
 /** 团购描述图片 */
 @property (strong, nonatomic) NSString *ImgView;
+
 @end
