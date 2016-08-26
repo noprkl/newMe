@@ -11,7 +11,6 @@
 #import "LXqMyViewController.h"
 #import "LXqBuyViewController.h"
 #import "LXqClassViewController.h"
-#import "LXqBaseTabBarController.h"
 #import "LXqBaseNavigationController.h"
 
 /** 友盟 */
@@ -33,7 +32,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     //标签栏
-    LXqBaseTabBarController *tabC = [[LXqBaseTabBarController alloc] init];
+    UITabBarController *tabC = [[UITabBarController alloc] init];
     self.tabbC = tabC;
     //页面
     LXqTimpViewController *LXqTimeVC = [[LXqTimpViewController alloc] init];

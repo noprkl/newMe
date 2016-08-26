@@ -13,8 +13,8 @@
 static NSString *cellid = @"classCollectionCellid";
 
 @interface LXqClassGoodsCollectionView ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
-/** 数据源 */
-@property (strong, nonatomic) NSArray *dataArr;
+///** 数据源 */
+//@property (strong, nonatomic) NSArray *dataArr;
 @end
 @implementation LXqClassGoodsCollectionView
 
@@ -43,7 +43,6 @@ static NSString *cellid = @"classCollectionCellid";
         //表格view的属性
         self.delegate = self;
         self.dataSource = self;
-        //        self.bounces = NO;
         self.showsVerticalScrollIndicator = NO;
         self.backgroundColor = [UIColor whiteColor];
         

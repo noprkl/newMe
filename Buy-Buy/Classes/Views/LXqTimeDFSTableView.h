@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^PushDFSGoodsViewBlock)();
+typedef void(^PushDFSGoodsViewBlock)(NSString *ActivityId, NSString *ShopTitle);
 
 @interface LXqTimeDFSTableView : UITableView
 

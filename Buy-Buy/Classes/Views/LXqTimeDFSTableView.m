@@ -58,7 +58,7 @@ static NSString *cellid = @"DFSTableCellid";
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (_pushDFSBlock) {
-        _pushDFSBlock();
+        _pushDFSBlock([self.dataArr[indexPath.row] ActivityId], [self.dataArr[indexPath.row] ShopTitle]);
     }
 }
 

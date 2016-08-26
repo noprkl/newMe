@@ -52,30 +52,48 @@
     }
     return _collectionView;
 }
-
+#pragma mark
+#pragma mark - 生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = self.cellTitle;
     [self.view addSubview:self.headerView];
     [self.view addSubview:self.collectionView];
+    [self requestTimeDFSGoodsData];
+    
 }
+#pragma mark
+#pragma mark - 数据请求
 - (void)requestClassGoodsData
 {
 
+}
+- (void)requestTimeDFSGoodsData
+{
+    /**
+     htp://123.57.141.249:8080/beautalk/appGgroupon/appGrounpGoodsList.do
+     传入数据：
+     活动ID：GrouponId     【GrouponId对应 首页品牌团中的ActivityId；首页广告位及商城首页广告位的RelatedId】
+     排序字段：OrderName   【热卖：host；价格：price；新品：time；好评：score】默认为host
+     排序类型：OrderType  正序：ASC；倒序：DESC】
+     */
+    
+    NSDictionary *parame = @{
+                             @"GrouponId":self.cellTypeId,
+                             @"OrderName":@"host",
+                             @"OrderType":@"ASC"
+                             };
+    [self getRequestWithPath:@"appGgroupon/appGrounpGoodsList.do" params:parame success:^(id successJson) {
+//        NSLog(@"DFSGoodsData%@", successJson);
+    } error:^(NSError *error) {
+        NSLog(@"DFSGoodsData%@", error);
+    }];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

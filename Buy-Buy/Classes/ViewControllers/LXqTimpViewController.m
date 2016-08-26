@@ -22,7 +22,8 @@
 //另外的控制器
 #import "LXqTimeNEWGoodsViewController.h"
 #import "LXqSearchViewController.h"
-
+#import "LXqClassGoodsViewController.h"//点击跳到那一个?
+#import "LXqTimeDFSGoodsViewController.h"
 @interface LXqTimpViewController ()<SDCycleScrollViewDelegate, UIScrollViewDelegate>
 
 /** 放置scrollview */
@@ -106,7 +107,8 @@
                      success:^(id successJson) {
                          if (successJson) {
                              self.DFSTableView.dataArr = [LXqTimeDFSTableModel mj_objectArrayWithKeyValuesArray:successJson];
-                             NSLog(@"DFSTableViewData%@", successJson);
+//                             NSLog(@"DFSTableViewData%@", successJson);
+
                              //重新布局
                              CGRect rect = self.DFSTableView.frame;
                              rect.size.height = self.DFSTableView.dataArr.count * 200;
@@ -224,7 +226,7 @@
 - (LXqTimeNEWTableView *)NEWTableView
 {
     if (!_NEWTableView) {
-        _NEWTableView = [[LXqTimeNEWTableView alloc] initWithFrame:CGRectMake(0, 280, SCREEN_SIZE.width, _NEWTableView.dataArr.count) style:UITableViewStylePlain];
+        _NEWTableView = [[LXqTimeNEWTableView alloc] initWithFrame:CGRectMake(0, 280, SCREEN_SIZE.width, _NEWTableView.dataArr.count * 170) style:UITableViewStylePlain];
         //点击cell 跳转
         __weak typeof(self) weakSelf = self;
         _NEWTableView.pushNEWBlock = ^(NSString *goodsId, NSString *flagUrl){
@@ -240,7 +242,21 @@
 - (LXqTimeDFSTableView *)DFSTableView
 {
     if (!_DFSTableView) {
-        _DFSTableView = [[LXqTimeDFSTableView alloc] initWithFrame:CGRectMake(SCREEN_SIZE.width, 280, SCREEN_SIZE.width, _DFSTableView.dataArr.count) style:UITableViewStylePlain];
+        _DFSTableView = [[LXqTimeDFSTableView alloc] initWithFrame:CGRectMake(SCREEN_SIZE.width, 280, SCREEN_SIZE.width, _DFSTableView.dataArr.count * 200) style:UITableViewStylePlain];
+        //点击cell 跳转
+        __weak typeof(self) weakSelf = self;
+        _DFSTableView.pushDFSBlock = ^(NSString *ActivityId, NSString *ShopTitle){
+            //跳到带头部image的界面
+//            LXqTimeDFSGoodsViewController *DFSGoodsVC = [[LXqTimeDFSGoodsViewController alloc] init];
+//            DFSGoodsVC.GrouponId = ActivityId;
+//            DFSGoodsVC.ShopTitle = ShopTitle;
+//            [weakSelf.navigationController pushViewController:DFSGoodsVC animated:YES];
+            //分类块点进去的界面
+            LXqClassGoodsViewController *classGoodsVC = [[LXqClassGoodsViewController alloc] init];
+            classGoodsVC.cellTypeId = ActivityId;
+            classGoodsVC.sectionTypeId = ShopTitle;
+            [weakSelf.navigationController pushViewController:classGoodsVC animated:YES];
+        };
     }
     return _DFSTableView;
 }

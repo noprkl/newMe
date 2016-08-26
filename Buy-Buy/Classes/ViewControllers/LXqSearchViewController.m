@@ -8,7 +8,7 @@
 
 #import "LXqSearchViewController.h"
 
-@interface LXqSearchViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface LXqSearchViewController ()<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 /** 搜索框 */
 @property (strong, nonatomic) UISearchBar *searchBar;
 /** 搜索结果 */
@@ -21,6 +21,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addSubViews];
+}
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.searchBar becomeFirstResponder];
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.searchBar resignFirstResponder];
 }
 #pragma mark
 #pragma mark - 添加控件
@@ -44,7 +54,8 @@
         //进入就进入编辑状态
         [_searchBar becomeFirstResponder];
         _searchBar.showsCancelButton = YES;
-
+        _searchBar.returnKeyType = UIReturnKeySearch;
+        _searchBar.delegate = self;
     }
     return _searchBar;
 }
@@ -57,6 +68,38 @@
     }
     return _resultController;
 }
+#pragma mark
+#pragma mark - 代理
+
+#pragma mark UISearchBarDelegate
+- (void)searchBarBookmarkButtonClicked:(UISearchBar *)searchBar
+{
+    NSDictionary *parmae = @{
+                             @"search":searchBar.text
+                             };
+    [self getRequestWithPath:@"appSearch/searchList.do" params:parmae success:^(id successJson) {
+        NSLog(@"searchBarBookmark%@", successJson);
+    } error:^(NSError *error) {
+        NSLog(@"%@", error);
+    }];
+    /**
+     URL：htp://123.57.141.249:8080/beautalk/appSearch/searchList.do 传入数据：    搜索关键字： search
+     排序字段：OrderName   【热卖：host；价格：price；新品：time；好评：score】默认为host
+     排序类型：OrderType    【正序：ASC；倒序：DESC】
+     注：OrderName为time是OrderType为ASC；其他为EDSC
+     返回参数：List<Map<String,Object>>
+     商品ID ： GoodsId     国家名称 ： CountryName国旗图片 ： CountryImg
+     缩略图 ：ImgView     购买数量 ： BuyCount     折扣 ：Discount
+     商品名称：Title     外币价格：ForeignPrice    人民币价格：Price
+     其他价格 ：OtherPrice     活动时间（距离结束时间） ：RestTime
+     */
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    //点击cancel按钮 返回原来界面
+    [self.navigationController popViewControllerAnimated:YES];
+}
+#pragma mark UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     

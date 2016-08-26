@@ -119,7 +119,7 @@
             self.priceBtn.selected = NO;
             self.priceLine.backgroundColor = KlineNormalColor;
             self.scoreBtn.selected = NO;
-            self.scoreBtn.backgroundColor = KlineNormalColor;
+            self.scoreLine.backgroundColor = KlineNormalColor;
             self.timeBtn.selected = NO;
             self.timeLine.backgroundColor = KlineNormalColor;
         }
@@ -135,7 +135,7 @@
             self.priceBtn.selected = YES;
             self.priceLine.backgroundColor = kLineSelectColor;
             self.scoreBtn.selected = NO;
-            self.scoreBtn.backgroundColor = KlineNormalColor;
+            self.scoreLine.backgroundColor = KlineNormalColor;
             self.timeBtn.selected = NO;
             self.timeLine.backgroundColor = KlineNormalColor;
         }

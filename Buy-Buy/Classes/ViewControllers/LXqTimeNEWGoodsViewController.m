@@ -172,7 +172,12 @@
     }];
     
 }
-
+#pragma mark
+#pragma mark - UIScrollViewDelegate代理
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    self.baseScrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(self.goodsImageView.frame) + 64);
+}
 #pragma mark
 #pragma mark - 懒加载
 
@@ -229,12 +234,7 @@
     return _goodsBottomView;
 
 }
-#pragma mark
-#pragma mark - UIScrollViewDelegate代理
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    self.baseScrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(self.goodsImageView.frame) + 64);
-}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

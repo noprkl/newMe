@@ -11,6 +11,7 @@
 #import <UMSocialAccountManager.h>
 #import "UIView+Toast.h"//提示
 #import <SVProgressHUD.h>//菊花标
+#import "LXqHTTPTool.h"
 @interface LXqBaseViewController ()
 
 @end

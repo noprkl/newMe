@@ -34,7 +34,7 @@
 /** 自定义富文本 */
 #import "NSAttributedString+LXqAttributeString.h"
 /** AFN请求封装 */
-#import "LXqHTTPTool.h"
+//#import "LXqHTTPTool.h"
 /** ViewController基类 */
 //#import "LXqBaseViewController.h"
 

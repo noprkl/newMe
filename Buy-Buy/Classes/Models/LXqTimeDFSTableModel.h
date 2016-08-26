@@ -11,5 +11,8 @@
 @interface LXqTimeDFSTableModel : NSObject
 /** 团购描述图片 */
 @property (strong, nonatomic) NSString *ImgView;
-
+/** GrouponId */
+@property (strong, nonatomic) NSString *ActivityId;
+/** ShopTitle */
+@property (strong, nonatomic) NSString *ShopTitle;
 @end

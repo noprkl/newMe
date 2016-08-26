@@ -10,10 +10,12 @@
 
 @interface LXqClassGoodsViewController : LXqBaseViewController
 
-/** 头部id */
+/** 传入参数--头部id */
 @property (strong, nonatomic) NSString *sectionTypeId;
-/** cellid */
+/** 传入参数--cellid */
 @property (strong, nonatomic) NSString *cellTypeId;
+
+
 /** cell标题 */
 @property (strong, nonatomic) NSString *cellTitle;
 

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LXqClassGoodsCollectionView : UICollectionView
-
+/** 数据源 */
+@property (strong, nonatomic) NSArray *dataArr;
 @end
