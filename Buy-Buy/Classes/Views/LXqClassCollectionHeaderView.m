@@ -10,10 +10,16 @@
 
 @interface LXqClassCollectionHeaderView ()
 
-
+/** 文本 */
+@property (strong, nonatomic) UILabel *titleLabel;
 @end
 
 @implementation LXqClassCollectionHeaderView
+- (void)setTitleModel:(LXqClassCollectionTitleModel *)TitleModel
+{
+    _TitleModel = TitleModel;
+    self.titleLabel.text = TitleModel.Title;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

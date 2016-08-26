@@ -236,7 +236,7 @@
     //    __weak typeof(self) weakself = self;
   
        [self.backView makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.top).offset(84);
+        make.top.equalTo(self.top);
         make.left.equalTo(self.mas_left);
         make.right.equalTo(self.right);
         make.height.equalTo(89);

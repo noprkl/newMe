@@ -114,5 +114,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)createBackBtn
+{
+    UIBarButtonItem *leftitem = [[UIBarButtonItem alloc]initWithTitle:@"主页" style:UIBarButtonItemStylePlain target:self action:@selector(popRootView)];
+    ;
+    self.navigationItem.rightBarButtonItem = leftitem;
+    
+}
+- (void)popRootView
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 @end

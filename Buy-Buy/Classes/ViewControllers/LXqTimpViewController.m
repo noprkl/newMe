@@ -21,6 +21,7 @@
 
 //另外的控制器
 #import "LXqTimeNEWGoodsViewController.h"
+#import "LXqSearchViewController.h"
 
 @interface LXqTimpViewController ()<SDCycleScrollViewDelegate, UIScrollViewDelegate>
 
@@ -38,103 +39,7 @@
 @end
 
 @implementation LXqTimpViewController
-#pragma mark - 懒加载
-- (UIScrollView *)baseScrollview
-{
-    if (!_baseScrollview) {
-        _baseScrollview = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-        _baseScrollview.contentSize = CGSizeMake(0, 2100);
-        _baseScrollview.delegate = self;
-        _baseScrollview.showsVerticalScrollIndicator = NO;
-    }
-    return _baseScrollview;
-}
 
-- (SDCycleScrollView *)cycleScrollView
-{
-    if (!_cycleScrollView) {
-        _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, 230) delegate:self placeholderImage:[UIImage imageNamed:@"image0"]];
-        _cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
-        _cycleScrollView.autoScrollTimeInterval = 3;
-    }
-    return _cycleScrollView;
-}
-
-- (LXqTimeCenterView *)centerView
-{
-    if (!_centerView) {
-        _centerView = [[LXqTimeCenterView alloc] initWithFrame:CGRectMake(0, 230, SCREEN_SIZE.width, 50)];
-        _centerView.backgroundColor = [UIColor whiteColor];
-        __weak typeof(self) weakSelf = self;
-        _centerView.NEWBtnBlock = ^(){
-
-            [UIView animateWithDuration:1 animations:^{
-                CGRect NewTableRect = weakSelf.NEWTableView.frame;
-                CGRect PriceTableRect = weakSelf.DFSTableView.frame;
-                NewTableRect.origin.x = 0;
-                PriceTableRect.origin.x = SCREEN_SIZE.width;
-                
-                weakSelf.NEWTableView.frame = NewTableRect;
-                weakSelf.DFSTableView.frame = PriceTableRect;
-            }];
-            
-            weakSelf.baseScrollview.contentSize = CGSizeMake(0, self.NEWTableView.dataArr.count * 170 + 340);
-            return YES;
-
-        };
-        _centerView.DFSBtnBlock = ^(){
-            [UIView animateWithDuration:1 animations:^{
-                CGRect NewTableRect = weakSelf.NEWTableView.frame;
-                CGRect PriceTableRect = weakSelf.DFSTableView.frame;
-                NewTableRect.origin.x = -SCREEN_SIZE.width;
-                PriceTableRect.origin.x = 0;
-                weakSelf.NEWTableView.frame = NewTableRect;
-                weakSelf.DFSTableView.frame = PriceTableRect;
-            }];
-            weakSelf.baseScrollview.contentSize = CGSizeMake(0, self.DFSTableView.dataArr.count * 200 + 340);
-            return YES;
-        };
-    }
-    return _centerView;
-}
-
-- (LXqTimeNEWTableView *)NEWTableView
-{
-    if (!_NEWTableView) {
-        _NEWTableView = [[LXqTimeNEWTableView alloc] initWithFrame:CGRectMake(0, 280, SCREEN_SIZE.width, _NEWTableView.dataArr.count) style:UITableViewStylePlain];
-       //点击cell 跳转
-        __weak typeof(self) weakSelf = self;
-        _NEWTableView.pushNEWBlock = ^(NSString *goodsId, NSString *flagUrl){
-            LXqTimeNEWGoodsViewController *NEWGoodsVC = [[LXqTimeNEWGoodsViewController alloc] init];
-            NEWGoodsVC.goodsId = goodsId;
-            NEWGoodsVC.flagUrl = flagUrl;
-            [weakSelf.navigationController pushViewController:NEWGoodsVC animated:YES];
-        };
-    }
-    return _NEWTableView;
-}
-
-- (LXqTimeDFSTableView *)DFSTableView
-{
-    if (!_DFSTableView) {
-        _DFSTableView = [[LXqTimeDFSTableView alloc] initWithFrame:CGRectMake(SCREEN_SIZE.width, 280, SCREEN_SIZE.width, _DFSTableView.dataArr.count) style:UITableViewStylePlain];
-    }
-    return _DFSTableView;
-}
-
-#pragma mark - 添加视图
-- (void)addSubviews
-{
-    [self.view addSubview:self.baseScrollview];
-    [self.baseScrollview addSubview:self.cycleScrollView];
-    
-    [self.baseScrollview addSubview:self.NEWTableView];
-    [self.baseScrollview addSubview:self.DFSTableView];
-    
-    [self.baseScrollview addSubview:self.centerView];
-   
-   
-}
 
 #pragma mark - 网络请求
 #pragma mark  轮播图片请求
@@ -159,7 +64,6 @@
                           NSLog(@"%@", error);
     }];
 }
-
 #pragma mark  NEWTabel数据请求
 - (void)requestNEWTableViewData
 {
@@ -202,7 +106,7 @@
                      success:^(id successJson) {
                          if (successJson) {
                              self.DFSTableView.dataArr = [LXqTimeDFSTableModel mj_objectArrayWithKeyValuesArray:successJson];
-
+                             NSLog(@"DFSTableViewData%@", successJson);
                              //重新布局
                              CGRect rect = self.DFSTableView.frame;
                              rect.size.height = self.DFSTableView.dataArr.count * 200;
@@ -227,6 +131,120 @@
     [self requestNEWTableViewData];
     [self requestDFSTableViewData];
 }
+#pragma mark - 添加视图
+- (void)addSubviews
+{
+    [self.view addSubview:self.baseScrollview];
+    [self.baseScrollview addSubview:self.cycleScrollView];
+    
+    [self.baseScrollview addSubview:self.NEWTableView];
+    [self.baseScrollview addSubview:self.DFSTableView];
+    
+    [self.baseScrollview addSubview:self.centerView];
+    [self AddSearchBtn];
+    
+}
+#pragma mark
+#pragma mark - 搜索按钮
+- (void)AddSearchBtn
+{
+    UIButton *searchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [searchBtn setImage:[UIImage imageNamed:@"限时特卖界面搜索按钮"] forState:(UIControlStateNormal)];
+    searchBtn.frame = CGRectMake(0, 0, 35, 35);
+    [searchBtn addTarget:self action:@selector(pushSearchViewController) forControlEvents:UIControlEventTouchDown];
+    UIBarButtonItem *rightBtn = [[UIBarButtonItem alloc] initWithCustomView:searchBtn];
+    self.navigationItem.rightBarButtonItem = rightBtn;
+    
+}
+- (void)pushSearchViewController
+{
+    LXqSearchViewController *searchVC = [[LXqSearchViewController alloc] init];
+    [self.navigationController pushViewController:searchVC animated:YES];
+}
+#pragma mark - 懒加载
+- (UIScrollView *)baseScrollview
+{
+    if (!_baseScrollview) {
+        _baseScrollview = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+        _baseScrollview.contentSize = CGSizeMake(0, 2100);
+        _baseScrollview.delegate = self;
+        _baseScrollview.showsVerticalScrollIndicator = NO;
+    }
+    return _baseScrollview;
+}
+
+- (SDCycleScrollView *)cycleScrollView
+{
+    if (!_cycleScrollView) {
+        _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, 230) delegate:self placeholderImage:[UIImage imageNamed:@"image0"]];
+        _cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentCenter;
+        _cycleScrollView.autoScrollTimeInterval = 3;
+    }
+    return _cycleScrollView;
+}
+
+- (LXqTimeCenterView *)centerView
+{
+    if (!_centerView) {
+        _centerView = [[LXqTimeCenterView alloc] initWithFrame:CGRectMake(0, 230, SCREEN_SIZE.width, 50)];
+        _centerView.backgroundColor = [UIColor whiteColor];
+        __weak typeof(self) weakSelf = self;
+        _centerView.NEWBtnBlock = ^(){
+            
+            [UIView animateWithDuration:1 animations:^{
+                CGRect NewTableRect = weakSelf.NEWTableView.frame;
+                CGRect PriceTableRect = weakSelf.DFSTableView.frame;
+                NewTableRect.origin.x = 0;
+                PriceTableRect.origin.x = SCREEN_SIZE.width;
+                
+                weakSelf.NEWTableView.frame = NewTableRect;
+                weakSelf.DFSTableView.frame = PriceTableRect;
+            }];
+            
+            weakSelf.baseScrollview.contentSize = CGSizeMake(0, self.NEWTableView.dataArr.count * 170 + 340);
+            return YES;
+            
+        };
+        _centerView.DFSBtnBlock = ^(){
+            [UIView animateWithDuration:1 animations:^{
+                CGRect NewTableRect = weakSelf.NEWTableView.frame;
+                CGRect PriceTableRect = weakSelf.DFSTableView.frame;
+                NewTableRect.origin.x = -SCREEN_SIZE.width;
+                PriceTableRect.origin.x = 0;
+                weakSelf.NEWTableView.frame = NewTableRect;
+                weakSelf.DFSTableView.frame = PriceTableRect;
+            }];
+            weakSelf.baseScrollview.contentSize = CGSizeMake(0, self.DFSTableView.dataArr.count * 200 + 340);
+            return YES;
+        };
+    }
+    return _centerView;
+}
+
+- (LXqTimeNEWTableView *)NEWTableView
+{
+    if (!_NEWTableView) {
+        _NEWTableView = [[LXqTimeNEWTableView alloc] initWithFrame:CGRectMake(0, 280, SCREEN_SIZE.width, _NEWTableView.dataArr.count) style:UITableViewStylePlain];
+        //点击cell 跳转
+        __weak typeof(self) weakSelf = self;
+        _NEWTableView.pushNEWBlock = ^(NSString *goodsId, NSString *flagUrl){
+            LXqTimeNEWGoodsViewController *NEWGoodsVC = [[LXqTimeNEWGoodsViewController alloc] init];
+            NEWGoodsVC.goodsId = goodsId;
+            NEWGoodsVC.flagUrl = flagUrl;
+            [weakSelf.navigationController pushViewController:NEWGoodsVC animated:YES];
+        };
+    }
+    return _NEWTableView;
+}
+
+- (LXqTimeDFSTableView *)DFSTableView
+{
+    if (!_DFSTableView) {
+        _DFSTableView = [[LXqTimeDFSTableView alloc] initWithFrame:CGRectMake(SCREEN_SIZE.width, 280, SCREEN_SIZE.width, _DFSTableView.dataArr.count) style:UITableViewStylePlain];
+    }
+    return _DFSTableView;
+}
+
 
 #pragma mark
 #pragma mark -  scrollView代理

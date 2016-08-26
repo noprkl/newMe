@@ -249,7 +249,7 @@
 //    __weak typeof(self) weakself = self;
 
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.top).offset(64);
+        make.top.equalTo(self.top);
         make.size.equalTo(CGSizeMake(SCREEN_SIZE.width, 35));
         make.left.equalTo(self.mas_left).offset(15);
     }];

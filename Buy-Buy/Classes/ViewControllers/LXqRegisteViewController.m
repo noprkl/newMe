@@ -57,7 +57,7 @@
     self.title = @"注册";
     
     [self.view addSubview:self.registeView];
-    
+        [self createBackBtn];
 }
 
 - (void)didReceiveMemoryWarning {

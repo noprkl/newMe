@@ -10,28 +10,25 @@
 #import "LXqGoodsHeaderModel.h"
 
 @interface LXqGoodsImageView ()
-@property (strong, nonatomic) UIImageView *goodImageView;
 @end
 @implementation LXqGoodsImageView
 
 - (void)setGoodsImageData:(NSArray *)goodsImageData
 {
     _goodsImageData = goodsImageData;
-    
     NSArray *modelArr = [LXqGoodsHeaderModel mj_objectArrayWithKeyValuesArray:goodsImageData];
     CGFloat hight = 0;
+    
     for (LXqGoodsHeaderModel *model in modelArr) {
-        if ([model.ImgType isEqualToString:@"2"]) {
-
-//            [self.goodImageView sd_setImageWithURL:[NSURL URLWithString:model.ImgType]];
-//            [self.goodImageView makeConstraints:^(MASConstraintMaker *make) {
-//                make.size.equalTo(CGSizeFromString(model.Resolution));
-//            }];
-
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, hight, SCREEN_SIZE.width, MAXFLOAT)];
-            [imageView sd_setImageWithURL:[NSURL URLWithString:model.ImgView]];
+        if ([model.ImgType isEqualToString:@"1"]) {
+            NSArray *sizeArr = [model.Resolution componentsSeparatedByString:@"*"];
             
-            hight += [model.Resolution floatValue];
+            CGFloat imageHeight = [[sizeArr firstObject] floatValue] / SCREEN_SIZE.width *[[sizeArr lastObject] floatValue];
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, hight, SCREEN_SIZE.width, imageHeight)];
+            [imageView sd_setImageWithURL:[NSURL URLWithString:model.ImgView]];
+            [self addSubview:imageView];
+            
+            hight += imageHeight;
         }
     }
     
@@ -48,15 +45,10 @@
     }
     return self;
 }
-- (UIImageView *)goodImageView
-{
-    if (!_goodImageView) {
-        _goodImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-    }
-    return _goodImageView;
-}
+
 - (void)layoutSubviews
 {
+    [super layoutSubviews];
 //    [self.goodImageView makeConstraints:^(MASConstraintMaker *make) {
 //        make.top.equalTo(self.top);
 //        make.left.equalTo(self.left);

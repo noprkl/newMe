@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "LXqClassCollectionModel.h"
-#import "LXqClassName.h"
 
 @interface LXqClassCollectionViewCell : UICollectionViewCell
-/** 模型 */
-@property (strong, nonatomic) LXqClassName *className;
+
+/** 数据模型 */
+@property (strong, nonatomic) LXqClassCollectionModel *collectionModel;
 @end

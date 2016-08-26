@@ -90,7 +90,6 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     NSDictionary *isLogin = [[NSUserDefaults standardUserDefaults] valueForKey:@"ISLOGIN"];
-    NSLog(@"%@", isLogin);
     if (isLogin.count) {
         UIView *footView = [[UIView alloc] initWithFrame:self.tableFooterView.bounds];
         footView.backgroundColor = KMaginBackGround;

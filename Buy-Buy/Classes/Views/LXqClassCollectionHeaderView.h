@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LXqClassCollectionTitleModel.h"
 
 @interface LXqClassCollectionHeaderView : UICollectionReusableView
 
-/** 头部文字 */
-@property (strong, nonatomic) UILabel *titleLabel;
+/** 模型 */
+@property (strong, nonatomic) LXqClassCollectionTitleModel *TitleModel;
 @end

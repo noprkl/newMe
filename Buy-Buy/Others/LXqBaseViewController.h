@@ -30,4 +30,6 @@ typedef void(^HttpRequestErrorBlock)(NSError *error);
 /** 提示框 */
 - (void)showToastMessage:(NSString *)message;
 
+/** 返回主页按钮 */
+- (void)createBackBtn;
 @end

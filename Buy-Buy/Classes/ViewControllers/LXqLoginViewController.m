@@ -30,7 +30,7 @@
 - (LXqMyLoginView *)logView
 {
     if (!_logView) {
-        _logView = [[LXqMyLoginView alloc] initWithFrame:self.view.bounds];
+        _logView = [[LXqMyLoginView alloc] initWithFrame:self.view.frame];
         __weak typeof(self) weakSelf = self;
         _logView.myViewBlock = ^(NSDictionary *userInfo){
            
@@ -63,7 +63,7 @@
     self.title = @"登录";
     
     [self.view addSubview:self.logView];
-    self.hidesBottomBarWhenPushed = YES;
+    [self createBackBtn];
 }
 /** 登录请求 */
 - (void)getLoginRewuest

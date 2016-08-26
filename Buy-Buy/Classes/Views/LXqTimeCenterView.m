@@ -101,8 +101,6 @@
 - (void)showNewTableView
 {
     if (_NEWBtnBlock) {
-//        _NEWBtnBlock();
-
         BOOL select = _NEWBtnBlock();
         if (select) {
             self.NEWBtn.selected = YES;

@@ -65,9 +65,10 @@
     [super layoutSubviews];
     
     [self.titleLabel makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.top).offset(64);
+        make.top.equalTo(self.top);
         make.size.equalTo(CGSizeMake(SCREEN_SIZE.width, 35));
         make.left.equalTo(self.mas_left).offset(15);
+        make.height.equalTo(30);
     }];
     [self.backView makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.titleLabel.bottom);

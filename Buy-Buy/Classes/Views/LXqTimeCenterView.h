@@ -16,5 +16,4 @@ typedef BOOL(^DFSBtnTouchBlock)();
 @property (copy, nonatomic) NEWBtnTouchBlock NEWBtnBlock;
 @property (copy, nonatomic) DFSBtnTouchBlock DFSBtnBlock;
 
-//- (BOOL)BEWBtnSelected:(NEWBtnTouchBlock)NEWBtnBlock;
 @end

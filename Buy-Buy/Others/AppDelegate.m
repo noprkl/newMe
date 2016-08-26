@@ -12,6 +12,7 @@
 #import "LXqBuyViewController.h"
 #import "LXqClassViewController.h"
 #import "LXqBaseTabBarController.h"
+#import "LXqBaseNavigationController.h"
 
 /** 友盟 */
 #import <UMSocial.h>
@@ -76,7 +77,7 @@
 }
 - (void)createTabbarVCWithVC:(UIViewController *)vc image:(NSString *)image selectImage:(NSString *)selectImage titlt:(NSString *)title
 {
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    LXqBaseNavigationController *nav = [[LXqBaseNavigationController alloc] initWithRootViewController:vc];
     nav.navigationBar.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_backImage"]];
     vc.title = title;
     vc.tabBarItem.image = [UIImage imageNamed:image];

@@ -12,6 +12,8 @@
 #import "LXqGoodsTitleView.h"
 #import "lxqGoodsDetailView.h"
 #import "LXqGoodsImageView.h"
+#import "LXqGoodsBottomView.h"
+
 
 @interface LXqTimeNEWGoodsViewController ()<UIScrollViewDelegate>
 
@@ -25,6 +27,8 @@
 @property (strong, nonatomic) LXqGoodsDetailView *goodsDetailView;
 /** 商品图片 */
 @property (strong, nonatomic) LXqGoodsImageView *goodsImageView;
+/** 底部按钮 */
+@property (strong, nonatomic) LXqGoodsBottomView *goodsBottomView;
 @end
 
 @implementation LXqTimeNEWGoodsViewController
@@ -48,9 +52,11 @@
     [self getRequestWithPath:@"appGoods/findGoodsImgList.do"
                       params:parame
                      success:^(id successJson) {
-                         NSLog(@"%@", successJson);
-                         self.goodsHeaderView.goodsHeaderData = successJson;
-                         self.goodsImageView.goodsImageData = successJson;
+                         if (successJson) {
+                             self.goodsHeaderView.goodsHeaderData = successJson;
+                             self.goodsImageView.goodsImageData = successJson;
+                             
+                         }
                      } error:^(NSError *error) {
                          NSLog(@"%@", error);
                      }];
@@ -106,10 +112,13 @@
 #pragma mark - 生命周期
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.edgesForExtendedLayout = 0;
-    self.hidesBottomBarWhenPushed = YES;
     [self addSubviews];
+    [self createBackBtn];
+    
     [self makeConstraints];
+    //数据请求
     [self requestGoodsHeaderData];
     [self requeatGoodsTitleData];
     [self requestGoodsDetailData];
@@ -124,6 +133,8 @@
     [self.baseScrollView addSubview:self.goodsTitleView];
     [self.baseScrollView addSubview:self.goodsDetailView];
     [self.baseScrollView addSubview:self.goodsImageView];
+
+    [self.view addSubview:self.goodsBottomView];
 }
 
 #pragma mark
@@ -134,7 +145,7 @@
         make.top.equalTo(self.baseScrollView.top);
         make.left.equalTo(self.baseScrollView.left);
         make.right.equalTo(self.view.right);
-        make.height.equalTo(300);
+        make.height.equalTo(280);
     }];
     //
     [self.goodsTitleView makeConstraints:^(MASConstraintMaker *make) {
@@ -153,6 +164,13 @@
         make.left.equalTo(self.baseScrollView.left);
         make.right.equalTo(self.view.right);
     }];
+    
+    [self.goodsBottomView makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view.bottom);
+        make.left.equalTo(self.view.left);
+        make.right.equalTo(self.view.right);
+    }];
+    
 }
 
 #pragma mark
@@ -164,13 +182,14 @@
         _baseScrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
         _baseScrollView.contentSize = CGSizeMake(0, 1000);
         _baseScrollView.delegate = self;
+        _baseScrollView.showsVerticalScrollIndicator = NO;
     }
     return _baseScrollView;
 }
 - (LXqGoodsHeaderView *)goodsHeaderView
 {
     if (!_goodsHeaderView) {
-        _goodsHeaderView = [[LXqGoodsHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, 300)];
+        _goodsHeaderView = [[LXqGoodsHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, 280)];
     }
     return _goodsHeaderView;
 }
@@ -197,11 +216,25 @@
 {
     if (!_goodsImageView) {
         _goodsImageView = [[LXqGoodsImageView alloc] init];
-//        self.baseScrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(_goodsImageView.frame));
+
     }
     return _goodsImageView;
 }
+- (LXqGoodsBottomView *)goodsBottomView
+{
+    if (!_goodsBottomView) {
+        _goodsBottomView = [[LXqGoodsBottomView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, 90)];
+        _goodsBottomView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_backImage"]];
+    }
+    return _goodsBottomView;
 
+}
+#pragma mark
+#pragma mark - UIScrollViewDelegate代理
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    self.baseScrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(self.goodsImageView.frame) + 64);
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

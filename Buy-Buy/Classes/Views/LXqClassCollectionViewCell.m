@@ -18,22 +18,11 @@
 
 @implementation LXqClassCollectionViewCell
 #pragma mark - 赋值（set方法）
-- (void)setClassName:(LXqClassName *)className
+- (void)setCollectionModel:(LXqClassCollectionModel *)collectionModel
 {
-    _className = className;
-    self.iconView.image = [UIImage imageNamed:className.icon];
-    NSString *string = className.content;
-    NSMutableAttributedString *mutableAttStr = [[NSMutableAttributedString alloc] initWithString:string];
-    NSDictionary *dict1 = @{
-                            NSForegroundColorAttributeName:[UIColor grayColor],
-                            NSFontAttributeName:[UIFont systemFontOfSize:15]
-                            };
-    NSRange range1 = NSRangeFromString(string);
-    [mutableAttStr addAttributes:dict1 range:range1];
-    
-    self.contentLabel.attributedText = mutableAttStr;
+    _collectionModel = collectionModel;
+    self.contentLabel.text = collectionModel.Title;
 }
-
 #pragma mark - 初始化
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -67,7 +56,7 @@
 - (UIImageView *)iconView
 {
     if (!_iconView) {
-        _iconView = [[UIImageView alloc] init];
+        _iconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"分类界面唇膏图标"]];
     }
     return _iconView;
 }

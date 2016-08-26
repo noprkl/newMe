@@ -27,9 +27,7 @@
 @implementation LXqMyViewController
 - (void)setUserMessage:(NSDictionary *)userMessage
 {
-    _userMessage = userMessage;
-    NSLog(@"%@", userMessage);
-    
+    _userMessage = userMessage;    
 
 }
 #pragma mark - 头部
