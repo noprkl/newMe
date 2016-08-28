@@ -1,12 +1,12 @@
 //
-//  LXqTimpViewController.m
+//  LXqTimeViewController.m
 //  Buy-Buy
 //
 //  Created by ma c on 16/8/17.
 //  Copyright © 2016年 LXq. All rights reserved.
 //
 
-#import "LXqTimpViewController.h"
+#import "LXqTimeViewController.h"
 #import <SDCycleScrollView.h>
 #import <MJExtension.h>
 
@@ -24,7 +24,7 @@
 #import "LXqSearchViewController.h"
 #import "LXqClassGoodsViewController.h"//点击跳到那一个?
 #import "LXqTimeDFSGoodsViewController.h"
-@interface LXqTimpViewController ()<SDCycleScrollViewDelegate, UIScrollViewDelegate>
+@interface LXqTimeViewController ()<SDCycleScrollViewDelegate, UIScrollViewDelegate>
 
 /** 放置scrollview */
 @property (strong, nonatomic) UIScrollView *baseScrollview;
@@ -39,7 +39,7 @@
 
 @end
 
-@implementation LXqTimpViewController
+@implementation LXqTimeViewController
 
 
 #pragma mark - 网络请求
