@@ -1,25 +1,26 @@
 //
-//  LXqShopGoodsPayView.m
+//  LXqSureGoodsBottomView.m
 //  Buy-Buy
 //
-//  Created by ma c on 16/8/28.
+//  Created by ma c on 16/8/30.
 //  Copyright © 2016年 LXq. All rights reserved.
 //
 
-#import "LXqShopGoodsPayView.h"
-#import "LXqShopGoodsModel.h"
+#import "LXqSureGoodsBottomView.h"
 
-@interface LXqShopGoodsPayView  ()
+@interface LXqSureGoodsBottomView  ()
 /** 合计 */
 @property (strong, nonatomic) UILabel *allLabel;
 /** 钱数 */
 @property (strong, nonatomic) UILabel *priceLabel;
 /** 全程包邮 */
 @property (strong, nonatomic) UILabel *tostLabel;
-/** 去结算 */
+/** 立即支付 */
 @property (strong, nonatomic) UIButton *payBtn;
+/** 数据 */
+//@property (strong, nonatomic) NSArray *dataArr;
 @end
-@implementation LXqShopGoodsPayView
+@implementation LXqSureGoodsBottomView
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -28,26 +29,11 @@
         [self addSubview:self.priceLabel];
         [self addSubview:self.tostLabel];
         [self addSubview:self.payBtn];
-        [self setSelectedGoods:self.selectedGoods];
     }
     return self;
 }
 
-- (void)setSelectedGoods:(NSArray *)selectedGoods
-{
-    _selectedGoods = selectedGoods;
-    MyLog(@"%@", selectedGoods);
 
-    CGFloat totalPrice = 0;
-    for (LXqShopGoodsModel *goodsMoedl in selectedGoods) {
-        CGFloat price = [goodsMoedl.Price floatValue];
-        NSInteger count = goodsMoedl.GoodsCount;
-        totalPrice += price * count * 1.0;
-    }
-
-    NSAttributedString *attribute = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"¥ %@", [@(totalPrice) stringValue]] attributes:@{NSForegroundColorAttributeName:[UIColor RGBcolorWithRed:255 green:91 blue:61 alpha:1]}];
-    self.priceLabel.attributedText = attribute;
-}
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -91,6 +77,7 @@
         _priceLabel = [[UILabel alloc] init];
         _priceLabel.font = [UIFont boldSystemFontOfSize:15];
         _priceLabel.tintColor = [UIColor RGBcolorWithRed:255 green:76 blue:34 alpha:1];
+        _priceLabel.text = @"324";
     }
     return _priceLabel;
 }
@@ -111,7 +98,7 @@
         
         [_payBtn.titleLabel setFont:[UIFont systemFontOfSize:19]];
         [_payBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [_payBtn setTitle:@"去结算" forState:UIControlStateNormal];
+        [_payBtn setTitle:@"立即支付" forState:UIControlStateNormal];
         
         [_payBtn setBackgroundColor:[UIColor RGBcolorWithRed:0 green:183 blue:239 alpha:1]];
         
@@ -124,23 +111,8 @@
 }
 - (void)pushPayView
 {
-    if (_payBlock) {
-     
-        NSMutableArray *Arr = [NSMutableArray array];
-        for (LXqShopGoodsModel *goodsModel in self.selectedGoods) {
-          
-            if (goodsModel.GoodsCount > 0) {
-
-                NSInteger count = goodsModel.GoodsCount;
-                NSString *goodsId = goodsModel.GoodsId;
-                NSInteger weight = goodsModel.Weight;
-                NSArray *arr = @[@(count), goodsId, @(weight)];
-                NSString *uuid_count = [arr componentsJoinedByString:@","];
-                [Arr addObject:uuid_count];
-            }
-        }
-        NSString *updateCartMsg = [Arr componentsJoinedByString:@"#"];
-        _payBlock(updateCartMsg);
-    }
+    
+    
 }
+
 @end

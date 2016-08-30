@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "LXqTimpViewController.h"
+#import "LXqTimeViewController.h"
 #import "LXqMyViewController.h"
 #import "LXqBuyViewController.h"
 #import "LXqClassViewController.h"
@@ -35,7 +35,7 @@
     UITabBarController *tabC = [[UITabBarController alloc] init];
     self.tabbC = tabC;
     //页面
-    LXqTimpViewController *LXqTimeVC = [[LXqTimpViewController alloc] init];
+    LXqTimeViewController *LXqTimeVC = [[LXqTimeViewController alloc] init];
     [self createTabbarVCWithVC:LXqTimeVC image:@"菜单栏限时特卖按钮未选中状态" selectImage:@"菜单栏限时特卖按钮选中状态" titlt:@"限时特卖"];
     
     LXqClassViewController *LXqClassVC = [[LXqClassViewController alloc] init];

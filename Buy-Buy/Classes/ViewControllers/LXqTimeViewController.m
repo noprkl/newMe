@@ -62,7 +62,7 @@
                           }
                           self.cycleScrollView.imageURLStringsGroup = dataArr;
                       } error:^(NSError *error) {
-                          NSLog(@"%@", error);
+                          MyLog(@"%@", error);
     }];
 }
 #pragma mark  NEWTabel数据请求
@@ -91,7 +91,7 @@
                              [self.NEWTableView reloadData];
                          }
                      } error:^(NSError *error) {
-                         NSLog(@"%@", error);
+                         MyLog(@"%@", error);
 
     }];
 }
@@ -107,7 +107,7 @@
                      success:^(id successJson) {
                          if (successJson) {
                              self.DFSTableView.dataArr = [LXqTimeDFSTableModel mj_objectArrayWithKeyValuesArray:successJson];
-//                             NSLog(@"DFSTableViewData%@", successJson);
+//                             MyLog(@"DFSTableViewData%@", successJson);
 
                              //重新布局
                              CGRect rect = self.DFSTableView.frame;

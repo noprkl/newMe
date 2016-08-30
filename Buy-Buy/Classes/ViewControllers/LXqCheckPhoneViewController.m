@@ -98,12 +98,12 @@
 
             [self showToastMessage:@"验证码错误"];
         }else{
-            NSLog(@"注册失败");
+            MyLog(@"注册失败");
             [self showToastMessage:@"注册失败"];
         }
 
     } error:^(NSError *error) {
-        NSLog(@"登录失败%@", error);
+        MyLog(@"登录失败%@", error);
             [self showToastMessage:@"登录失败"];
     }];
 }
@@ -124,7 +124,7 @@
             [self performSelector:@selector(popMyViewController) withObject:nil afterDelay:1];
         }
     } error:^(NSError *error) {
-        NSLog(@"登录失败%@", error);
+        MyLog(@"登录失败%@", error);
         [self showToastMessage:@"登录失败"];
     }];
 }

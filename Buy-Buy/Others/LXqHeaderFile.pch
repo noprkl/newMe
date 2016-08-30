@@ -58,8 +58,21 @@
 定义的特殊字符
  userPhoneNumber 输入的用户电话
  userPsd         输入的用户密码
+ 登录成功后返回 
+        ErrorMessage
+        MemberId
+        MemberLvl
+        MemberName
+        result
  
  */
 
+#define MYDEBUG 1
+#ifdef MYDEBUG
+
+#define MyLog(s,...) NSLog(@"[在%@中第%d行] %@", [[NSString stringWithFormat:@"%s", __FILE__] lastPathComponent] , __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__])
+#else
+#define MyLog(s,...)
+#endif
 
 #endif /* LXqHeaderFile_pch */

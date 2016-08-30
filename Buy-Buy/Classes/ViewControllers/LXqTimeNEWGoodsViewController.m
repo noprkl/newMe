@@ -14,6 +14,8 @@
 #import "LXqGoodsImageView.h"
 #import "LXqGoodsBottomView.h"
 
+#import "LXqLoginViewController.h"
+#import "LXqBuyViewController.h"
 
 @interface LXqTimeNEWGoodsViewController ()<UIScrollViewDelegate>
 
@@ -58,7 +60,7 @@
                              
                          }
                      } error:^(NSError *error) {
-                         NSLog(@"%@", error);
+                         MyLog(@"%@", error);
                      }];
     
 }
@@ -82,7 +84,7 @@
             self.goodsHeaderView.goodsTitleData = successJson;
         }
     } error:^(NSError *error) {
-        NSLog(@"Error--%@", error);
+        MyLog(@"Error--%@", error);
     }];
 }
 //详细信息数据
@@ -104,7 +106,7 @@
             self.goodsDetailView.goodsDetailData = successJson;
         }
     } error:^(NSError *error) {
-        NSLog(@"Error--%@", error);
+        MyLog(@"Error--%@", error);
     }];
 }
 
@@ -225,16 +227,54 @@
     }
     return _goodsImageView;
 }
+
 - (LXqGoodsBottomView *)goodsBottomView
 {
     if (!_goodsBottomView) {
         _goodsBottomView = [[LXqGoodsBottomView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_SIZE.width, 90)];
         _goodsBottomView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"nav_backImage"]];
+        __weak typeof(self) weakSelf = self;
+        _goodsBottomView.addBlock = ^(){
+        //跳转到购物车界面 同时请求添加数据
+            [weakSelf addGoodsToShopCar];
+        };
     }
     return _goodsBottomView;
 
 }
-
+- (void)addGoodsToShopCar
+{
+    //判断是否登录
+    NSDictionary *islog = [[NSUserDefaults standardUserDefaults] valueForKey:@"ISLOGIN"];
+    if (islog.count > 0) {
+        NSDictionary *parame = @{
+                                 @"GoodsId":self.goodsId,
+                                 @"MemberId":islog[@"MemberId"]
+                                 };
+        [self getRequestWithPath:@"appShopCart/insert.do" params:parame success:^(id successJson) {
+            if (successJson) {
+                [self showToastMessage:@"加入成功"];
+//                LXqBuyViewController *buyVC = [[LXqBuyViewController alloc] init];
+//                [self presentViewController:buyVC animated:YES completion:nil];
+//                [self.navigationController pushViewController:buyVC animated:YES];
+            }
+        } error:^(NSError *error) {
+            [self showToastMessage:@"未添加成功"];
+            MyLog(@"%@", error);
+        }];
+    }else{
+        [self showToastMessage:@"请登录"];
+        LXqLoginViewController *logVC = [[LXqLoginViewController alloc] init];
+        [self.navigationController pushViewController:logVC animated:YES];
+    }
+    /**
+     URL：htp://123.57.141.249:8080/beautalk/appShopCart/insert.do
+     传入数据：
+     参数标记：
+     会员登录名 ：MemberId
+     美食ID ： GoodsId
+     */
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "购物车界面意见反馈图标.png",
+      "filename" : "购物车界面商品未选中.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "购物车界面意见反馈图标@2x.png",
+      "filename" : "购物车界面商品未选中@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "购物车界面意见反馈图标@3x.png",
+      "filename" : "购物车界面商品未选中@3x.png",
       "scale" : "3x"
     }
   ],

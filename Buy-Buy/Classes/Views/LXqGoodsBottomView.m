@@ -106,9 +106,16 @@
         _addShopCar.layer.cornerRadius = 10;
         _addShopCar.layer.masksToBounds = YES;
         [_addShopCar setTitle:@"加入购物车" forState:UIControlStateNormal];
+        [_addShopCar addTarget:self action:@selector(addBtnAction) forControlEvents:UIControlEventTouchDown];
         
     }
     return _addShopCar;
+}
+- (void)addBtnAction
+{
+    if (_addBlock) {
+        _addBlock();
+    }
 }
 - (UIButton *)promptBuy
 {

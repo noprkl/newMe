@@ -43,7 +43,7 @@
                              @"OrderType":@"ASC"
                              };
     [self getRequestWithPath:@"appGgroupon/appGrounpGoodsList.do" params:parame success:^(id successJson) {
-        NSLog(@"DFSGoodsData%@", successJson);
+        MyLog(@"DFSGoodsData%@", successJson);
     } error:^(NSError *error) {
         NSLog(@"DFSGoodsData%@", error);
     }];
@@ -56,7 +56,6 @@
     self.title = self.ShopTitle;
     [self requestDFSGoodsData];
     [self addSubviews];
-    [self makeConstraints];
 }
 #pragma mark
 #pragma mark - 添加控件
@@ -67,6 +66,9 @@
     [self.baseScrollView addSubview:self.goodTitleView];
     [self.baseScrollView addSubview:self.goodsHeaderView];
     [self.baseScrollView addSubview:self.goodsCollect];
+  
+    [self makeConstraints];
+
 }
 #pragma mark
 #pragma mark - 约束

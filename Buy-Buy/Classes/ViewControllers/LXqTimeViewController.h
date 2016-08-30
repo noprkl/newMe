@@ -1,5 +1,5 @@
 //
-//  LXqTimpViewController.h
+//  LXqTimeViewController.h
 //  Buy-Buy
 //
 //  Created by ma c on 16/8/17.
@@ -9,6 +9,6 @@
 #import "LXqBaseViewController.h"
 
 
-@interface LXqTimpViewController : LXqBaseViewController
+@interface LXqTimeViewController : LXqBaseViewController
 
 @end

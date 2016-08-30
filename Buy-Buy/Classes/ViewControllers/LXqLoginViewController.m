@@ -84,7 +84,6 @@
         if ([successJson[@"ErrorMessage"] isEqualToString:@"登陆成功"]) {
             [self showToastMessage:@"登陆成功"];
             [[NSUserDefaults standardUserDefaults] setObject:successJson forKey:@"ISLOGIN"];
-            
             [self performSelector:@selector(popMyViewController) withObject:nil afterDelay:1];
             //把参数传到tableVC
             if (_getMessageBlock) {

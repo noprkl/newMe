@@ -84,9 +84,9 @@
                              @"OrderType":@"ASC"
                              };
     [self getRequestWithPath:@"appGgroupon/appGrounpGoodsList.do" params:parame success:^(id successJson) {
-//        NSLog(@"DFSGoodsData%@", successJson);
+        MyLog(@"DFSGoodsData%@", successJson);
     } error:^(NSError *error) {
-        NSLog(@"DFSGoodsData%@", error);
+        MyLog(@"DFSGoodsData%@", error);
     }];
 }
 - (void)didReceiveMemoryWarning {

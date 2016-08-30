@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^GoShoppingBlock)();
 @interface LXqShopCarView : UIView
+
+/** 逛一逛按钮 */
+@property (strong, nonatomic) GoShoppingBlock shoppingBlock;
 
 @end

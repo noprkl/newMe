@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^AddShopCarBlock)();
 @interface LXqGoodsBottomView : UIView
-
+/** <#注释#> */
+@property (strong, nonatomic) AddShopCarBlock addBlock;
 @end

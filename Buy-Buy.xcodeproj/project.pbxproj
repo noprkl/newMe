@@ -42,7 +42,7 @@
 		046E34F81D645B2300003B08 /* LXqBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34F01D645B2300003B08 /* LXqBuyViewController.m */; };
 		046E34F91D645B2300003B08 /* LXqClassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34F21D645B2300003B08 /* LXqClassViewController.m */; };
 		046E34FA1D645B2300003B08 /* LXqMyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34F41D645B2300003B08 /* LXqMyViewController.m */; };
-		046E34FB1D645B2300003B08 /* LXqTimpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34F61D645B2300003B08 /* LXqTimpViewController.m */; };
+		046E34FB1D645B2300003B08 /* LXqTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E34F61D645B2300003B08 /* LXqTimeViewController.m */; };
 		046E35051D6477C700003B08 /* LXqMyTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E35041D6477C700003B08 /* LXqMyTableView.m */; };
 		046E350E1D64796400003B08 /* LXqMyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E350D1D64796400003B08 /* LXqMyHeaderView.m */; };
 		046E35111D647AD200003B08 /* LXqMyTableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E35101D647AD200003B08 /* LXqMyTableModel.m */; };
@@ -52,6 +52,17 @@
 		046E35251D649E1B00003B08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E35201D649E1B00003B08 /* main.m */; };
 		046E35261D649E1B00003B08 /* UIColor+LXqRandomColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E35221D649E1B00003B08 /* UIColor+LXqRandomColor.m */; };
 		046E35321D64A70300003B08 /* LXqClassCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E35311D64A70300003B08 /* LXqClassCollectionView.m */; };
+		048C08441D72DB9800A8E672 /* LXqShopCarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C08431D72DB9800A8E672 /* LXqShopCarView.m */; };
+		048C08481D72DED800A8E672 /* LXqShopGoodsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C08471D72DED800A8E672 /* LXqShopGoodsTableView.m */; };
+		048C084B1D72DF9300A8E672 /* LXqShopGoodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C084A1D72DF9300A8E672 /* LXqShopGoodsTableViewCell.m */; };
+		048C084E1D72E16300A8E672 /* LXqShopGoodsPayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C084D1D72E16300A8E672 /* LXqShopGoodsPayView.m */; };
+		048C08531D731B7800A8E672 /* LXqShopGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C08521D731B7800A8E672 /* LXqShopGoodsModel.m */; };
+		048C09951D757C5B00A8E672 /* LXqGoodsPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C09941D757C5B00A8E672 /* LXqGoodsPayViewController.m */; };
+		048C09981D7581EB00A8E672 /* LXqSureOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C09971D7581EB00A8E672 /* LXqSureOrderViewController.m */; };
+		048C099E1D75832300A8E672 /* LXqAdressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C099D1D75832300A8E672 /* LXqAdressView.m */; };
+		048C09A11D758D4A00A8E672 /* LXqSureGoodsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C09A01D758D4A00A8E672 /* LXqSureGoodsTableView.m */; };
+		048C09A41D758DC100A8E672 /* LXqSureGoodsBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C09A31D758DC100A8E672 /* LXqSureGoodsBottomView.m */; };
+		048C09A71D758DF200A8E672 /* LXqSureGoodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C09A61D758DF200A8E672 /* LXqSureGoodsTableViewCell.m */; };
 		04AEED201D6546F700B653CB /* LXqLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AEED1F1D6546F700B653CB /* LXqLoginViewController.m */; };
 		04AEED241D65474F00B653CB /* LXqRegisteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AEED231D65474F00B653CB /* LXqRegisteViewController.m */; };
 		04AEED271D658DA100B653CB /* LXqMyRegisetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AEED261D658DA100B653CB /* LXqMyRegisetView.m */; };
@@ -159,8 +170,8 @@
 		046E34F21D645B2300003B08 /* LXqClassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqClassViewController.m; sourceTree = "<group>"; };
 		046E34F31D645B2300003B08 /* LXqMyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqMyViewController.h; sourceTree = "<group>"; };
 		046E34F41D645B2300003B08 /* LXqMyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqMyViewController.m; sourceTree = "<group>"; };
-		046E34F51D645B2300003B08 /* LXqTimpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqTimpViewController.h; sourceTree = "<group>"; };
-		046E34F61D645B2300003B08 /* LXqTimpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqTimpViewController.m; sourceTree = "<group>"; };
+		046E34F51D645B2300003B08 /* LXqTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqTimeViewController.h; sourceTree = "<group>"; };
+		046E34F61D645B2300003B08 /* LXqTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqTimeViewController.m; sourceTree = "<group>"; };
 		046E35031D6477C700003B08 /* LXqMyTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqMyTableView.h; sourceTree = "<group>"; };
 		046E35041D6477C700003B08 /* LXqMyTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqMyTableView.m; sourceTree = "<group>"; };
 		046E350C1D64796400003B08 /* LXqMyHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqMyHeaderView.h; sourceTree = "<group>"; };
@@ -179,6 +190,28 @@
 		046E352D1D64A30A00003B08 /* LXqHeaderFile.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LXqHeaderFile.pch; sourceTree = "<group>"; };
 		046E35301D64A70300003B08 /* LXqClassCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqClassCollectionView.h; sourceTree = "<group>"; };
 		046E35311D64A70300003B08 /* LXqClassCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqClassCollectionView.m; sourceTree = "<group>"; };
+		048C08421D72DB9800A8E672 /* LXqShopCarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqShopCarView.h; sourceTree = "<group>"; };
+		048C08431D72DB9800A8E672 /* LXqShopCarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqShopCarView.m; sourceTree = "<group>"; };
+		048C08461D72DED800A8E672 /* LXqShopGoodsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqShopGoodsTableView.h; sourceTree = "<group>"; };
+		048C08471D72DED800A8E672 /* LXqShopGoodsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqShopGoodsTableView.m; sourceTree = "<group>"; };
+		048C08491D72DF9300A8E672 /* LXqShopGoodsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqShopGoodsTableViewCell.h; sourceTree = "<group>"; };
+		048C084A1D72DF9300A8E672 /* LXqShopGoodsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqShopGoodsTableViewCell.m; sourceTree = "<group>"; };
+		048C084C1D72E16300A8E672 /* LXqShopGoodsPayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqShopGoodsPayView.h; sourceTree = "<group>"; };
+		048C084D1D72E16300A8E672 /* LXqShopGoodsPayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqShopGoodsPayView.m; sourceTree = "<group>"; };
+		048C08511D731B7800A8E672 /* LXqShopGoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqShopGoodsModel.h; sourceTree = "<group>"; };
+		048C08521D731B7800A8E672 /* LXqShopGoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqShopGoodsModel.m; sourceTree = "<group>"; };
+		048C09931D757C5B00A8E672 /* LXqGoodsPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqGoodsPayViewController.h; sourceTree = "<group>"; };
+		048C09941D757C5B00A8E672 /* LXqGoodsPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqGoodsPayViewController.m; sourceTree = "<group>"; };
+		048C09961D7581EB00A8E672 /* LXqSureOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqSureOrderViewController.h; sourceTree = "<group>"; };
+		048C09971D7581EB00A8E672 /* LXqSureOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqSureOrderViewController.m; sourceTree = "<group>"; };
+		048C099C1D75832300A8E672 /* LXqAdressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqAdressView.h; sourceTree = "<group>"; };
+		048C099D1D75832300A8E672 /* LXqAdressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqAdressView.m; sourceTree = "<group>"; };
+		048C099F1D758D4A00A8E672 /* LXqSureGoodsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqSureGoodsTableView.h; sourceTree = "<group>"; };
+		048C09A01D758D4A00A8E672 /* LXqSureGoodsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqSureGoodsTableView.m; sourceTree = "<group>"; };
+		048C09A21D758DC100A8E672 /* LXqSureGoodsBottomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqSureGoodsBottomView.h; sourceTree = "<group>"; };
+		048C09A31D758DC100A8E672 /* LXqSureGoodsBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqSureGoodsBottomView.m; sourceTree = "<group>"; };
+		048C09A51D758DF200A8E672 /* LXqSureGoodsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqSureGoodsTableViewCell.h; sourceTree = "<group>"; };
+		048C09A61D758DF200A8E672 /* LXqSureGoodsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqSureGoodsTableViewCell.m; sourceTree = "<group>"; };
 		04AEED1E1D6546F700B653CB /* LXqLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqLoginViewController.h; sourceTree = "<group>"; };
 		04AEED1F1D6546F700B653CB /* LXqLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqLoginViewController.m; sourceTree = "<group>"; };
 		04AEED221D65474F00B653CB /* LXqRegisteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqRegisteViewController.h; sourceTree = "<group>"; };
@@ -482,13 +515,13 @@
 		046E34ED1D645B2300003B08 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				048C08501D731B5800A8E672 /* 购物车 */,
 				045BE3F81D7030D300D1BCA8 /* 同类商品 */,
 				040666751D6E9A95009C8915 /* 商品详情 */,
 				04E7495C1D6C53D1004FB6BA /* 限时特购 */,
 				04AEED381D66055000B653CB /* 分类 */,
 				046E352E1D64A5E600003B08 /* 我 */,
-				044207791D7067A3007EAD70 /* LXqSearchGoodsModel.h */,
-				0442077A1D7067A3007EAD70 /* LXqSearchGoodsModel.m */,
+				048C084F1D731B4C00A8E672 /* 搜索 */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -516,6 +549,7 @@
 				040666621D6D8CF9009C8915 /* 商品详情 */,
 				0406FAB91D6ACD8000292722 /* 限时特购 */,
 				046E352F1D64A6D800003B08 /* 分类 */,
+				048C08451D72DBA300A8E672 /* 购物车 */,
 				046E35171D649BC700003B08 /* 我 */,
 			);
 			path = Views;
@@ -585,6 +619,74 @@
 			name = DFSTable;
 			sourceTree = "<group>";
 		};
+		048C08451D72DBA300A8E672 /* 购物车 */ = {
+			isa = PBXGroup;
+			children = (
+				048C099B1D75830100A8E672 /* 支付 */,
+				048C099A1D7582EB00A8E672 /* 购物 */,
+			);
+			name = "购物车";
+			sourceTree = "<group>";
+		};
+		048C084F1D731B4C00A8E672 /* 搜索 */ = {
+			isa = PBXGroup;
+			children = (
+				044207791D7067A3007EAD70 /* LXqSearchGoodsModel.h */,
+				0442077A1D7067A3007EAD70 /* LXqSearchGoodsModel.m */,
+			);
+			name = "搜索";
+			sourceTree = "<group>";
+		};
+		048C08501D731B5800A8E672 /* 购物车 */ = {
+			isa = PBXGroup;
+			children = (
+				048C08511D731B7800A8E672 /* LXqShopGoodsModel.h */,
+				048C08521D731B7800A8E672 /* LXqShopGoodsModel.m */,
+			);
+			name = "购物车";
+			sourceTree = "<group>";
+		};
+		048C09991D7582D100A8E672 /* 支付 */ = {
+			isa = PBXGroup;
+			children = (
+				048C09961D7581EB00A8E672 /* LXqSureOrderViewController.h */,
+				048C09971D7581EB00A8E672 /* LXqSureOrderViewController.m */,
+				048C09931D757C5B00A8E672 /* LXqGoodsPayViewController.h */,
+				048C09941D757C5B00A8E672 /* LXqGoodsPayViewController.m */,
+			);
+			name = "支付";
+			sourceTree = "<group>";
+		};
+		048C099A1D7582EB00A8E672 /* 购物 */ = {
+			isa = PBXGroup;
+			children = (
+				048C08421D72DB9800A8E672 /* LXqShopCarView.h */,
+				048C08431D72DB9800A8E672 /* LXqShopCarView.m */,
+				048C08461D72DED800A8E672 /* LXqShopGoodsTableView.h */,
+				048C08471D72DED800A8E672 /* LXqShopGoodsTableView.m */,
+				048C08491D72DF9300A8E672 /* LXqShopGoodsTableViewCell.h */,
+				048C084A1D72DF9300A8E672 /* LXqShopGoodsTableViewCell.m */,
+				048C084C1D72E16300A8E672 /* LXqShopGoodsPayView.h */,
+				048C084D1D72E16300A8E672 /* LXqShopGoodsPayView.m */,
+			);
+			name = "购物";
+			sourceTree = "<group>";
+		};
+		048C099B1D75830100A8E672 /* 支付 */ = {
+			isa = PBXGroup;
+			children = (
+				048C099C1D75832300A8E672 /* LXqAdressView.h */,
+				048C099D1D75832300A8E672 /* LXqAdressView.m */,
+				048C099F1D758D4A00A8E672 /* LXqSureGoodsTableView.h */,
+				048C09A01D758D4A00A8E672 /* LXqSureGoodsTableView.m */,
+				048C09A51D758DF200A8E672 /* LXqSureGoodsTableViewCell.h */,
+				048C09A61D758DF200A8E672 /* LXqSureGoodsTableViewCell.m */,
+				048C09A21D758DC100A8E672 /* LXqSureGoodsBottomView.h */,
+				048C09A31D758DC100A8E672 /* LXqSureGoodsBottomView.m */,
+			);
+			name = "支付";
+			sourceTree = "<group>";
+		};
 		04AEED211D65470100B653CB /* 我 */ = {
 			isa = PBXGroup;
 			children = (
@@ -613,12 +715,12 @@
 		04AEED321D6599F200B653CB /* 个人界面 */ = {
 			isa = PBXGroup;
 			children = (
+				046E350C1D64796400003B08 /* LXqMyHeaderView.h */,
+				046E350D1D64796400003B08 /* LXqMyHeaderView.m */,
 				046E35031D6477C700003B08 /* LXqMyTableView.h */,
 				046E35041D6477C700003B08 /* LXqMyTableView.m */,
 				046E35141D648B8500003B08 /* LXqMyTableViewCell.h */,
 				046E35151D648B8500003B08 /* LXqMyTableViewCell.m */,
-				046E350C1D64796400003B08 /* LXqMyHeaderView.h */,
-				046E350D1D64796400003B08 /* LXqMyHeaderView.m */,
 			);
 			name = "个人界面";
 			sourceTree = "<group>";
@@ -626,8 +728,8 @@
 		04AEED331D659A0500B653CB /* 限时特购 */ = {
 			isa = PBXGroup;
 			children = (
-				046E34F51D645B2300003B08 /* LXqTimpViewController.h */,
-				046E34F61D645B2300003B08 /* LXqTimpViewController.m */,
+				046E34F51D645B2300003B08 /* LXqTimeViewController.h */,
+				046E34F61D645B2300003B08 /* LXqTimeViewController.m */,
 			);
 			name = "限时特购";
 			sourceTree = "<group>";
@@ -646,6 +748,7 @@
 			children = (
 				046E34EF1D645B2300003B08 /* LXqBuyViewController.h */,
 				046E34F01D645B2300003B08 /* LXqBuyViewController.m */,
+				048C09991D7582D100A8E672 /* 支付 */,
 			);
 			name = "购物车";
 			sourceTree = "<group>";
@@ -972,11 +1075,14 @@
 				040666781D6E9AB9009C8915 /* LXqGoodsHeaderModel.m in Sources */,
 				046E35051D6477C700003B08 /* LXqMyTableView.m in Sources */,
 				045BE3BD1D6EAF3000D1BCA8 /* LXqGoodsDetailModel.m in Sources */,
+				048C09A41D758DC100A8E672 /* LXqSureGoodsBottomView.m in Sources */,
+				048C09981D7581EB00A8E672 /* LXqSureOrderViewController.m in Sources */,
 				046E35161D648B8500003B08 /* LXqMyTableViewCell.m in Sources */,
 				045416A81D6D1C020051174C /* LXqTimeDFSTableModel.m in Sources */,
 				040666681D6DB7A9009C8915 /* LXqGoodsTitleView.m in Sources */,
 				0442077B1D7067A3007EAD70 /* LXqSearchGoodsModel.m in Sources */,
-				046E34FB1D645B2300003B08 /* LXqTimpViewController.m in Sources */,
+				048C099E1D75832300A8E672 /* LXqAdressView.m in Sources */,
+				046E34FB1D645B2300003B08 /* LXqTimeViewController.m in Sources */,
 				04AEED241D65474F00B653CB /* LXqRegisteViewController.m in Sources */,
 				045BE3F01D70272100D1BCA8 /* LXqTimeDFSGoodsViewController.m in Sources */,
 				045BE3FB1D70311600D1BCA8 /* LXqTimeDFSGoodsModel.m in Sources */,
@@ -986,6 +1092,7 @@
 				0406666B1D6DF8C7009C8915 /* LXqGoodsTitleModel.m in Sources */,
 				045BE3C71D6ED84500D1BCA8 /* LXqGoodsBottomView.m in Sources */,
 				04E7495B1D6C53C9004FB6BA /* LXqTimeNEWTableModel.m in Sources */,
+				048C084B1D72DF9300A8E672 /* LXqShopGoodsTableViewCell.m in Sources */,
 				04E749551D6C4CCA004FB6BA /* LXqTimeNEWTableViewCell.m in Sources */,
 				04FD08501D6C275A004C1AAA /* LXqTimeNEWTableView.m in Sources */,
 				045BE3C41D6EC30600D1BCA8 /* LXqGoodsImageView.m in Sources */,
@@ -995,6 +1102,7 @@
 				04AEED201D6546F700B653CB /* LXqLoginViewController.m in Sources */,
 				046E34F81D645B2300003B08 /* LXqBuyViewController.m in Sources */,
 				0406FAB61D68790400292722 /* LXqClassCollectionHeaderView.m in Sources */,
+				048C08441D72DB9800A8E672 /* LXqShopCarView.m in Sources */,
 				04AEED311D65975600B653CB /* LXqCheckPhoneViewController.m in Sources */,
 				045BE3F71D70289B00D1BCA8 /* LXqTimeDFSGoodsHeaderView.m in Sources */,
 				0406FAA61D68499500292722 /* LXqHTTPTool.m in Sources */,
@@ -1002,6 +1110,7 @@
 				04AEED271D658DA100B653CB /* LXqMyRegisetView.m in Sources */,
 				045BE3EC1D6FF4D100D1BCA8 /* LXqClassGoodsHeaderView.m in Sources */,
 				0406667B1D6E9C43009C8915 /* LXqGoodsHeaderView.m in Sources */,
+				048C09A71D758DF200A8E672 /* LXqSureGoodsTableViewCell.m in Sources */,
 				04AEED3B1D66057A00B653CB /* LXqClassCollectionModel.m in Sources */,
 				045BE3E91D6FEE7600D1BCA8 /* LXqClassGoodsCollectionViewCell.m in Sources */,
 				046E35111D647AD200003B08 /* LXqMyTableModel.m in Sources */,
@@ -1010,15 +1119,20 @@
 				045BE3C01D6EB15B00D1BCA8 /* LXqGoodsDetailView.m in Sources */,
 				04AEED3F1D6605CF00B653CB /* LXqClassCollectionViewCell.m in Sources */,
 				046E35261D649E1B00003B08 /* UIColor+LXqRandomColor.m in Sources */,
+				048C08531D731B7800A8E672 /* LXqShopGoodsModel.m in Sources */,
 				045BE3DD1D6FCAB300D1BCA8 /* LXqClassGoodsViewController.m in Sources */,
+				048C084E1D72E16300A8E672 /* LXqShopGoodsPayView.m in Sources */,
 				045BE3D71D6F440D00D1BCA8 /* LXqClassCollectionTitleModel.m in Sources */,
 				046E35321D64A70300003B08 /* LXqClassCollectionView.m in Sources */,
+				048C09A11D758D4A00A8E672 /* LXqSureGoodsTableView.m in Sources */,
+				048C09951D757C5B00A8E672 /* LXqGoodsPayViewController.m in Sources */,
 				045BE3E31D6FE65000D1BCA8 /* LXqClassGoodsCollectionView.m in Sources */,
 				0406FAA31D6848B700292722 /* HttpTool.m in Sources */,
 				046E34F91D645B2300003B08 /* LXqClassViewController.m in Sources */,
 				046E35251D649E1B00003B08 /* main.m in Sources */,
 				045BE3D01D6EE86E00D1BCA8 /* LXqBaseNavigationController.m in Sources */,
 				045416F01D6D31B50051174C /* LXqTimeNEWGoodsViewController.m in Sources */,
+				048C08481D72DED800A8E672 /* LXqShopGoodsTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
