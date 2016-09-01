@@ -63,6 +63,8 @@
 		048C09A11D758D4A00A8E672 /* LXqSureGoodsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C09A01D758D4A00A8E672 /* LXqSureGoodsTableView.m */; };
 		048C09A41D758DC100A8E672 /* LXqSureGoodsBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C09A31D758DC100A8E672 /* LXqSureGoodsBottomView.m */; };
 		048C09A71D758DF200A8E672 /* LXqSureGoodsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C09A61D758DF200A8E672 /* LXqSureGoodsTableViewCell.m */; };
+		048C09AB1D76694900A8E672 /* LXqGoodsSureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C09AA1D76694900A8E672 /* LXqGoodsSureModel.m */; };
+		048C09AE1D76753B00A8E672 /* LXqGoodsSureListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C09AD1D76753B00A8E672 /* LXqGoodsSureListModel.m */; };
 		04AEED201D6546F700B653CB /* LXqLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AEED1F1D6546F700B653CB /* LXqLoginViewController.m */; };
 		04AEED241D65474F00B653CB /* LXqRegisteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AEED231D65474F00B653CB /* LXqRegisteViewController.m */; };
 		04AEED271D658DA100B653CB /* LXqMyRegisetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04AEED261D658DA100B653CB /* LXqMyRegisetView.m */; };
@@ -212,6 +214,10 @@
 		048C09A31D758DC100A8E672 /* LXqSureGoodsBottomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqSureGoodsBottomView.m; sourceTree = "<group>"; };
 		048C09A51D758DF200A8E672 /* LXqSureGoodsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqSureGoodsTableViewCell.h; sourceTree = "<group>"; };
 		048C09A61D758DF200A8E672 /* LXqSureGoodsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqSureGoodsTableViewCell.m; sourceTree = "<group>"; };
+		048C09A91D76694900A8E672 /* LXqGoodsSureModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqGoodsSureModel.h; sourceTree = "<group>"; };
+		048C09AA1D76694900A8E672 /* LXqGoodsSureModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqGoodsSureModel.m; sourceTree = "<group>"; };
+		048C09AC1D76753B00A8E672 /* LXqGoodsSureListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqGoodsSureListModel.h; sourceTree = "<group>"; };
+		048C09AD1D76753B00A8E672 /* LXqGoodsSureListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqGoodsSureListModel.m; sourceTree = "<group>"; };
 		04AEED1E1D6546F700B653CB /* LXqLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqLoginViewController.h; sourceTree = "<group>"; };
 		04AEED1F1D6546F700B653CB /* LXqLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXqLoginViewController.m; sourceTree = "<group>"; };
 		04AEED221D65474F00B653CB /* LXqRegisteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXqRegisteViewController.h; sourceTree = "<group>"; };
@@ -515,6 +521,7 @@
 		046E34ED1D645B2300003B08 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				048C09A81D76692100A8E672 /* 确认订单 */,
 				048C08501D731B5800A8E672 /* 购物车 */,
 				045BE3F81D7030D300D1BCA8 /* 同类商品 */,
 				040666751D6E9A95009C8915 /* 商品详情 */,
@@ -622,7 +629,7 @@
 		048C08451D72DBA300A8E672 /* 购物车 */ = {
 			isa = PBXGroup;
 			children = (
-				048C099B1D75830100A8E672 /* 支付 */,
+				048C099B1D75830100A8E672 /* 确认订单 */,
 				048C099A1D7582EB00A8E672 /* 购物 */,
 			);
 			name = "购物车";
@@ -646,7 +653,7 @@
 			name = "购物车";
 			sourceTree = "<group>";
 		};
-		048C09991D7582D100A8E672 /* 支付 */ = {
+		048C09991D7582D100A8E672 /* 确认订单 */ = {
 			isa = PBXGroup;
 			children = (
 				048C09961D7581EB00A8E672 /* LXqSureOrderViewController.h */,
@@ -654,7 +661,7 @@
 				048C09931D757C5B00A8E672 /* LXqGoodsPayViewController.h */,
 				048C09941D757C5B00A8E672 /* LXqGoodsPayViewController.m */,
 			);
-			name = "支付";
+			name = "确认订单";
 			sourceTree = "<group>";
 		};
 		048C099A1D7582EB00A8E672 /* 购物 */ = {
@@ -672,7 +679,7 @@
 			name = "购物";
 			sourceTree = "<group>";
 		};
-		048C099B1D75830100A8E672 /* 支付 */ = {
+		048C099B1D75830100A8E672 /* 确认订单 */ = {
 			isa = PBXGroup;
 			children = (
 				048C099C1D75832300A8E672 /* LXqAdressView.h */,
@@ -684,7 +691,18 @@
 				048C09A21D758DC100A8E672 /* LXqSureGoodsBottomView.h */,
 				048C09A31D758DC100A8E672 /* LXqSureGoodsBottomView.m */,
 			);
-			name = "支付";
+			name = "确认订单";
+			sourceTree = "<group>";
+		};
+		048C09A81D76692100A8E672 /* 确认订单 */ = {
+			isa = PBXGroup;
+			children = (
+				048C09A91D76694900A8E672 /* LXqGoodsSureModel.h */,
+				048C09AA1D76694900A8E672 /* LXqGoodsSureModel.m */,
+				048C09AC1D76753B00A8E672 /* LXqGoodsSureListModel.h */,
+				048C09AD1D76753B00A8E672 /* LXqGoodsSureListModel.m */,
+			);
+			name = "确认订单";
 			sourceTree = "<group>";
 		};
 		04AEED211D65470100B653CB /* 我 */ = {
@@ -748,7 +766,7 @@
 			children = (
 				046E34EF1D645B2300003B08 /* LXqBuyViewController.h */,
 				046E34F01D645B2300003B08 /* LXqBuyViewController.m */,
-				048C09991D7582D100A8E672 /* 支付 */,
+				048C09991D7582D100A8E672 /* 确认订单 */,
 			);
 			name = "购物车";
 			sourceTree = "<group>";
@@ -1102,6 +1120,7 @@
 				04AEED201D6546F700B653CB /* LXqLoginViewController.m in Sources */,
 				046E34F81D645B2300003B08 /* LXqBuyViewController.m in Sources */,
 				0406FAB61D68790400292722 /* LXqClassCollectionHeaderView.m in Sources */,
+				048C09AE1D76753B00A8E672 /* LXqGoodsSureListModel.m in Sources */,
 				048C08441D72DB9800A8E672 /* LXqShopCarView.m in Sources */,
 				04AEED311D65975600B653CB /* LXqCheckPhoneViewController.m in Sources */,
 				045BE3F71D70289B00D1BCA8 /* LXqTimeDFSGoodsHeaderView.m in Sources */,
@@ -1128,6 +1147,7 @@
 				048C09951D757C5B00A8E672 /* LXqGoodsPayViewController.m in Sources */,
 				045BE3E31D6FE65000D1BCA8 /* LXqClassGoodsCollectionView.m in Sources */,
 				0406FAA31D6848B700292722 /* HttpTool.m in Sources */,
+				048C09AB1D76694900A8E672 /* LXqGoodsSureModel.m in Sources */,
 				046E34F91D645B2300003B08 /* LXqClassViewController.m in Sources */,
 				046E35251D649E1B00003B08 /* main.m in Sources */,
 				045BE3D01D6EE86E00D1BCA8 /* LXqBaseNavigationController.m in Sources */,

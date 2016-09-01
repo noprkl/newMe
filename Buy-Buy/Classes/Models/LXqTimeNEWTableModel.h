@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface LXqTimeNEWTableModel : NSObject
-/**
+/*
  商品ID : GoodsId
  国家名称 : CountryName
  国旗图片 : CountryImg

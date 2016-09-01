@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^PushNEWGoodsViewBlock)(NSString *goodsId, NSString *flagUrl);
-
+typedef void(^GetNEWGoodsidBlock)(NSString *goodId);
 @interface LXqTimeNEWTableView : UITableView
 
 /** 数据源 */
@@ -17,4 +17,6 @@ typedef void(^PushNEWGoodsViewBlock)(NSString *goodsId, NSString *flagUrl);
 /** 跳转到详细的商品界面 */
 @property (strong, nonatomic) PushNEWGoodsViewBlock pushNEWBlock;
 
+/** NEW goodsid */
+@property (strong, nonatomic) GetNEWGoodsidBlock NEWgoodidBlock;
 @end

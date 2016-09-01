@@ -41,8 +41,11 @@
         if (successJson) {
             //传入数据
             self.goodsTableView.shopGoodsData = successJson;
-            MyLog(@"%@", successJson);
             [self.goodsTableView reloadData];
+            
+            
+            NSArray *goodsArr = [LXqShopGoodsModel mj_objectArrayWithKeyValuesArray:successJson];
+            self.goodsPayView.selectedGoods = goodsArr;
         }
     } error:^(NSError *error) {
         NSLog(@"%@", error);
@@ -53,6 +56,8 @@
 #pragma mark  更新购物车
 - (void)updataShopGoods:(NSArray *)dataArr
 {
+    self.goodsPayView.selectedGoods = dataArr;
+
     NSMutableArray *Arr = [NSMutableArray array];
 
     for (LXqShopGoodsModel *goodsModel in dataArr) {
@@ -142,7 +147,6 @@
         
         __weak typeof(self) weakSelf = self;
         _goodsTableView.selectedBlock = ^(NSArray *selectArr){
-            weakSelf.goodsPayView.selectedGoods = selectArr;
             [weakSelf performSelector:@selector(updataShopGoods:) withObject:selectArr];
         };
     }

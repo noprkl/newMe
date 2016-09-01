@@ -10,6 +10,9 @@
 #import "LXqAdressView.h"
 #import "LXqSureGoodsTableView.h"
 #import "LXqSureGoodsBottomView.h"
+
+#import "LXqGoodsSureModel.h"
+#import "LXqGoodsPayViewController.h"
 @interface LXqSureOrderViewController ()
 /** 发货地址 */
 @property (strong, nonatomic) LXqAdressView *adressView;
@@ -28,7 +31,12 @@
                              @"Goods":self.Goods
                              };
     [self getRequestWithPath:@"appOrder/gotoInsert.do" params:parame success:^(id successJson) {
-        MyLog(@"%@", successJson);
+        LXqGoodsSureModel *goodsModel = [LXqGoodsSureModel mj_objectWithKeyValues:successJson];
+        self.goodsTableView.sureGoodsData = goodsModel.GoodsList;
+        [self.goodsTableView reloadData];
+        //给去支付view传值
+        self.goodsPayView.totalPrice = goodsModel.GoodsPrice;
+        
     } error:^(NSError *error) {
         MyLog(@"%@", error);
     }];
@@ -78,7 +86,11 @@
         _goodsPayView = [[LXqSureGoodsBottomView alloc] init];
         _goodsPayView.backgroundColor = [UIColor whiteColor];
         __weak typeof(self) weakSelf = self;
-        
+        _goodsPayView.payBlock = ^(NSString *price){
+            __strong typeof(weakSelf) strSelf = weakSelf;
+            LXqGoodsPayViewController  *PayVC = [[LXqGoodsPayViewController alloc] init];
+            [strSelf.navigationController pushViewController:PayVC animated:YES];
+        };
     }
     return _goodsPayView;
 }

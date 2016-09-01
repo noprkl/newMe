@@ -98,8 +98,15 @@
     if (!_shopCarBtn) {
         _shopCarBtn = [UIButton buttonWithType:UIButtonTypeSystem];
         [_shopCarBtn setImage:[UIImage imageNamed:@"限时特卖界面购物车图标"] forState:UIControlStateNormal];
+        [_shopCarBtn addTarget:self action:@selector(shopCarBtnAction) forControlEvents:UIControlEventTouchDown];
     }
     return _shopCarBtn;
+}
+- (void)shopCarBtnAction
+{
+    if (_NEWGoodidBlock) {
+        _NEWGoodidBlock(self.shopCarBtn);
+    }
 }
 #pragma mark
 #pragma mark - 约束

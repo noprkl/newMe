@@ -31,24 +31,31 @@
     }
     return self;
 }
+- (void)setGoodsModel:(LXqGoodsSureListModel *)goodsModel
+{
+    _goodsModel = goodsModel;
+    [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:goodsModel.ImgView]];
+    self.titleLabel.text = goodsModel.Abbreviation;
+    self.perPriceLabel.text = goodsModel.PriceAndCount;
+}
 #pragma mark - 布局
 - (void)layoutSubviews
 {
     [super layoutSubviews];
     
     [self.goodsImageView makeConstraints:^(MASConstraintMaker *make) {
-        make.size.equalTo(CGSizeMake(53, 53));
-        make.left.equalTo(self.left).offset(40);
+        make.size.equalTo(CGSizeMake(70, 70));
+        make.left.equalTo(self.left).offset(10);
         make.centerY.equalTo(self.centerY);
     }];
     [self.titleLabel makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.top).offset(8);
-        make.left.equalTo(self.goodsImageView.right).offset(18);
-        make.right.equalTo(self.right).offset(10);
+        make.top.equalTo(self.top).offset(15);
+        make.left.equalTo(self.goodsImageView.right).offset(15);
+        make.right.equalTo(self.right).offset(-15);
     }];
     [self.perPriceLabel makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.titleLabel.bottom).offset(20);
-        make.left.equalTo(self.goodsImageView.right).offset(13);
+        make.right.equalTo(self.right).offset(-15);
         //        make.bottom.equalTo(self.bottom).offset(-22);
     }];
    
@@ -68,7 +75,6 @@
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
         _titleLabel.numberOfLines = 1;
-        _titleLabel.text = @"udsgf";
     }
     return _titleLabel;
 }
@@ -76,7 +82,7 @@
 {
     if (!_perPriceLabel) {
         _perPriceLabel = [[UILabel alloc] init];
-        _perPriceLabel.text = @"200.00";
+        _perPriceLabel.textAlignment = NSTextAlignmentRight;
     }
     return _perPriceLabel;
 }

@@ -36,7 +36,6 @@
 - (void)setSelectedGoods:(NSArray *)selectedGoods
 {
     _selectedGoods = selectedGoods;
-    MyLog(@"%@", selectedGoods);
 
     CGFloat totalPrice = 0;
     for (LXqShopGoodsModel *goodsMoedl in selectedGoods) {
@@ -45,7 +44,7 @@
         totalPrice += price * count * 1.0;
     }
 
-    NSAttributedString *attribute = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"¥ %@", [@(totalPrice) stringValue]] attributes:@{NSForegroundColorAttributeName:[UIColor RGBcolorWithRed:255 green:91 blue:61 alpha:1]}];
+    NSAttributedString *attribute = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"¥ %0.2f", totalPrice] attributes:@{NSForegroundColorAttributeName:[UIColor RGBcolorWithRed:255 green:91 blue:61 alpha:1]}];
     self.priceLabel.attributedText = attribute;
 }
 - (void)layoutSubviews

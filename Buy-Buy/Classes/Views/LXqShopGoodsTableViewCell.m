@@ -35,6 +35,7 @@
     _shopGoodsModel = shopGoodsModel;
     [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:shopGoodsModel.ImgView]];
     self.titleLabel.text = shopGoodsModel.Abbreviation;
+    
     self.perPriceLabel.text = shopGoodsModel.Price;
     self.goodsCount.text = [@(shopGoodsModel.GoodsCount) stringValue];
 }

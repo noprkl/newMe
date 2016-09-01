@@ -8,6 +8,8 @@
 
 #import "LXqSureGoodsTableView.h"
 #import "LXqSureGoodsTableViewCell.h"
+#import "LXqGoodsSureListModel.h"
+
 static NSString *cellid = @"SureGoodsTableCellid";
 
 @interface LXqSureGoodsTableView ()<UITableViewDataSource, UITableViewDelegate>
@@ -22,6 +24,11 @@ static NSString *cellid = @"SureGoodsTableCellid";
         _dataArr = [NSMutableArray array];
     }
     return _dataArr;
+}
+- (void)setSureGoodsData:(NSArray *)sureGoodsData
+{
+    _sureGoodsData = sureGoodsData;
+    self.dataArr = [LXqGoodsSureListModel mj_objectArrayWithKeyValuesArray:sureGoodsData];
 }
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
 {
@@ -38,19 +45,21 @@ static NSString *cellid = @"SureGoodsTableCellid";
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    return self.dataArr.count;
-        return 3;
+    return self.dataArr.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LXqSureGoodsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
-
+    cell.goodsModel = self.dataArr[indexPath.row];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 80;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 @end
 

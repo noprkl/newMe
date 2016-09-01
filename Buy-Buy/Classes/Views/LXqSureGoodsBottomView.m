@@ -7,6 +7,7 @@
 //
 
 #import "LXqSureGoodsBottomView.h"
+#import "LXqGoodsSureListModel.h"
 
 @interface LXqSureGoodsBottomView  ()
 /** 合计 */
@@ -33,7 +34,21 @@
     return self;
 }
 
+//- (void)setSelectedGoods:(NSArray *)selectedGoods
+//{
+//    _selectedGoods = selectedGoods;
+//    LXqGoodsSureListModel *goodleModel = [LXqGoodsSureListModel mj_objectWithKeyValues:selectedGoods];
+//    
+//    NSAttributedString *attribute = [[NSAttributedString alloc] initWithString:goodleModel.Price attributes:@{NSForegroundColorAttributeName:[UIColor RGBcolorWithRed:255 green:91 blue:61 alpha:1]}];
+//    self.priceLabel.attributedText = attribute;
+//}
+- (void)setTotalPrice:(NSString *)totalPrice
+{
+    _totalPrice = totalPrice;
+    NSAttributedString *attribute = [[NSAttributedString alloc] initWithString:totalPrice attributes:@{NSForegroundColorAttributeName:[UIColor RGBcolorWithRed:255 green:91 blue:61 alpha:1]}];
+    self.priceLabel.attributedText = attribute;
 
+}
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -111,7 +126,9 @@
 }
 - (void)pushPayView
 {
-    
+    if (_payBlock) {
+        _payBlock(self.totalPrice);
+    }
     
 }
 

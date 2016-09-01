@@ -1,36 +1,17 @@
 //
-//  LXqShopGoodsModel.h
+//  LXqGoodsSureListModel.h
 //  Buy-Buy
 //
-//  Created by ma c on 16/8/28.
+//  Created by ma c on 16/8/31.
 //  Copyright © 2016年 LXq. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface LXqShopGoodsModel : NSObject
-/**
- Abbreviation
- Country
- Discount
- DomesticPrice
- GoodsCount
- GoodsId
- GoodsTitle
- ImgView
- Price
- UUID
- Weight
- 返回参数：List<Map<String,Object>>
- 商品对应购物车记录标记：UUID
- 商品ID：GoodsId
- 商品缩略图：ImgView
- 商品标题：GoodsTitle
- 商品数量：GoodsCount
- 国旗图标：Country
- 价格：Price
- */
+@interface LXqGoodsSureListModel : NSObject
 /** title */
+@property (strong, nonatomic) NSString *Title;
+/** Abbreviation */
 @property (strong, nonatomic) NSString *Abbreviation;
 /** 购买个数 */
 @property (assign, nonatomic) NSInteger GoodsCount;
@@ -40,8 +21,8 @@
 @property (strong, nonatomic) NSString *GoodsId;
 /** 图片 */
 @property (strong, nonatomic) NSString *ImgView;
-/** UUID */
-@property (strong, nonatomic) NSString *UUID;
+/** 库存 */
+@property (assign, nonatomic) NSInteger Stock;
 /** 重量 */
 @property (assign, nonatomic) NSInteger Weight;
 /** PriceAndCount */

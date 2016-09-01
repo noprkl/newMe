@@ -10,4 +10,6 @@
 
 @interface LXqSureGoodsTableView : UITableView
 
+/** 数据 */
+@property (strong, nonatomic) NSArray *sureGoodsData;
 @end

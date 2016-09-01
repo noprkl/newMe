@@ -8,7 +8,6 @@
 
 #import "LXqTimeViewController.h"
 #import <SDCycleScrollView.h>
-#import <MJExtension.h>
 
 //下层view
 #import "LXqTimeCenterView.h"
@@ -20,10 +19,13 @@
 #import "LXqTimeDFSTableModel.h"
 
 //另外的控制器
-#import "LXqTimeNEWGoodsViewController.h"
-#import "LXqSearchViewController.h"
+#import "LXqTimeNEWGoodsViewController.h"//商品详情
+#import "LXqSearchViewController.h"//搜索
 #import "LXqClassGoodsViewController.h"//点击跳到那一个?
-#import "LXqTimeDFSGoodsViewController.h"
+#import "LXqTimeDFSGoodsViewController.h"//DFS商品
+#import "LXqBuyViewController.h"//购物车
+#import "LXqLoginViewController.h"//登录界面
+
 @interface LXqTimeViewController ()<SDCycleScrollViewDelegate, UIScrollViewDelegate>
 
 /** 放置scrollview */
@@ -122,6 +124,41 @@
                          
                      }];
 }
+#pragma mark  购物车按钮
+- (void)addGoodsToShopCar:(NSString *)goodsId
+{
+    //判断是否登录
+    NSDictionary *islog = [[NSUserDefaults standardUserDefaults] valueForKey:@"ISLOGIN"];
+    if (islog.count > 0) {
+        NSDictionary *parame = @{
+                                 @"GoodsId":goodsId,
+                                 @"MemberId":islog[@"MemberId"]
+                                 };
+        [self getRequestWithPath:@"appShopCart/insert.do" params:parame success:^(id successJson) {
+            if (successJson) {
+                [self showToastMessage:@"加入成功"];
+                //                LXqBuyViewController *buyVC = [[LXqBuyViewController alloc] init];
+                //                [self presentViewController:buyVC animated:YES completion:nil];
+                //                [self.navigationController pushViewController:buyVC animated:YES];
+            }
+        } error:^(NSError *error) {
+            [self showToastMessage:@"未添加成功"];
+            MyLog(@"%@", error);
+        }];
+    }else{
+        [self showToastMessage:@"请登录"];
+        LXqLoginViewController *logVC = [[LXqLoginViewController alloc] init];
+        [self.navigationController pushViewController:logVC animated:YES];
+    }
+    /**
+     URL：htp://123.57.141.249:8080/beautalk/appShopCart/insert.do
+     传入数据：
+     参数标记：
+     会员登录名 ：MemberId
+     美食ID ： GoodsId
+     */
+}
+
 #pragma mark
 #pragma mark - 生命周期
 - (void)viewDidLoad {
@@ -144,7 +181,6 @@
     
     [self.baseScrollview addSubview:self.centerView];
     [self AddSearchBtn];
-    
 }
 #pragma mark
 #pragma mark - 搜索按钮
@@ -234,6 +270,9 @@
             NEWGoodsVC.goodsId = goodsId;
             NEWGoodsVC.flagUrl = flagUrl;
             [weakSelf.navigationController pushViewController:NEWGoodsVC animated:YES];
+        };
+        _NEWTableView.NEWgoodidBlock = ^(NSString *goodId){
+            [weakSelf performSelector:@selector(addGoodsToShopCar:) withObject:goodId];
         };
     }
     return _NEWTableView;

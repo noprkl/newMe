@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LXqGoodsSureListModel.h"
 
 @interface LXqSureGoodsTableViewCell : UITableViewCell
 
+/** 商品模型 */
+@property (strong, nonatomic) LXqGoodsSureListModel *goodsModel;
 @end

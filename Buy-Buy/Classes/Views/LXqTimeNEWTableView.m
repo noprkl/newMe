@@ -47,8 +47,17 @@ static NSString *cellid = @"NEWTableCellid";
 {
     LXqTimeNEWTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellid];
     cell.NEWTableModel = self.dataArr[indexPath.row];
-   
+    __weak typeof(cell) weakCell = cell;
+    cell.NEWGoodidBlock = ^(UIButton *shopCarBtn){
+        [self performSelector:@selector(getGoodidAction:) withObject:weakCell.NEWTableModel.GoodsId];
+    };
     return cell;
+}
+- (void)getGoodidAction:(NSString *)goodId
+{
+    if (_NEWgoodidBlock) {
+        _NEWgoodidBlock(goodId);
+    }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
